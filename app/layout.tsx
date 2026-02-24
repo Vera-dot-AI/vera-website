@@ -27,11 +27,6 @@ export const metadata: Metadata = {
   description:
     "Vera empowers field teams with AI copilots that understand and guide. Our first product, Ground Control, is an intelligent guide for HVAC technicians.",
   keywords: ["AI copilot", "HVAC", "field service", "Ground Control", "Vera"],
-  icons: {
-    icon: [{ url: "/icon", type: "image/png" }],
-    shortcut: "/icon",
-    apple: "/icon",
-  },
   openGraph: {
     title: "Vera - Intelligent Copilots. Real-World Solutions.",
     description: "Empowering teams with AI that understands and guides.",

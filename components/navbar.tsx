@@ -22,11 +22,10 @@ export function Navbar() {
 
   return (
     <header
-      className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${
-        scrolled
+      className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${scrolled
           ? "bg-cream/90 backdrop-blur-md shadow-sm border-b border-border"
           : "bg-transparent"
-      }`}
+        }`}
     >
       <nav
         className="max-w-6xl mx-auto px-6 py-4 flex items-center justify-between"
@@ -36,7 +35,7 @@ export function Navbar() {
         <Link href="/" className="flex items-center gap-2.5 group" aria-label="Vera home">
           <div className="w-9 h-9 relative flex-shrink-0">
             <Image
-              src="/vera-logo.jpg"
+              src="/vera-logo.svg"
               alt="Vera hexagonal logo mark"
               fill
               className="object-contain rounded-sm"
@@ -81,19 +80,16 @@ export function Navbar() {
           aria-label="Toggle mobile menu"
         >
           <span
-            className={`block w-5 h-0.5 bg-foreground transition-transform duration-200 ${
-              menuOpen ? "translate-y-2 rotate-45" : ""
-            }`}
+            className={`block w-5 h-0.5 bg-foreground transition-transform duration-200 ${menuOpen ? "translate-y-2 rotate-45" : ""
+              }`}
           />
           <span
-            className={`block w-5 h-0.5 bg-foreground transition-opacity duration-200 ${
-              menuOpen ? "opacity-0" : ""
-            }`}
+            className={`block w-5 h-0.5 bg-foreground transition-opacity duration-200 ${menuOpen ? "opacity-0" : ""
+              }`}
           />
           <span
-            className={`block w-5 h-0.5 bg-foreground transition-transform duration-200 ${
-              menuOpen ? "-translate-y-2 -rotate-45" : ""
-            }`}
+            className={`block w-5 h-0.5 bg-foreground transition-transform duration-200 ${menuOpen ? "-translate-y-2 -rotate-45" : ""
+              }`}
           />
         </button>
       </nav>

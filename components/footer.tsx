@@ -10,7 +10,7 @@ export function Footer() {
           <Link href="/" className="flex items-center gap-2.5" aria-label="Vera home">
             <div className="w-8 h-8 relative">
               <Image
-                src="/vera-logo.jpg"
+                src="/vera-logo.svg"
                 alt="Vera logo mark"
                 fill
                 className="object-contain rounded-sm"

@@ -54,6 +54,7 @@ export function Navbar() {
               src="/vera-logo.svg"
               alt="Vera hexagonal logo mark"
               fill
+              priority
               className="object-contain"
             />
           </div>

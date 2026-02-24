@@ -37,7 +37,7 @@ export function Hero() {
         {/* Headline */}
         <h1
           className="font-serif text-5xl sm:text-6xl md:text-7xl font-bold text-foreground text-balance"
-          style={{ lineHeight: 1.5 }}
+          style={{ lineHeight: 1.2 }}
         >
           Intelligent
           <br />

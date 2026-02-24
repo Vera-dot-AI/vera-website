@@ -41,10 +41,7 @@
 
 @layer base {
   * {
-    @apply border-border;
-  }
-  body {
-    @apply bg-background text-foreground font-sans antialiased;
+    border-color: hsl(var(--border));
   }
   html {
     scroll-behavior: smooth;

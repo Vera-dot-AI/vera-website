@@ -35,7 +35,10 @@ export function Hero() {
         </div>
 
         {/* Headline */}
-        <h1 className="font-serif text-5xl sm:text-6xl md:text-7xl font-bold text-foreground leading-[1.75] text-balance">
+        <h1
+          className="font-serif text-5xl sm:text-6xl md:text-7xl font-bold text-foreground text-balance"
+          style={{ lineHeight: 1.5 }}
+        >
           Intelligent
           <br />
           Copilots.
@@ -47,8 +50,7 @@ export function Hero() {
 
         {/* Subheadline */}
         <p className="text-lg sm:text-xl text-muted-foreground leading-relaxed max-w-md text-balance">
-          Empowering teams with AI that understands and guides — from the
-          office to the field.
+          Empowering teams with AI that understands and guides.
         </p>
 
         {/* CTA button */}

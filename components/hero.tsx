@@ -35,7 +35,7 @@ export function Hero() {
         </div>
 
         {/* Headline */}
-        <h1 className="font-serif text-5xl sm:text-6xl md:text-7xl font-bold text-foreground leading-[1.08] text-balance">
+        <h1 className="font-serif text-5xl sm:text-6xl md:text-7xl font-bold text-foreground leading-[1.25] text-balance">
           Intelligent
           <br />
           Copilots.
@@ -79,7 +79,7 @@ export function Hero() {
       </div>
 
       {/* Scroll indicator */}
-      <div className="absolute bottom-8 left-1/2 -translate-x-1/2 flex flex-col items-center gap-2 z-10 animate-float">
+      <div className="absolute bottom-8 inset-x-0 flex flex-col items-center gap-2 z-10 animate-float">
         <span className="text-xs text-muted-foreground tracking-widest uppercase font-medium">
           Scroll
         </span>

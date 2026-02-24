@@ -66,7 +66,7 @@ export function AboutCta() {
             Get in Touch
           </Link>
           <Link
-            href="#products"
+            href="/products/ground-control"
             className="px-8 py-4 rounded-full border border-primary-foreground/30 text-primary-foreground text-base font-medium hover:border-primary-foreground/60 hover:bg-primary-foreground/10 transition-all duration-300 hover:scale-[1.02]"
           >
             Try Ground Control

@@ -3,10 +3,10 @@ import Link from "next/link";
 export function Hero() {
   return (
     <section
-      className="relative min-h-screen flex flex-col items-center justify-center overflow-hidden bg-cream px-6 pt-24 pb-16"
+      className="relative min-h-screen flex flex-col items-center justify-center overflow-hidden bg-cream mesh-gradient grain-overlay px-6 pt-24 pb-16"
       aria-label="Hero"
     >
-      {/* Blob background decorations */}
+      {/* Fluid blob background decorations */}
       <div
         aria-hidden="true"
         className="absolute top-[-10%] right-[-12%] w-[480px] h-[480px] bg-blush/70 blob opacity-80"
@@ -18,18 +18,24 @@ export function Hero() {
       <div
         aria-hidden="true"
         className="absolute top-[30%] left-[5%] w-[260px] h-[260px] bg-blush/40 blob opacity-50"
+        style={{ animationDelay: "2s" }}
+      />
+      <div
+        aria-hidden="true"
+        className="absolute bottom-[20%] right-[8%] w-[200px] h-[200px] bg-sky/30 blob opacity-40"
+        style={{ animationDelay: "4s" }}
       />
 
       {/* Content */}
-      <div className="relative z-10 max-w-3xl mx-auto text-center flex flex-col items-center gap-8">
+      <div className="relative z-10 max-w-3xl mx-auto text-center flex flex-col items-center gap-8 animate-fade-in-up">
         {/* Pill badge */}
-        <div className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-navy/10 border border-navy/15 text-xs font-semibold text-foreground tracking-wide uppercase">
-          <span className="w-1.5 h-1.5 rounded-full bg-navy inline-block" />
+        <div className="inline-flex items-center gap-2 px-5 py-2 rounded-full bg-navy/8 border border-navy/12 text-xs font-semibold text-foreground tracking-wide uppercase backdrop-blur-sm">
+          <span className="w-1.5 h-1.5 rounded-full bg-navy inline-block animate-pulse" />
           AI Copilots for the Real World
         </div>
 
         {/* Headline */}
-        <h1 className="font-serif text-5xl sm:text-6xl md:text-7xl font-black text-foreground leading-[1.08] text-balance">
+        <h1 className="font-serif text-5xl sm:text-6xl md:text-7xl font-bold text-foreground leading-[1.08] text-balance">
           Intelligent
           <br />
           Copilots.
@@ -45,25 +51,35 @@ export function Hero() {
           office to the field.
         </p>
 
-        {/* CTA buttons */}
-        <div className="flex flex-col sm:flex-row items-center gap-4 mt-2">
+        {/* CTA button */}
+        <div className="flex items-center gap-4 mt-2">
           <Link
             href="#products"
-            className="px-8 py-4 rounded-full bg-navy text-primary-foreground text-base font-semibold hover:bg-navy-light transition-all duration-200 shadow-md hover:shadow-lg"
+            className="group/btn inline-flex items-center gap-3 px-8 py-4 rounded-full bg-navy text-primary-foreground text-base font-semibold hover:bg-navy-light transition-all duration-300 shadow-md hover:shadow-xl hover:scale-[1.02]"
           >
             See Our Products
-          </Link>
-          <Link
-            href="#how-it-works"
-            className="px-8 py-4 rounded-full border border-navy/30 text-foreground text-base font-medium hover:border-navy/60 hover:bg-navy/5 transition-all duration-200"
-          >
-            How It Works
+            <svg
+              width="16"
+              height="16"
+              viewBox="0 0 16 16"
+              fill="none"
+              aria-hidden="true"
+              className="transition-transform duration-300 group-hover/btn:translate-x-1"
+            >
+              <path
+                d="M3 8H13M9 4L13 8L9 12"
+                stroke="currentColor"
+                strokeWidth="1.5"
+                strokeLinecap="round"
+                strokeLinejoin="round"
+              />
+            </svg>
           </Link>
         </div>
       </div>
 
       {/* Scroll indicator */}
-      <div className="absolute bottom-8 left-1/2 -translate-x-1/2 flex flex-col items-center gap-2 z-10">
+      <div className="absolute bottom-8 left-1/2 -translate-x-1/2 flex flex-col items-center gap-2 z-10 animate-float">
         <span className="text-xs text-muted-foreground tracking-widest uppercase font-medium">
           Scroll
         </span>

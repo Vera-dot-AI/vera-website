@@ -16,7 +16,6 @@ export function Navbar() {
 
   const links = [
     { label: "Products", href: "#products" },
-    { label: "How It Works", href: "#how-it-works" },
     { label: "About", href: "#about" },
   ];
 
@@ -32,8 +31,8 @@ export function Navbar() {
         aria-label="Main navigation"
       >
         {/* Logo */}
-        <Link href="/" className="flex items-center gap-2.5 group" aria-label="Vera home">
-          <div className="w-9 h-9 relative flex-shrink-0">
+        <Link href="/" className="flex items-center gap-3 group" aria-label="Vera home">
+          <div className="w-11 h-11 relative flex-shrink-0 transition-transform duration-300 group-hover:scale-110">
             <Image
               src="/vera-logo.svg"
               alt="Vera hexagonal logo mark"
@@ -41,7 +40,7 @@ export function Navbar() {
               className="object-contain rounded-sm"
             />
           </div>
-          <span className="font-serif text-xl font-bold text-foreground tracking-tight">
+          <span className="font-poppins text-2xl font-light text-foreground tracking-tight leading-none">
             vera
           </span>
         </Link>

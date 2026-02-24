@@ -7,8 +7,8 @@ export function Footer() {
       <div className="max-w-6xl mx-auto flex flex-col md:flex-row items-start md:items-center justify-between gap-8">
         {/* Brand */}
         <div className="flex flex-col gap-3">
-          <Link href="/" className="flex items-center gap-2.5" aria-label="Vera home">
-            <div className="w-8 h-8 relative">
+          <Link href="/" className="flex items-center gap-3 group" aria-label="Vera home">
+            <div className="w-10 h-10 relative transition-transform duration-300 group-hover:scale-110">
               <Image
                 src="/vera-logo.svg"
                 alt="Vera logo mark"
@@ -16,7 +16,7 @@ export function Footer() {
                 className="object-contain rounded-sm"
               />
             </div>
-            <span className="font-serif text-lg font-bold text-foreground tracking-tight">
+            <span className="font-poppins text-xl font-light text-foreground tracking-tight leading-none">
               vera
             </span>
           </Link>
@@ -30,7 +30,6 @@ export function Footer() {
           <ul className="flex flex-wrap gap-6" role="list">
             {[
               { label: "Products", href: "#products" },
-              { label: "How It Works", href: "#how-it-works" },
               { label: "About", href: "#about" },
               { label: "Contact", href: "mailto:hello@vera.ai" },
             ].map((link) => (

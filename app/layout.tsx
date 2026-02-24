@@ -1,5 +1,5 @@
 import type { Metadata, Viewport } from "next";
-import { Inter, Playfair_Display } from "next/font/google";
+import { Inter, Poppins, Lora } from "next/font/google";
 import "./globals.css";
 
 const inter = Inter({
@@ -7,10 +7,16 @@ const inter = Inter({
   variable: "--font-inter",
 });
 
-const playfair = Playfair_Display({
+const poppins = Poppins({
   subsets: ["latin"],
-  variable: "--font-fraunces",
-  weight: ["700", "800", "900"],
+  variable: "--font-poppins",
+  weight: ["300", "400", "500", "600", "700"],
+});
+
+const lora = Lora({
+  subsets: ["latin"],
+  variable: "--font-lora",
+  weight: ["400", "500", "600", "700"],
 });
 
 export const metadata: Metadata = {
@@ -37,7 +43,7 @@ export default function RootLayout({
   children: React.ReactNode;
 }) {
   return (
-    <html lang="en" className={`${inter.variable} ${playfair.variable}`}>
+    <html lang="en" className={`${inter.variable} ${poppins.variable} ${lora.variable}`}>
       <body className="font-sans antialiased bg-background text-foreground">
         {children}
       </body>

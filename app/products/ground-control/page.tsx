@@ -67,50 +67,25 @@ export default function GroundControlPage() {
 
       {/* Hero */}
       <section
-        className="relative min-h-screen flex flex-col items-center justify-center overflow-hidden bg-cream mesh-gradient grain-overlay px-6 pt-24 pb-16"
+        className="relative min-h-[100svh] flex flex-col items-center justify-center overflow-hidden bg-cream mesh-gradient grain-overlay px-6 pt-28 pb-16"
         aria-label="GroundControl hero"
       >
         {/* Blob decorations */}
         <div
           aria-hidden="true"
-          className="absolute top-[-10%] right-[-12%] w-[480px] h-[480px] bg-blush/70 blob opacity-80"
+          className="absolute top-[-10%] right-[-12%] w-[280px] h-[280px] sm:w-[400px] sm:h-[400px] md:w-[480px] md:h-[480px] bg-blush/70 blob opacity-80"
         />
         <div
           aria-hidden="true"
-          className="absolute bottom-[-8%] left-[-10%] w-[420px] h-[420px] bg-sky/60 blob-2 opacity-70"
+          className="absolute bottom-[-8%] left-[-10%] w-[240px] h-[240px] sm:w-[340px] sm:h-[340px] md:w-[420px] md:h-[420px] bg-sky/60 blob-2 opacity-70"
         />
 
-        <div className="relative z-10 max-w-6xl mx-auto w-full grid md:grid-cols-2 gap-12 lg:gap-20 items-center animate-fade-in-up">
+        <div className="relative z-10 max-w-6xl mx-auto w-full grid md:grid-cols-2 gap-10 lg:gap-20 items-center animate-fade-in-up">
           {/* Left — text */}
           <div className="flex flex-col gap-8">
             <div>
-              <Link
-                href="/"
-                className="inline-flex items-center gap-2 text-xs font-semibold tracking-widest uppercase text-muted-foreground hover:text-foreground transition-colors duration-200 mb-6 group"
-              >
-                <svg
-                  width="14"
-                  height="14"
-                  viewBox="0 0 14 14"
-                  fill="none"
-                  aria-hidden="true"
-                  className="transition-transform duration-200 group-hover:-translate-x-1"
-                >
-                  <path
-                    d="M12 7H2M6 11L2 7L6 3"
-                    stroke="currentColor"
-                    strokeWidth="1.5"
-                    strokeLinecap="round"
-                    strokeLinejoin="round"
-                  />
-                </svg>
-                Back to Vera
-              </Link>
-              <p className="text-xs font-semibold tracking-widest uppercase text-muted-foreground mb-3">
-                Product
-              </p>
               <h1
-                className="font-serif text-5xl sm:text-6xl md:text-7xl font-bold text-foreground leading-[1.1] text-balance"
+                className="font-serif text-5xl sm:text-6xl md:text-7xl font-bold text-foreground leading-[1.25] text-balance"
               >
                 <span className="text-navy">Ground</span>
                 <br />
@@ -157,7 +132,7 @@ export default function GroundControlPage() {
             </ul>
 
             {/* CTA */}
-            <div className="flex flex-col sm:flex-row gap-4 pt-2">
+            <div className="flex flex-col xs:flex-row gap-3 pt-2 w-full sm:w-auto">
               <a
                 href="https://v0-build-ai-website.vercel.app/"
                 target="_blank"
@@ -220,7 +195,7 @@ export default function GroundControlPage() {
                 width={600}
                 height={450}
                 className="w-full h-auto rounded-2xl shadow-2xl"
-                priority
+                loading="lazy"
               />
             </div>
           </div>

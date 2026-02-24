@@ -40,7 +40,7 @@ export function AboutCta() {
         </p>
 
         {/* Stats */}
-        <div className="grid grid-cols-3 gap-8 w-full max-w-lg mt-4">
+        <div className="grid grid-cols-3 gap-4 sm:gap-8 w-full max-w-lg mt-4">
           {[
             { value: "1", label: "Product Live" },
             { value: "∞", label: "Copilots Coming" },

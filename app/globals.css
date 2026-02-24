@@ -45,7 +45,31 @@
   }
   html {
     scroll-behavior: smooth;
+    /* Enables native CSS view transitions for instant page feel */
+    view-transition-name: root;
   }
+  /* Prevent horizontal overflow on mobile */
+  body {
+    overflow-x: hidden;
+  }
+}
+
+/* Native page transition fade */
+@keyframes page-fade-in {
+  from { opacity: 0; transform: translateY(8px); }
+  to   { opacity: 1; transform: translateY(0); }
+}
+
+::view-transition-old(root) {
+  animation: 200ms ease-in both fade-out;
+}
+
+::view-transition-new(root) {
+  animation: 250ms ease-out both page-fade-in;
+}
+
+@keyframes fade-out {
+  to { opacity: 0; }
 }
 
 /* Organic blob shapes with fluid animation */

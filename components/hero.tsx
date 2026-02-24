@@ -3,26 +3,26 @@ import Link from "next/link";
 export function Hero() {
   return (
     <section
-      className="relative min-h-screen flex flex-col items-center justify-center overflow-hidden bg-cream mesh-gradient grain-overlay px-6 pt-24 pb-16"
+      className="relative min-h-[100svh] flex flex-col items-center justify-center overflow-hidden bg-cream mesh-gradient grain-overlay px-6 pt-24 pb-20"
       aria-label="Hero"
     >
-      {/* Fluid blob background decorations */}
+      {/* Fluid blob background decorations — scaled down on mobile */}
       <div
         aria-hidden="true"
-        className="absolute top-[-10%] right-[-12%] w-[480px] h-[480px] bg-blush/70 blob opacity-80"
+        className="absolute top-[-10%] right-[-12%] w-[280px] h-[280px] sm:w-[400px] sm:h-[400px] md:w-[480px] md:h-[480px] bg-blush/70 blob opacity-80"
       />
       <div
         aria-hidden="true"
-        className="absolute bottom-[-8%] left-[-10%] w-[420px] h-[420px] bg-sky/60 blob-2 opacity-70"
+        className="absolute bottom-[-8%] left-[-10%] w-[240px] h-[240px] sm:w-[340px] sm:h-[340px] md:w-[420px] md:h-[420px] bg-sky/60 blob-2 opacity-70"
       />
       <div
         aria-hidden="true"
-        className="absolute top-[30%] left-[5%] w-[260px] h-[260px] bg-blush/40 blob opacity-50"
+        className="hidden sm:block absolute top-[30%] left-[5%] w-[260px] h-[260px] bg-blush/40 blob opacity-50"
         style={{ animationDelay: "2s" }}
       />
       <div
         aria-hidden="true"
-        className="absolute bottom-[20%] right-[8%] w-[200px] h-[200px] bg-sky/30 blob opacity-40"
+        className="hidden sm:block absolute bottom-[20%] right-[8%] w-[200px] h-[200px] bg-sky/30 blob opacity-40"
         style={{ animationDelay: "4s" }}
       />
 
@@ -35,7 +35,7 @@ export function Hero() {
         </div>
 
         {/* Headline */}
-        <h1 className="font-serif text-5xl sm:text-6xl md:text-7xl font-bold text-foreground leading-[1.25] text-balance">
+        <h1 className="font-serif text-5xl sm:text-6xl md:text-7xl font-bold text-foreground leading-[1.75] text-balance">
           Intelligent
           <br />
           Copilots.

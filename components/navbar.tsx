@@ -105,6 +105,7 @@ export function Navbar() {
                       key={p.name}
                       href={p.href}
                       role="menuitem"
+                      prefetch={true}
                       onClick={() => setProductsOpen(false)}
                       className="flex flex-col gap-0.5 px-4 py-3 rounded-xl hover:bg-navy/5 transition-colors duration-200 group"
                     >

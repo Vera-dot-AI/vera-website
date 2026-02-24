@@ -63,12 +63,14 @@ export function Navbar() {
 
         {/* CTA */}
         <div className="hidden md:flex items-center gap-3">
-          <Link
-            href="#products"
+          <a
+            href="https://v0-build-ai-website.vercel.app/"
+            target="_blank"
+            rel="noopener noreferrer"
             className="px-5 py-2.5 rounded-full bg-navy text-primary-foreground text-sm font-semibold hover:bg-navy-light transition-colors duration-200"
           >
             Try Demo
-          </Link>
+          </a>
         </div>
 
         {/* Mobile hamburger */}
@@ -109,13 +111,15 @@ export function Navbar() {
               {link.label}
             </Link>
           ))}
-          <Link
-            href="#products"
+          <a
+            href="https://v0-build-ai-website.vercel.app/"
+            target="_blank"
+            rel="noopener noreferrer"
             className="mt-2 px-5 py-3 rounded-full bg-navy text-primary-foreground text-sm font-semibold text-center"
             onClick={() => setMenuOpen(false)}
           >
             Try Demo
-          </Link>
+          </a>
         </div>
       )}
     </header>

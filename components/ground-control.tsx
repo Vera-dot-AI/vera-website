@@ -96,12 +96,14 @@ export function GroundControl() {
 
             {/* CTA */}
             <div className="flex flex-col sm:flex-row gap-4 pt-2">
-              <Link
-                href="#demo"
+              <a
+                href="https://v0-build-ai-website.vercel.app/"
+                target="_blank"
+                rel="noopener noreferrer"
                 className="inline-flex items-center justify-center px-8 py-4 rounded-full bg-navy text-primary-foreground text-base font-semibold hover:bg-navy-light transition-all duration-200 shadow-md hover:shadow-lg"
               >
                 Try Demo
-              </Link>
+              </a>
               <Link
                 href="#how-it-works"
                 className="inline-flex items-center justify-center gap-2 px-8 py-4 rounded-full border border-navy/25 text-foreground text-base font-medium hover:border-navy/50 hover:bg-navy/5 transition-all duration-200"

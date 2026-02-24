@@ -10,7 +10,8 @@ module.exports = {
     extend: {
       fontFamily: {
         sans: ["var(--font-inter)", "system-ui", "sans-serif"],
-        serif: ["var(--font-fraunces)", "Georgia", "serif"],
+        serif: ["var(--font-lora)", "Georgia", "serif"],
+        poppins: ["var(--font-poppins)", "system-ui", "sans-serif"],
       },
       colors: {
         background: "hsl(var(--background))",

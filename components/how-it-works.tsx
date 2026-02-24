@@ -1,36 +1,36 @@
 const steps = [
   {
     number: "01",
-    title: "Connect Your Knowledge",
+    title: "Connect Your Knowledge Base",
     description:
-      "Vera ingests your manuals, schematics, historical job data, and SOPs — building a domain-specific knowledge layer tailored to your operations.",
+      "GroundControl ingests your manuals, schematics, historical job data, and SOPs — building a domain-specific knowledge layer tailored to your operations.",
   },
   {
     number: "02",
     title: "Deploy to the Field",
     description:
-      "Technicians access the copilot on a tablet or phone. It understands the context of their current job, location, and equipment.",
+      "Technicians access GroundControl on a tablet or phone. It understands the context of their current job, location, and equipment.",
   },
   {
     number: "03",
     title: "Guide in Real Time",
     description:
-      "The AI copilot provides step-by-step diagnostics, repair guidance, and answers — reducing errors and slashing resolution time.",
+      "GroundControl provides step-by-step diagnostics, repair guidance, and answers — reducing errors and slashing resolution time.",
   },
   {
     number: "04",
     title: "Learn and Improve",
     description:
-      "Every interaction makes the copilot smarter. Vera continuously learns from outcomes to improve future recommendations.",
+      "Every interaction makes GroundControl smarter. It continuously learns from outcomes to improve future recommendations.",
   },
 ];
 
 export function HowItWorks() {
   return (
     <section
-      id="how-it-works"
-      className="bg-cream px-6 py-24 md:py-32"
-      aria-labelledby="how-it-works-heading"
+      id="how-groundcontrol-works"
+      className="bg-cream mesh-gradient grain-overlay px-6 py-24 md:py-32"
+      aria-labelledby="how-groundcontrol-works-heading"
     >
       <div className="max-w-6xl mx-auto">
         {/* Header */}
@@ -39,14 +39,14 @@ export function HowItWorks() {
             The Process
           </p>
           <h2
-            id="how-it-works-heading"
-            className="font-serif text-4xl sm:text-5xl font-black text-foreground text-balance"
+            id="how-groundcontrol-works-heading"
+            className="font-serif text-4xl sm:text-5xl font-bold text-foreground text-balance"
           >
-            How Vera Works
+            How GroundControl Works
           </h2>
           <p className="mt-4 text-lg text-muted-foreground max-w-xl mx-auto leading-relaxed text-pretty">
-            From setup to the field in days — not months. Our copilots
-            integrate deeply into your existing workflows.
+            From connecting your knowledge base to the field in days — not months.
+            GroundControl integrates deeply into your existing workflows.
           </p>
         </div>
 
@@ -55,7 +55,7 @@ export function HowItWorks() {
           {steps.map((step, i) => (
             <div
               key={step.number}
-              className="relative bg-card rounded-2xl p-6 border border-border hover:border-navy/30 hover:shadow-md transition-all duration-200 group"
+              className="relative bg-card/80 backdrop-blur-sm rounded-2xl p-6 border border-border hover:border-navy/30 hover:shadow-lg hover:-translate-y-1 transition-all duration-300 group"
             >
               {/* Connector line (desktop) */}
               {i < steps.length - 1 && (

@@ -3,6 +3,11 @@ import Link from "next/link";
 
 const features = [
   {
+    title: "Built on Your Knowledge Base",
+    description:
+      "GroundControl ingests your manuals, schematics, SOPs, and historical job data to build a domain-specific AI layer tailored to your operations.",
+  },
+  {
     title: "On-Site Diagnostics",
     description:
       "Instantly analyze HVAC system schematics and identify faults with AI-powered visual understanding.",
@@ -10,7 +15,7 @@ const features = [
   {
     title: "Step-by-Step Repair Guidance",
     description:
-      "Walk technicians through complex repairs with context-aware, real-time instructions.",
+      "Walk technicians through complex repairs with context-aware, real-time instructions drawn from your own documentation.",
   },
   {
     title: "Knowledge at Your Fingertips",
@@ -23,7 +28,7 @@ export function GroundControl() {
   return (
     <section
       id="products"
-      className="relative overflow-hidden bg-sky/30 px-6 py-24 md:py-32"
+      className="relative overflow-hidden bg-sky/30 grain-overlay px-6 py-24 md:py-32"
       aria-labelledby="ground-control-heading"
     >
       {/* Blob decorations */}
@@ -37,11 +42,6 @@ export function GroundControl() {
       />
 
       <div className="relative z-10 max-w-6xl mx-auto">
-        {/* Section label */}
-        <p className="text-center text-xs font-semibold tracking-widest uppercase text-foreground/60 mb-4">
-          Our First Copilot
-        </p>
-
         {/* Main content grid */}
         <div className="grid md:grid-cols-2 gap-12 lg:gap-20 items-center">
           {/* Left — text */}
@@ -49,15 +49,14 @@ export function GroundControl() {
             <div>
               <h2
                 id="ground-control-heading"
-                className="font-serif text-4xl sm:text-5xl md:text-6xl font-black text-foreground leading-tight text-balance"
+                className="font-serif text-4xl sm:text-5xl md:text-6xl font-bold text-foreground leading-tight text-balance"
               >
-                Our First Copilot:{" "}
                 <span className="text-navy">GroundControl</span>
               </h2>
               <p className="mt-4 text-lg text-muted-foreground leading-relaxed">
-                Your field technician&apos;s intelligent guide for on-site
-                diagnostics and repairs. Ground Control brings AI expertise
-                directly to the job site.
+                Your field technician&apos;s intelligent copilot for on-site
+                diagnostics and repairs. Powered by your own knowledge base,
+                GroundControl brings AI expertise directly to the job site.
               </p>
             </div>
 
@@ -96,15 +95,33 @@ export function GroundControl() {
 
             {/* CTA */}
             <div className="flex flex-col sm:flex-row gap-4 pt-2">
-              <Link
-                href="#demo"
-                className="inline-flex items-center justify-center px-8 py-4 rounded-full bg-navy text-primary-foreground text-base font-semibold hover:bg-navy-light transition-all duration-200 shadow-md hover:shadow-lg"
+              <a
+                href="https://v0-build-ai-website.vercel.app/"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="group/btn inline-flex items-center justify-center gap-3 px-8 py-4 rounded-full bg-navy text-primary-foreground text-base font-semibold hover:bg-navy-light transition-all duration-300 shadow-md hover:shadow-xl hover:scale-[1.02]"
               >
                 Try Demo
-              </Link>
+                <svg
+                  width="16"
+                  height="16"
+                  viewBox="0 0 16 16"
+                  fill="none"
+                  aria-hidden="true"
+                  className="transition-transform duration-300 group-hover/btn:translate-x-1"
+                >
+                  <path
+                    d="M3 8H13M9 4L13 8L9 12"
+                    stroke="currentColor"
+                    strokeWidth="1.5"
+                    strokeLinecap="round"
+                    strokeLinejoin="round"
+                  />
+                </svg>
+              </a>
               <Link
-                href="#how-it-works"
-                className="inline-flex items-center justify-center gap-2 px-8 py-4 rounded-full border border-navy/25 text-foreground text-base font-medium hover:border-navy/50 hover:bg-navy/5 transition-all duration-200"
+                href="#how-groundcontrol-works"
+                className="group/lnk inline-flex items-center justify-center gap-2 px-8 py-4 rounded-full border border-navy/25 text-foreground text-base font-medium hover:border-navy/50 hover:bg-navy/5 transition-all duration-300 hover:scale-[1.02]"
               >
                 Learn More
                 <svg

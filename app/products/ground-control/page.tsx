@@ -1,6 +1,5 @@
 import type { Metadata } from "next";
 import Image from "next/image";
-import Link from "next/link";
 import { Navbar } from "@/components/navbar";
 import { Footer } from "@/components/footer";
 
@@ -84,16 +83,6 @@ export default function GroundControlPage() {
           {/* Left — text */}
           <div className="flex flex-col gap-8">
             <div>
-              {/* Back arrow */}
-              <Link
-                href="/"
-                aria-label="Back to Vera"
-                className="inline-flex items-center justify-center w-9 h-9 rounded-full border border-navy/20 text-navy/50 hover:text-navy hover:border-navy/50 hover:bg-navy/5 transition-all duration-200 mb-8"
-              >
-                <svg width="16" height="16" viewBox="0 0 16 16" fill="none" aria-hidden="true">
-                  <path d="M12 8H4M8 12L4 8L8 4" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" />
-                </svg>
-              </Link>
               <h1
                 className="font-serif text-5xl sm:text-6xl md:text-7xl font-bold text-foreground text-balance"
                 style={{ lineHeight: 1.15 }}

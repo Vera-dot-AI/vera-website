@@ -1,0 +1,61 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  :root {
+    /* Brand colors */
+    --navy: 222 47% 21%;           /* #1B2B5B deep navy */
+    --navy-light: 222 47% 28%;     /* slightly lighter navy */
+    --cream: 45 40% 94%;           /* #F5F1E8 warm cream */
+    --blush: 10 60% 88%;           /* #F2D0C4 peach/blush */
+    --sky: 210 60% 88%;            /* #C4DDEF light sky blue */
+    --mist: 200 30% 92%;           /* #E4EEF3 light mist */
+
+    /* Semantic tokens */
+    --background: var(--cream);
+    --foreground: var(--navy);
+
+    --card: 0 0% 100%;
+    --card-foreground: var(--navy);
+
+    --primary: var(--navy);
+    --primary-foreground: 0 0% 100%;
+
+    --secondary: var(--blush);
+    --secondary-foreground: var(--navy);
+
+    --accent: var(--sky);
+    --accent-foreground: var(--navy);
+
+    --muted: var(--mist);
+    --muted-foreground: 222 20% 45%;
+
+    --border: 222 20% 85%;
+    --input: 222 20% 85%;
+    --ring: var(--navy);
+
+    --radius: 1rem;
+  }
+}
+
+@layer base {
+  * {
+    @apply border-border;
+  }
+  body {
+    @apply bg-background text-foreground font-sans antialiased;
+  }
+  html {
+    scroll-behavior: smooth;
+  }
+}
+
+/* Blob shapes */
+.blob {
+  border-radius: 60% 40% 70% 30% / 40% 60% 30% 70%;
+}
+
+.blob-2 {
+  border-radius: 40% 60% 30% 70% / 60% 40% 70% 30%;
+}

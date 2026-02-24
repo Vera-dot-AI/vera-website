@@ -1,0 +1,58 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  :root {
+    /* Brand color channels (H S% L%) */
+    --navy: 222 47% 21%;
+    --navy-light: 222 47% 28%;
+    --cream: 45 40% 94%;
+    --blush: 10 60% 88%;
+    --sky: 210 60% 88%;
+    --mist: 200 30% 92%;
+
+    /* Semantic tokens — using direct channel values */
+    --background: 45 40% 94%;
+    --foreground: 222 47% 21%;
+
+    --card: 0 0% 100%;
+    --card-foreground: 222 47% 21%;
+
+    --primary: 222 47% 21%;
+    --primary-foreground: 0 0% 100%;
+
+    --secondary: 10 60% 88%;
+    --secondary-foreground: 222 47% 21%;
+
+    --accent: 210 60% 88%;
+    --accent-foreground: 222 47% 21%;
+
+    --muted: 200 30% 92%;
+    --muted-foreground: 222 20% 45%;
+
+    --border: 222 20% 85%;
+    --input: 222 20% 85%;
+    --ring: 222 47% 21%;
+
+    --radius: 1rem;
+  }
+}
+
+@layer base {
+  * {
+    border-color: hsl(var(--border));
+  }
+  html {
+    scroll-behavior: smooth;
+  }
+}
+
+/* Organic blob shapes */
+.blob {
+  border-radius: 60% 40% 70% 30% / 40% 60% 30% 70%;
+}
+
+.blob-2 {
+  border-radius: 40% 60% 30% 70% / 60% 40% 70% 30%;
+}

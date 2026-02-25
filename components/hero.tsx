@@ -79,14 +79,6 @@ export function Hero() {
           </Link>
         </div>
       </div>
-
-      {/* Scroll indicator */}
-      <div className="absolute bottom-8 inset-x-0 flex flex-col items-center gap-2 z-10 animate-float">
-        <span className="text-xs text-muted-foreground tracking-widest uppercase font-medium">
-          Scroll
-        </span>
-        <div className="w-px h-10 bg-gradient-to-b from-navy/30 to-transparent" />
-      </div>
     </section>
   );
 }

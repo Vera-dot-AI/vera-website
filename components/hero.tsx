@@ -28,11 +28,11 @@ export function Hero() {
           </div>
         </div>
 
-        {/* Headline - Barlow Condensed, Bold, All Caps */}
+        {/* Headline - Barlow Condensed, Bold */}
         <h1 className="font-barlow text-5xl sm:text-6xl md:text-7xl lg:text-8xl font-bold text-foreground tracking-tight uppercase leading-none">
-          THE CO-PILOT FOR
+          The Co-Pilot for
           <br />
-          <span className="text-accent">EVERY WORKFLOW</span>
+          <span className="text-accent">Every Workflow</span>
         </h1>
 
         {/* Subheadline */}
@@ -45,9 +45,9 @@ export function Hero() {
         <div className="flex flex-col sm:flex-row items-center gap-4 mt-4">
           <Link
             href="/#contact"
-            className="btn-primary text-base px-10 py-4"
+            className="btn-primary text-base px-10 py-4 group"
           >
-            REQUEST EARLY ACCESS
+            Request Early Access
             <svg
               width="16"
               height="16"
@@ -69,13 +69,13 @@ export function Hero() {
             href="/#about"
             className="btn-secondary text-base px-10 py-4"
           >
-            LEARN MORE
+            Learn More
           </Link>
         </div>
 
         {/* Scroll indicator */}
         <div className="absolute bottom-8 left-1/2 -translate-x-1/2 flex flex-col items-center gap-2 text-muted-foreground">
-          <span className="text-xs font-mono-data tracking-widest uppercase">Scroll</span>
+          <span className="text-xs font-mono-data tracking-widest">Scroll</span>
           <div className="w-px h-8 bg-gradient-to-b from-muted-foreground to-transparent" />
         </div>
       </div>

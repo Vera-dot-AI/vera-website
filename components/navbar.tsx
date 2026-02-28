@@ -6,9 +6,9 @@ import Image from "next/image";
 import { ThemeToggle } from "./theme-toggle";
 
 const navLinks = [
-  { label: "ABOUT", href: "/#about" },
-  { label: "PROCESS", href: "/#how-we-work" },
-  { label: "CONTACT", href: "/#contact" },
+  { label: "About", href: "/#about" },
+  { label: "Process", href: "/#how-we-work" },
+  { label: "Contact", href: "/#contact" },
 ];
 
 export function Navbar() {
@@ -52,35 +52,33 @@ export function Navbar() {
           </span>
         </Link>
 
-        {/* Desktop links */}
-        <div className="hidden md:flex items-center gap-8">
-          <ul className="flex items-center gap-6" role="list">
-            {navLinks.map((link) => (
-              <li key={link.label}>
-                <Link
-                  href={link.href}
-                  className="text-sm font-semibold text-muted-foreground hover:text-accent tracking-wider transition-colors duration-200"
-                >
-                  {link.label}
-                </Link>
-              </li>
-            ))}
-          </ul>
+        {/* Desktop: Center nav links */}
+        <ul className="hidden md:flex items-center gap-8" role="list">
+          {navLinks.map((link) => (
+            <li key={link.label}>
+              <Link
+                href={link.href}
+                className="text-sm font-medium text-muted-foreground hover:text-accent tracking-wide transition-colors duration-200"
+              >
+                {link.label}
+              </Link>
+            </li>
+          ))}
+        </ul>
 
-          <div className="flex items-center gap-3">
-            <ThemeToggle />
-            <Link
-              href="/#contact"
-              className="btn-primary"
-            >
-              REQUEST ACCESS
-            </Link>
-          </div>
+        {/* Desktop: Right side - CTA and Theme Toggle */}
+        <div className="hidden md:flex items-center gap-4">
+          <Link
+            href="/#contact"
+            className="btn-primary"
+          >
+            Get in Touch
+          </Link>
+          <ThemeToggle />
         </div>
 
         {/* Mobile controls */}
         <div className="flex md:hidden items-center gap-3">
-          <ThemeToggle />
           <button
             className="flex flex-col gap-1.5 p-2 border-2 border-border bg-card"
             style={{ borderRadius: "var(--radius)" }}
@@ -104,6 +102,7 @@ export function Navbar() {
               }`}
             />
           </button>
+          <ThemeToggle />
         </div>
       </nav>
 
@@ -114,7 +113,7 @@ export function Navbar() {
             <Link
               key={link.label}
               href={link.href}
-              className="text-sm font-semibold text-foreground py-2 tracking-wider hover:text-accent transition-colors duration-200"
+              className="text-sm font-medium text-foreground py-2 tracking-wide hover:text-accent transition-colors duration-200"
               onClick={() => setMenuOpen(false)}
             >
               {link.label}
@@ -126,7 +125,7 @@ export function Navbar() {
               className="btn-primary w-full text-center"
               onClick={() => setMenuOpen(false)}
             >
-              REQUEST ACCESS
+              Get in Touch
             </Link>
           </div>
         </div>

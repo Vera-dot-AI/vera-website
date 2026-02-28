@@ -1,25 +1,25 @@
 const steps = [
   {
     number: "01",
-    title: "DISCOVER",
+    title: "Discover",
     description:
       "We map your existing operations, team structure, and pain points. No assumptions—just careful listening and analysis to understand what matters most.",
   },
   {
     number: "02",
-    title: "INTEGRATE",
+    title: "Integrate",
     description:
       "Our solutions connect with the tools and platforms your teams already use. We prioritize compatibility and minimal disruption to established processes.",
   },
   {
     number: "03",
-    title: "TRAIN",
+    title: "Train",
     description:
       "We build AI systems grounded in your specific domain knowledge, data, and standards—ensuring every recommendation is relevant and accurate for your context.",
   },
   {
     number: "04",
-    title: "DEPLOY",
+    title: "Deploy",
     description:
       "After a careful rollout, we continuously monitor performance and refine the system alongside your team. Improvement is ongoing, not a one-time event.",
   },
@@ -35,14 +35,14 @@ export function HowItWorks() {
       <div className="relative z-10 max-w-7xl mx-auto">
         {/* Header */}
         <div className="text-center mb-16 md:mb-20">
-          <p className="text-xs font-mono-data tracking-widest uppercase text-accent mb-4">
-            // PROCESS_FLOW
+          <p className="text-xs font-mono-data tracking-widest text-accent mb-4">
+            // Process Flow
           </p>
           <h2
             id="how-we-work-heading"
-            className="font-barlow text-4xl sm:text-5xl md:text-6xl font-bold text-foreground uppercase tracking-tight"
+            className="font-barlow text-4xl sm:text-5xl md:text-6xl font-bold text-foreground tracking-tight"
           >
-            HOW WE WORK
+            How We Work
           </h2>
           <p className="mt-4 text-lg text-muted-foreground max-w-xl mx-auto">
             A structured, collaborative approach that integrates deeply with your operations from day one.
@@ -74,7 +74,7 @@ export function HowItWorks() {
                 </div>
 
                 {/* Title */}
-                <h3 className="font-barlow text-lg font-bold text-foreground uppercase tracking-wide">
+                <h3 className="font-barlow text-lg font-bold text-foreground tracking-wide">
                   {step.title}
                 </h3>
 

@@ -184,7 +184,7 @@
 
 /* Industrial button styles */
 .btn-primary {
-  @apply inline-flex items-center justify-center gap-2 px-6 py-3 bg-accent text-accent-foreground font-bold uppercase tracking-wider text-sm transition-all duration-200;
+  @apply inline-flex items-center justify-center gap-2 px-6 py-3 bg-accent text-accent-foreground font-semibold tracking-wide text-sm transition-all duration-200;
   border-radius: var(--radius);
 }
 
@@ -194,7 +194,7 @@
 }
 
 .btn-secondary {
-  @apply inline-flex items-center justify-center gap-2 px-6 py-3 border-2 border-border bg-transparent text-foreground font-semibold uppercase tracking-wider text-sm transition-all duration-200;
+  @apply inline-flex items-center justify-center gap-2 px-6 py-3 border-2 border-border bg-transparent text-foreground font-medium tracking-wide text-sm transition-all duration-200;
   border-radius: var(--radius);
 }
 

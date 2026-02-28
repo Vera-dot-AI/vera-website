@@ -1,7 +1,7 @@
 const pillars = [
   {
     id: "01",
-    title: "SEAMLESS INTEGRATION",
+    title: "Seamless Integration",
     description:
       "Our systems plug directly into your existing tools and workflows. No disruptive overhauls—just intelligent augmentation that works from day one.",
     icon: (
@@ -13,7 +13,7 @@ const pillars = [
   },
   {
     id: "02",
-    title: "UNIVERSAL APPLICABILITY",
+    title: "Universal Applicability",
     description:
       "Built for every industry where expertise matters. Our architecture adapts to your domain, your data, and your specific operational requirements.",
     icon: (
@@ -26,7 +26,7 @@ const pillars = [
   },
   {
     id: "03",
-    title: "ZERO FRICTION",
+    title: "Zero Friction",
     description:
       "Designed for the people doing the actual work. Intuitive interfaces that reduce cognitive load, not add to it. AI that assists, never obstructs.",
     icon: (
@@ -48,14 +48,14 @@ export function Vision() {
       <div className="max-w-7xl mx-auto">
         {/* Header */}
         <div className="mb-16 md:mb-20">
-          <p className="text-xs font-mono-data tracking-widest uppercase text-accent mb-4">
-            // CORE_MODULES
+          <p className="text-xs font-mono-data tracking-widest text-accent mb-4">
+            // Core Modules
           </p>
           <h2
             id="vision-heading"
-            className="font-barlow text-4xl sm:text-5xl md:text-6xl font-bold text-foreground uppercase tracking-tight"
+            className="font-barlow text-4xl sm:text-5xl md:text-6xl font-bold text-foreground tracking-tight"
           >
-            THE INTERLOCKING GRID
+            The Interlocking Grid
           </h2>
           <p className="mt-4 text-lg text-muted-foreground max-w-2xl">
             Three foundational pillars that define every system we build.
@@ -83,7 +83,7 @@ export function Vision() {
               </div>
 
               {/* Title */}
-              <h3 className="font-barlow text-xl font-bold text-foreground uppercase tracking-wide">
+              <h3 className="font-barlow text-xl font-bold text-foreground tracking-wide">
                 {pillar.title}
               </h3>
 

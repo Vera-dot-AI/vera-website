@@ -11,17 +11,17 @@ export function FinalCta() {
       <div className="absolute inset-0 blueprint-grid opacity-50" aria-hidden="true" />
 
       <div className="relative z-10 max-w-4xl mx-auto text-center flex flex-col items-center gap-8">
-        <p className="text-xs font-mono-data tracking-widest uppercase text-accent">
-          // INITIATE_CONTACT
+        <p className="text-xs font-mono-data tracking-widest text-accent">
+          // Initiate Contact
         </p>
 
         <h2
           id="final-cta-heading"
-          className="font-barlow text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-bold text-foreground leading-none uppercase tracking-tight"
+          className="font-barlow text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-bold text-foreground leading-none tracking-tight"
         >
-          READY TO BUILD
+          Ready to Build
           <br />
-          <span className="text-accent">THE FUTURE?</span>
+          <span className="text-accent">The Future?</span>
         </h2>
 
         <p className="text-lg text-muted-foreground leading-relaxed max-w-xl">
@@ -31,15 +31,16 @@ export function FinalCta() {
         <div className="flex flex-col sm:flex-row items-center gap-4 mt-4">
           <Link
             href="mailto:hello@vera.ai"
-            className="btn-primary text-base px-10 py-4"
+            className="btn-primary text-base px-10 py-4 group"
           >
-            REQUEST EARLY ACCESS
+            Request Early Access
             <svg
               width="16"
               height="16"
               viewBox="0 0 16 16"
               fill="none"
               aria-hidden="true"
+              className="transition-transform duration-200 group-hover:translate-x-1"
             >
               <path
                 d="M3 8H13M9 4L13 8L9 12"
@@ -54,7 +55,7 @@ export function FinalCta() {
             href="mailto:hello@vera.ai"
             className="btn-secondary text-base px-10 py-4"
           >
-            CONTACT US
+            Contact Us
           </Link>
         </div>
 

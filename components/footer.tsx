@@ -2,10 +2,10 @@ import Link from "next/link";
 import Image from "next/image";
 
 const quickLinks = [
-  { label: "HOME", href: "/" },
-  { label: "ABOUT", href: "/#about" },
-  { label: "PROCESS", href: "/#how-we-work" },
-  { label: "CONTACT", href: "/#contact" },
+  { label: "Home", href: "/" },
+  { label: "About", href: "/#about" },
+  { label: "Process", href: "/#how-we-work" },
+  { label: "Contact", href: "/#contact" },
 ];
 
 const legalLinks = [
@@ -94,8 +94,8 @@ export function Footer() {
             <div className="flex flex-col sm:flex-row gap-10">
               {/* Quick links */}
               <div className="flex flex-col gap-3">
-                <p className="font-barlow text-xs font-bold uppercase tracking-widest text-foreground mb-1">
-                  NAVIGATION
+                <p className="font-barlow text-xs font-bold tracking-widest text-foreground mb-1">
+                  Navigation
                 </p>
                 <nav aria-label="Footer quick links">
                   <ul className="flex flex-col gap-2" role="list">
@@ -115,8 +115,8 @@ export function Footer() {
 
               {/* Contact */}
               <div className="flex flex-col gap-3">
-                <p className="font-barlow text-xs font-bold uppercase tracking-widest text-foreground mb-1">
-                  CONTACT
+                <p className="font-barlow text-xs font-bold tracking-widest text-foreground mb-1">
+                  Contact
                 </p>
                 <a
                   href="mailto:hello@vera.ai"
@@ -131,7 +131,7 @@ export function Footer() {
           {/* Bottom row */}
           <div className="flex flex-col sm:flex-row items-center justify-between gap-4 border-t-2 border-border pt-6">
             <p className="font-mono-data text-xs text-muted-foreground">
-              &copy; {new Date().getFullYear()} VERA AI. ALL RIGHTS RESERVED.
+              &copy; {new Date().getFullYear()} VERA AI. All rights reserved.
             </p>
             <nav aria-label="Legal navigation">
               <ul className="flex items-center gap-5" role="list">
@@ -139,7 +139,7 @@ export function Footer() {
                   <li key={link.label}>
                     <Link
                       href={link.href}
-                      className="font-mono-data text-xs text-muted-foreground hover:text-accent transition-colors duration-200 uppercase tracking-wider"
+                      className="font-mono-data text-xs text-muted-foreground hover:text-accent transition-colors duration-200 tracking-wider"
                     >
                       {link.label}
                     </Link>

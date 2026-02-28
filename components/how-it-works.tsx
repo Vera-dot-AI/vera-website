@@ -3,7 +3,7 @@ const steps = [
     number: "01",
     title: "Discover",
     description:
-      "We map your existing operations, team structure, and pain points. No assumptions—just careful listening and analysis to understand what matters most.",
+      "We map your existing operations, team structure, and pain points. No assumptions, just careful listening and analysis to understand what matters most.",
   },
   {
     number: "02",
@@ -15,7 +15,7 @@ const steps = [
     number: "03",
     title: "Train",
     description:
-      "We build AI systems grounded in your specific domain knowledge, data, and standards—ensuring every recommendation is relevant and accurate for your context.",
+      "We build AI systems grounded in your specific domain knowledge, data, and standards, ensuring every recommendation is relevant and accurate for your context.",
   },
   {
     number: "04",
@@ -50,7 +50,7 @@ export function HowItWorks() {
         </div>
 
         {/* Steps */}
-        <div className="grid sm:grid-cols-2 lg:grid-cols-4 gap-6">
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4 sm:gap-6">
           {steps.map((step, i) => (
             <div
               key={step.number}
@@ -60,11 +60,11 @@ export function HowItWorks() {
               {i < steps.length - 1 && (
                 <div
                   aria-hidden="true"
-                  className="hidden lg:block absolute top-6 left-full w-6 h-0.5 bg-border z-10"
+                  className="hidden lg:block absolute top-6 left-full w-4 xl:w-6 h-0.5 bg-border z-10"
                 />
               )}
 
-              <div className="card-module h-full flex flex-col gap-4 group">
+              <div className="card-module h-full flex flex-col gap-3 sm:gap-4 group p-4 sm:p-6">
                 {/* Step number */}
                 <div className="flex items-center gap-3">
                   <span className="font-mono-data text-3xl font-bold text-accent">

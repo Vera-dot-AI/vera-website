@@ -3,7 +3,7 @@ const pillars = [
     id: "01",
     title: "Seamless Integration",
     description:
-      "Our systems plug directly into your existing tools and workflows. No disruptive overhauls—just intelligent augmentation that works from day one.",
+      "Our systems plug directly into your existing tools and workflows. No disruptive overhauls, just intelligent augmentation that works from day one.",
     icon: (
       <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true">
         <path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71" />
@@ -63,13 +63,13 @@ export function Vision() {
         </div>
 
         {/* Pillar cards - Interlocking grid layout */}
-        <div className="grid md:grid-cols-3 gap-0 border-2 border-border">
+        <div className="grid grid-cols-1 md:grid-cols-3 gap-0 border-2 border-border">
           {pillars.map((pillar, i) => (
             <div
               key={pillar.id}
-              className={`card-module border-0 ${
+              className={`p-5 sm:p-6 flex flex-col gap-4 sm:gap-6 hover:bg-secondary/50 transition-colors duration-200 ${
                 i < pillars.length - 1 ? "md:border-r-2 md:border-border" : ""
-              } ${i < pillars.length - 1 ? "border-b-2 md:border-b-0 border-border" : ""} flex flex-col gap-6 hover:bg-secondary/50`}
+              } ${i < pillars.length - 1 ? "border-b-2 md:border-b-0 border-border" : ""}`}
               style={{ borderRadius: 0 }}
             >
               {/* Module ID */}

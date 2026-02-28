@@ -17,7 +17,7 @@ const legalLinks = [
   { label: "Terms", href: "/terms" },
 ];
 
-// Social media placeholder hrefs — replace with actual URLs when ready
+// Social media placeholder hrefs - replace with actual URLs when ready
 const socialLinks = [
   {
     label: "LinkedIn",

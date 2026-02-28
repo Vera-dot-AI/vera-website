@@ -32,9 +32,9 @@ export function ReactiveGrid() {
     ctx.clearRect(0, 0, rect.width, rect.height);
 
     const isDark = resolvedTheme === "dark";
-    const dormantColor = isDark ? "rgba(42, 45, 52, 0.15)" : "rgba(229, 231, 235, 0.5)";
-    const activeColor = isDark ? "rgba(42, 45, 52, 1)" : "rgba(80, 80, 100, 0.8)";
-    const accentColor = "rgba(255, 87, 34, 0.7)";
+    const dormantColor = isDark ? "rgba(42, 45, 52, 0.15)" : "rgba(229, 231, 235, 0.3)";
+    const activeColor = isDark ? "rgba(42, 45, 52, 1)" : "rgba(180, 180, 190, 0.5)";
+    const accentColor = isDark ? "rgba(255, 87, 34, 0.7)" : "rgba(255, 87, 34, 0.4)";
 
     // Draw grid lines
     ctx.lineWidth = 1;
@@ -56,8 +56,9 @@ export function ReactiveGrid() {
           if (isDark) {
             ctx.strokeStyle = `rgba(42, 45, 52, ${0.15 + eased * 0.85})`;
           } else {
-            const gray = Math.round(229 - eased * 149);
-            ctx.strokeStyle = `rgba(${gray}, ${gray}, ${Math.round(gray * 1.05)}, ${0.5 + eased * 0.5})`;
+            // Subtle darkening in light mode
+            const gray = Math.round(229 - eased * 50);
+            ctx.strokeStyle = `rgba(${gray}, ${gray}, ${Math.round(gray * 1.02)}, ${0.3 + eased * 0.25})`;
           }
         } else {
           ctx.strokeStyle = dormantColor;
@@ -86,8 +87,9 @@ export function ReactiveGrid() {
           if (isDark) {
             ctx.strokeStyle = `rgba(42, 45, 52, ${0.15 + eased * 0.85})`;
           } else {
-            const gray = Math.round(229 - eased * 149);
-            ctx.strokeStyle = `rgba(${gray}, ${gray}, ${Math.round(gray * 1.05)}, ${0.5 + eased * 0.5})`;
+            // Subtle darkening in light mode
+            const gray = Math.round(229 - eased * 50);
+            ctx.strokeStyle = `rgba(${gray}, ${gray}, ${Math.round(gray * 1.02)}, ${0.3 + eased * 0.25})`;
           }
         } else {
           ctx.strokeStyle = dormantColor;
@@ -104,10 +106,18 @@ export function ReactiveGrid() {
     if (mouseX > 0 && mouseY > 0) {
       const glowRadius = 100;
       const gradient = ctx.createRadialGradient(mouseX, mouseY, 0, mouseX, mouseY, glowRadius);
-      gradient.addColorStop(0, "rgba(255, 87, 34, 0.25)");
-      gradient.addColorStop(0.3, "rgba(255, 87, 34, 0.12)");
-      gradient.addColorStop(0.6, "rgba(255, 87, 34, 0.04)");
-      gradient.addColorStop(1, "transparent");
+      
+      if (isDark) {
+        gradient.addColorStop(0, "rgba(255, 87, 34, 0.25)");
+        gradient.addColorStop(0.3, "rgba(255, 87, 34, 0.12)");
+        gradient.addColorStop(0.6, "rgba(255, 87, 34, 0.04)");
+        gradient.addColorStop(1, "transparent");
+      } else {
+        // Subtler glow in light mode
+        gradient.addColorStop(0, "rgba(255, 87, 34, 0.12)");
+        gradient.addColorStop(0.4, "rgba(255, 87, 34, 0.04)");
+        gradient.addColorStop(1, "transparent");
+      }
       
       ctx.fillStyle = gradient;
       ctx.fillRect(mouseX - glowRadius, mouseY - glowRadius, glowRadius * 2, glowRadius * 2);
@@ -115,7 +125,7 @@ export function ReactiveGrid() {
       // Center dot
       ctx.beginPath();
       ctx.arc(mouseX, mouseY, 4, 0, Math.PI * 2);
-      ctx.fillStyle = "rgba(255, 87, 34, 0.5)";
+      ctx.fillStyle = isDark ? "rgba(255, 87, 34, 0.5)" : "rgba(255, 87, 34, 0.3)";
       ctx.fill();
     }
 

@@ -28,10 +28,10 @@ export function Hero() {
         </p>
 
         {/* CTA */}
-        <div className="flex flex-col sm:flex-row items-center gap-4 mt-4">
+        <div className="flex flex-col sm:flex-row items-center gap-4 mt-4 w-full sm:w-auto px-4 sm:px-0">
           <Link
             href="/#contact"
-            className="btn-primary text-base px-10 py-4 group"
+            className="btn-primary text-base px-8 sm:px-10 py-4 group w-full sm:w-auto justify-center"
           >
             Request Early Access
             <svg
@@ -53,7 +53,7 @@ export function Hero() {
           </Link>
           <Link
             href="/#about"
-            className="btn-secondary text-base px-10 py-4"
+            className="btn-secondary text-base px-8 sm:px-10 py-4 w-full sm:w-auto justify-center"
           >
             Learn More
           </Link>

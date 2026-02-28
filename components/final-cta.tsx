@@ -25,13 +25,13 @@ export function FinalCta() {
         </h2>
 
         <p className="text-lg text-muted-foreground leading-relaxed max-w-xl">
-          Whether you&apos;re looking to streamline operations, empower your teams, or explore what AI can do for your organization—we&apos;d love to start a conversation.
+          Whether you&apos;re looking to streamline operations, empower your teams, or explore what AI can do for your organization, we&apos;d love to start a conversation.
         </p>
 
-        <div className="flex flex-col sm:flex-row items-center gap-4 mt-4">
+        <div className="flex flex-col sm:flex-row items-center gap-4 mt-4 w-full sm:w-auto px-4 sm:px-0">
           <Link
             href="mailto:hello@vera.ai"
-            className="btn-primary text-base px-10 py-4 group"
+            className="btn-primary text-base px-8 sm:px-10 py-4 group w-full sm:w-auto justify-center"
           >
             Request Early Access
             <svg
@@ -53,7 +53,7 @@ export function FinalCta() {
           </Link>
           <Link
             href="mailto:hello@vera.ai"
-            className="btn-secondary text-base px-10 py-4"
+            className="btn-secondary text-base px-8 sm:px-10 py-4 w-full sm:w-auto justify-center"
           >
             Contact Us
           </Link>

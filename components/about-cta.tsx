@@ -46,29 +46,31 @@ export function AboutCta() {
             </h2>
             <div className="flex flex-col gap-4 text-muted-foreground leading-relaxed max-w-xl">
               <p>
-                VERA was founded on a straightforward conviction: the most impactful AI is the kind that works quietly and reliably alongside people—not as a replacement, but as an amplifier of human capability.
+                VERA was founded on a straightforward conviction: the most impactful AI is the kind that works quietly and reliably alongside people, not as a replacement, but as an amplifier of human capability.
               </p>
               <p>
                 We started by asking a simple question: where does skilled work break down, and how can intelligent systems make it better? That question guides every product we build and every partnership we pursue.
               </p>
               <p>
-                Our long-term vision is to become the trusted infrastructure for intelligent operations—delivering AI systems that teams depend on every day, across every industry where expertise matters.
+                Our long-term vision is to become the trusted infrastructure for intelligent operations, delivering AI systems that teams depend on every day, across every industry where expertise matters.
               </p>
             </div>
           </div>
 
           {/* Right: core values */}
-          <div className="lg:w-80 xl:w-96 flex flex-col gap-4">
+          <div className="w-full lg:w-80 xl:w-96 flex flex-col gap-4">
             <h3 className="font-barlow font-bold text-foreground text-sm tracking-widest mb-2">
               Core Values
             </h3>
-            <div className="border-2 border-border">
+            <div className="border-2 border-border grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-1">
               {coreValues.map((value, i) => (
                 <div
                   key={value.name}
-                  className={`p-5 hover:bg-secondary/50 transition-colors duration-200 ${
-                    i < coreValues.length - 1 ? "border-b-2 border-border" : ""
-                  }`}
+                  className={`p-4 sm:p-5 hover:bg-secondary/50 transition-colors duration-200 
+                    ${i < coreValues.length - 1 ? "border-b-2 border-border sm:border-b-0 lg:border-b-2" : ""}
+                    ${i % 2 === 0 ? "sm:border-r-2 sm:border-border lg:border-r-0" : ""}
+                    ${i < coreValues.length - 2 ? "sm:border-b-2" : ""}
+                  `}
                 >
                   <p className="font-barlow font-bold text-foreground text-sm tracking-wide mb-1">
                     {value.name}

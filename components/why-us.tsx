@@ -2,7 +2,7 @@ const reasons = [
   {
     title: "Built for Real-World Environments",
     description:
-      "Our systems are designed to perform in complex, unpredictable conditions—not just controlled settings.",
+      "Our systems are designed to perform in complex, unpredictable conditions, not just controlled settings.",
   },
   {
     title: "Secure & Scalable Systems",
@@ -22,7 +22,7 @@ const reasons = [
   {
     title: "Knowledge-Driven AI",
     description:
-      "Our AI is trained on your organization's expertise—not generic data. Context-aware recommendations.",
+      "Our AI is trained on your organization's expertise, not generic data. Context-aware recommendations.",
   },
   {
     title: "Continuous Improvement",
@@ -53,17 +53,17 @@ export function WhyUs() {
         </div>
 
         {/* Grid */}
-        <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-0 border-2 border-border">
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-0 border-2 border-border">
           {reasons.map((reason, i) => (
             <div
               key={reason.title}
-              className={`p-6 flex flex-col gap-3 hover:bg-card transition-colors duration-200 ${
-                i % 3 !== 2 ? "lg:border-r-2 lg:border-border" : ""
-              } ${i % 2 !== 1 ? "sm:border-r-2 sm:border-border lg:border-r-0" : ""} ${
-                i < reasons.length - 3 ? "lg:border-b-2 lg:border-border" : ""
-              } ${i < reasons.length - 2 ? "sm:border-b-2 sm:border-border lg:border-b-0" : ""} ${
-                i < reasons.length - 1 ? "border-b-2 sm:border-b-0 border-border" : ""
-              }`}
+              className={`p-4 sm:p-6 flex flex-col gap-3 hover:bg-card transition-colors duration-200
+                ${i < reasons.length - 1 ? "border-b-2 border-border" : ""}
+                ${i % 2 === 0 ? "sm:border-r-2 sm:border-border" : "sm:border-r-0"}
+                ${i >= reasons.length - 2 ? "sm:border-b-0" : ""}
+                ${i % 3 !== 2 ? "lg:border-r-2 lg:border-border" : "lg:border-r-0"}
+                ${i >= reasons.length - 3 ? "lg:border-b-0" : "lg:border-b-2 lg:border-border"}
+              `}
             >
               {/* Index */}
               <span className="font-mono-data text-xs text-accent tracking-wider">

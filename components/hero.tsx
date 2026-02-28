@@ -6,7 +6,7 @@ export function Hero() {
       className="relative min-h-[100svh] flex flex-col items-center justify-center overflow-hidden bg-cream mesh-gradient grain-overlay px-6 pt-24 pb-20"
       aria-label="Hero"
     >
-      {/* Fluid blob background decorations — scaled down on mobile */}
+      {/* Fluid blob background decorations */}
       <div
         aria-hidden="true"
         className="absolute top-[-10%] right-[-12%] w-[280px] h-[280px] sm:w-[400px] sm:h-[400px] md:w-[480px] md:h-[480px] bg-blush/70 blob opacity-80"
@@ -31,35 +31,33 @@ export function Hero() {
         {/* Pill badge */}
         <div className="inline-flex items-center gap-2 px-5 py-2 rounded-full bg-navy/8 border border-navy/12 text-xs font-semibold text-foreground tracking-wide uppercase backdrop-blur-sm">
           <span className="w-1.5 h-1.5 rounded-full bg-navy inline-block animate-pulse" />
-          AI Copilots for the Real World
+          Built for modern teams
         </div>
 
         {/* Headline */}
         <h1
           className="font-serif text-5xl sm:text-6xl md:text-7xl font-bold text-foreground text-balance"
-          style={{ lineHeight: 1.2 }}
+          style={{ lineHeight: 1.15 }}
         >
-          Intelligent
+          AI That Works
           <br />
-          Copilots.
+          Where Real Work
           <br />
-          Real-World
-          <br />
-          Solutions.
+          Happens.
         </h1>
 
         {/* Subheadline */}
-        <p className="text-lg sm:text-xl text-muted-foreground leading-relaxed max-w-md text-balance">
-          Empowering teams with AI that understands and guides.
+        <p className="text-lg sm:text-xl text-muted-foreground leading-relaxed max-w-xl text-balance">
+          We build intelligent systems that empower skilled teams, streamline workflows, and unlock operational excellence.
         </p>
 
-        {/* CTA button */}
-        <div className="flex items-center gap-4 mt-2">
+        {/* CTAs */}
+        <div className="flex flex-col sm:flex-row items-center gap-4 mt-2">
           <Link
-            href="#products"
+            href="/#contact"
             className="group/btn inline-flex items-center gap-3 px-8 py-4 rounded-full bg-navy text-primary-foreground text-base font-semibold hover:bg-navy-light transition-all duration-300 shadow-md hover:shadow-xl hover:scale-[1.02]"
           >
-            See Our Products
+            Get in Touch
             <svg
               width="16"
               height="16"
@@ -76,6 +74,12 @@ export function Hero() {
                 strokeLinejoin="round"
               />
             </svg>
+          </Link>
+          <Link
+            href="/#about"
+            className="px-8 py-4 rounded-full border border-navy/20 text-foreground text-base font-medium hover:border-navy/40 hover:bg-navy/5 transition-all duration-300 hover:scale-[1.02]"
+          >
+            Learn More
           </Link>
         </div>
       </div>

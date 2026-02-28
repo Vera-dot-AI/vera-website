@@ -23,16 +23,16 @@ const lora = Lora({
 });
 
 export const metadata: Metadata = {
-  title: "Vera - Intelligent Copilots. Real-World Solutions.",
+  title: "Vera - AI That Works Where Real Work Happens.",
   description:
-    "Vera empowers field teams with AI copilots that understand and guide. Our first product, Ground Control, is an intelligent guide for HVAC technicians.",
-  keywords: ["AI copilot", "HVAC", "field service", "Ground Control", "Vera"],
+    "Vera builds intelligent systems that empower skilled teams, streamline workflows, and unlock operational excellence.",
+  keywords: ["AI", "intelligent systems", "workflow automation", "operational excellence", "Vera"],
   icons: {
     icon: "/favicon.svg",
   },
   openGraph: {
-    title: "Vera - Intelligent Copilots. Real-World Solutions.",
-    description: "Empowering teams with AI that understands and guides.",
+    title: "Vera - AI That Works Where Real Work Happens.",
+    description: "We build intelligent systems that empower skilled teams and unlock operational excellence.",
     type: "website",
   },
 };

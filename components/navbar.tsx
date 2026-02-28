@@ -1,38 +1,23 @@
 "use client";
 
-import { useState, useEffect, useRef } from "react";
+import { useState, useEffect } from "react";
 import Link from "next/link";
 import Image from "next/image";
 
-const products = [
-  {
-    name: "GroundControl",
-    description: "AI copilot for HVAC field technicians",
-    href: "/products/ground-control",
-  },
+const navLinks = [
+  { label: "About", href: "/#about" },
+  { label: "How We Work", href: "/#how-we-work" },
+  { label: "Contact", href: "/#contact" },
 ];
 
 export function Navbar() {
   const [scrolled, setScrolled] = useState(false);
   const [menuOpen, setMenuOpen] = useState(false);
-  const [productsOpen, setProductsOpen] = useState(false);
-  const dropdownRef = useRef<HTMLLIElement>(null);
 
   useEffect(() => {
     const handleScroll = () => setScrolled(window.scrollY > 20);
     window.addEventListener("scroll", handleScroll, { passive: true });
     return () => window.removeEventListener("scroll", handleScroll);
-  }, []);
-
-  // Close dropdown on outside click
-  useEffect(() => {
-    function handleClickOutside(e: MouseEvent) {
-      if (dropdownRef.current && !dropdownRef.current.contains(e.target as Node)) {
-        setProductsOpen(false);
-      }
-    }
-    document.addEventListener("mousedown", handleClickOutside);
-    return () => document.removeEventListener("mousedown", handleClickOutside);
   }, []);
 
   return (
@@ -68,67 +53,22 @@ export function Navbar() {
 
         {/* Desktop links */}
         <ul className="hidden md:flex items-center gap-8" role="list">
-          {/* Products dropdown */}
-          <li ref={dropdownRef} className="relative">
-            <button
-              onClick={() => setProductsOpen((o) => !o)}
-              aria-expanded={productsOpen}
-              aria-haspopup="true"
-              className="flex items-center gap-1.5 text-sm font-medium text-muted-foreground hover:text-foreground transition-colors duration-200"
-            >
-              Products
-              <svg
-                width="12"
-                height="12"
-                viewBox="0 0 12 12"
-                fill="none"
-                aria-hidden="true"
-                className={`transition-transform duration-200 ${productsOpen ? "rotate-180" : ""}`}
+          {navLinks.map((link) => (
+            <li key={link.label}>
+              <Link
+                href={link.href}
+                className="text-sm font-medium text-muted-foreground hover:text-foreground transition-colors duration-200"
               >
-                <path
-                  d="M2 4L6 8L10 4"
-                  stroke="currentColor"
-                  strokeWidth="1.5"
-                  strokeLinecap="round"
-                  strokeLinejoin="round"
-                />
-              </svg>
-            </button>
-
-            {productsOpen && (
-              <div
-                className="absolute top-full left-1/2 -translate-x-1/2 mt-3 w-64 bg-card/95 backdrop-blur-md border border-border rounded-2xl shadow-xl overflow-hidden"
-                role="menu"
-              >
-                <div className="p-2">
-                  {products.map((p) => (
-                    <Link
-                      key={p.name}
-                      href={p.href}
-                      role="menuitem"
-                      prefetch={true}
-                      onClick={() => setProductsOpen(false)}
-                      className="flex flex-col gap-0.5 px-4 py-3 rounded-xl hover:bg-navy/5 transition-colors duration-200 group"
-                    >
-                      <span className="text-sm font-semibold text-foreground group-hover:text-navy transition-colors duration-200">
-                        {p.name}
-                      </span>
-                      <span className="text-xs text-muted-foreground">
-                        {p.description}
-                      </span>
-                    </Link>
-                  ))}
-                </div>
-              </div>
-            )}
-          </li>
-
+                {link.label}
+              </Link>
+            </li>
+          ))}
           <li>
             <Link
-              href="/#about"
-              className="text-sm font-medium text-muted-foreground hover:text-foreground transition-colors duration-200"
+              href="/#contact"
+              className="px-5 py-2 rounded-full bg-navy text-primary-foreground text-sm font-semibold hover:bg-navy-light transition-all duration-300 shadow-sm hover:shadow-md"
             >
-              About
+              Get in Touch
             </Link>
           </li>
         </ul>
@@ -161,26 +101,23 @@ export function Navbar() {
       {/* Mobile menu */}
       {menuOpen && (
         <div className="md:hidden bg-cream/95 backdrop-blur-md border-t border-border px-6 py-4 flex flex-col gap-2">
-          <p className="text-xs font-semibold tracking-widest uppercase text-muted-foreground px-2 pt-1 pb-0.5">
-            Products
-          </p>
-          {products.map((p) => (
+          {navLinks.map((link) => (
             <Link
-              key={p.name}
-              href={p.href}
+              key={link.label}
+              href={link.href}
               className="text-sm font-medium text-foreground py-2 px-2 rounded-lg hover:bg-navy/5 transition-colors duration-200"
               onClick={() => setMenuOpen(false)}
             >
-              {p.name}
+              {link.label}
             </Link>
           ))}
           <div className="border-t border-border my-1" />
           <Link
-            href="/#about"
-            className="text-sm font-medium text-foreground py-2 px-2 rounded-lg hover:bg-navy/5 transition-colors duration-200"
+            href="/#contact"
+            className="text-sm font-semibold text-navy py-2 px-2 rounded-lg hover:bg-navy/5 transition-colors duration-200"
             onClick={() => setMenuOpen(false)}
           >
-            About
+            Get in Touch
           </Link>
         </div>
       )}

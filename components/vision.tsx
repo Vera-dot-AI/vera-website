@@ -1,18 +1,40 @@
-const beliefs = [
+const pillars = [
   {
-    title: "AI should assist, not replace human expertise.",
+    id: "01",
+    title: "SEAMLESS INTEGRATION",
     description:
-      "We believe the most powerful AI amplifies what skilled people already do best — it does not sideline them. Our systems are built to support decision-making, not override it.",
+      "Our systems plug directly into your existing tools and workflows. No disruptive overhauls—just intelligent augmentation that works from day one.",
+    icon: (
+      <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true">
+        <path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71" />
+        <path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71" />
+      </svg>
+    ),
   },
   {
-    title: "Technology should integrate seamlessly into daily operations.",
+    id: "02",
+    title: "UNIVERSAL APPLICABILITY",
     description:
-      "Disruption is not a feature. We design our solutions to fit naturally into the tools and routines your teams already rely on, reducing friction from day one.",
+      "Built for every industry where expertise matters. Our architecture adapts to your domain, your data, and your specific operational requirements.",
+    icon: (
+      <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true">
+        <circle cx="12" cy="12" r="10" />
+        <path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z" />
+        <path d="M2 12h20" />
+      </svg>
+    ),
   },
   {
-    title: "We focus on practical solutions over hype-driven innovation.",
+    id: "03",
+    title: "ZERO FRICTION",
     description:
-      "Genuine value comes from solving real problems with proven technology. We prioritize outcomes over novelty, building systems that deliver measurable results.",
+      "Designed for the people doing the actual work. Intuitive interfaces that reduce cognitive load, not add to it. AI that assists, never obstructs.",
+    icon: (
+      <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true">
+        <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10" />
+        <path d="m9 12 2 2 4-4" />
+      </svg>
+    ),
   },
 ];
 
@@ -20,43 +42,54 @@ export function Vision() {
   return (
     <section
       id="vision"
-      className="relative overflow-hidden bg-cream grain-overlay px-6 py-24 md:py-32"
+      className="relative overflow-hidden bg-card border-y-2 border-border px-6 py-24 md:py-32"
       aria-labelledby="vision-heading"
     >
-      <div
-        aria-hidden="true"
-        className="absolute top-[-15%] right-[-8%] w-[360px] h-[360px] bg-sky/30 blob opacity-40"
-      />
-
-      <div className="relative z-10 max-w-5xl mx-auto">
+      <div className="max-w-7xl mx-auto">
         {/* Header */}
-        <div className="mb-14 md:mb-18">
-          <p className="text-xs font-semibold tracking-widest uppercase text-muted-foreground mb-3">
-            Our Vision
+        <div className="mb-16 md:mb-20">
+          <p className="text-xs font-mono-data tracking-widest uppercase text-accent mb-4">
+            // CORE_MODULES
           </p>
           <h2
             id="vision-heading"
-            className="font-serif text-4xl sm:text-5xl font-bold text-foreground text-balance max-w-xl"
+            className="font-barlow text-4xl sm:text-5xl md:text-6xl font-bold text-foreground uppercase tracking-tight"
           >
-            What We Believe
+            THE INTERLOCKING GRID
           </h2>
+          <p className="mt-4 text-lg text-muted-foreground max-w-2xl">
+            Three foundational pillars that define every system we build.
+          </p>
         </div>
 
-        {/* Belief cards */}
-        <div className="grid sm:grid-cols-3 gap-6">
-          {beliefs.map((belief, i) => (
+        {/* Pillar cards - Interlocking grid layout */}
+        <div className="grid md:grid-cols-3 gap-0 border-2 border-border">
+          {pillars.map((pillar, i) => (
             <div
-              key={i}
-              className="bg-card/80 backdrop-blur-sm rounded-2xl p-7 border border-border hover:border-navy/25 hover:shadow-lg hover:-translate-y-1 transition-all duration-300 flex flex-col gap-4"
+              key={pillar.id}
+              className={`card-module border-0 ${
+                i < pillars.length - 1 ? "md:border-r-2 md:border-border" : ""
+              } ${i < pillars.length - 1 ? "border-b-2 md:border-b-0 border-border" : ""} flex flex-col gap-6 hover:bg-secondary/50`}
+              style={{ borderRadius: 0 }}
             >
-              <span className="font-serif text-5xl font-black text-navy/10 leading-none select-none">
-                {String(i + 1).padStart(2, "0")}
-              </span>
-              <h3 className="font-semibold text-foreground text-base leading-snug text-pretty">
-                {belief.title}
+              {/* Module ID */}
+              <div className="flex items-center justify-between">
+                <span className="font-mono-data text-sm text-accent tracking-wider">
+                  [{pillar.id}]
+                </span>
+                <div className="w-10 h-10 flex items-center justify-center text-accent">
+                  {pillar.icon}
+                </div>
+              </div>
+
+              {/* Title */}
+              <h3 className="font-barlow text-xl font-bold text-foreground uppercase tracking-wide">
+                {pillar.title}
               </h3>
-              <p className="text-sm text-muted-foreground leading-relaxed text-pretty">
-                {belief.description}
+
+              {/* Description */}
+              <p className="text-sm text-muted-foreground leading-relaxed">
+                {pillar.description}
               </p>
             </div>
           ))}

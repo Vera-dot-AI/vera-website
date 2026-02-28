@@ -1,25 +1,25 @@
 const steps = [
   {
     number: "01",
-    title: "Understand Your Workflow",
+    title: "DISCOVER",
     description:
-      "We begin by deeply understanding your existing operations, team structure, and pain points. No assumptions — just careful listening and analysis to map what matters most.",
+      "We map your existing operations, team structure, and pain points. No assumptions—just careful listening and analysis to understand what matters most.",
   },
   {
     number: "02",
-    title: "Integrate with Existing Systems",
+    title: "INTEGRATE",
     description:
-      "Our solutions connect with the tools and platforms your teams already use. We prioritize compatibility and minimal disruption to your established processes.",
+      "Our solutions connect with the tools and platforms your teams already use. We prioritize compatibility and minimal disruption to established processes.",
   },
   {
     number: "03",
-    title: "Train AI on Your Knowledge",
+    title: "TRAIN",
     description:
-      "We build AI systems grounded in your specific domain knowledge, data, and standards — ensuring every insight and recommendation is relevant and accurate for your context.",
+      "We build AI systems grounded in your specific domain knowledge, data, and standards—ensuring every recommendation is relevant and accurate for your context.",
   },
   {
     number: "04",
-    title: "Deploy & Optimize",
+    title: "DEPLOY",
     description:
       "After a careful rollout, we continuously monitor performance and refine the system alongside your team. Improvement is ongoing, not a one-time event.",
   },
@@ -29,60 +29,60 @@ export function HowItWorks() {
   return (
     <section
       id="how-we-work"
-      className="bg-navy grain-overlay px-6 py-24 md:py-32 relative overflow-hidden"
+      className="bg-secondary grain-overlay px-6 py-24 md:py-32 relative overflow-hidden"
       aria-labelledby="how-we-work-heading"
     >
-      {/* Subtle decorations on dark bg */}
-      <div
-        aria-hidden="true"
-        className="absolute top-[-20%] left-[-8%] w-[380px] h-[380px] bg-blush/8 blob"
-      />
-      <div
-        aria-hidden="true"
-        className="absolute bottom-[-15%] right-[-6%] w-[320px] h-[320px] bg-sky/8 blob-2"
-      />
-
-      <div className="relative z-10 max-w-6xl mx-auto">
+      <div className="relative z-10 max-w-7xl mx-auto">
         {/* Header */}
         <div className="text-center mb-16 md:mb-20">
-          <p className="text-xs font-semibold tracking-widest uppercase text-primary-foreground/40 mb-3">
-            The Process
+          <p className="text-xs font-mono-data tracking-widest uppercase text-accent mb-4">
+            // PROCESS_FLOW
           </p>
           <h2
             id="how-we-work-heading"
-            className="font-serif text-4xl sm:text-5xl font-bold text-primary-foreground text-balance"
+            className="font-barlow text-4xl sm:text-5xl md:text-6xl font-bold text-foreground uppercase tracking-tight"
           >
-            How We Work
+            HOW WE WORK
           </h2>
-          <p className="mt-4 text-lg text-primary-foreground/60 max-w-xl mx-auto leading-relaxed text-pretty">
+          <p className="mt-4 text-lg text-muted-foreground max-w-xl mx-auto">
             A structured, collaborative approach that integrates deeply with your operations from day one.
           </p>
         </div>
 
-        {/* Steps grid */}
+        {/* Steps */}
         <div className="grid sm:grid-cols-2 lg:grid-cols-4 gap-6">
           {steps.map((step, i) => (
             <div
               key={step.number}
-              className="relative bg-primary-foreground/5 backdrop-blur-sm rounded-2xl p-6 border border-primary-foreground/10 hover:border-primary-foreground/20 hover:bg-primary-foreground/8 hover:-translate-y-1 transition-all duration-300 group"
+              className="relative"
             >
               {/* Connector line (desktop) */}
               {i < steps.length - 1 && (
                 <div
                   aria-hidden="true"
-                  className="hidden lg:block absolute top-8 left-full w-6 h-px bg-primary-foreground/15 z-10"
+                  className="hidden lg:block absolute top-6 left-full w-6 h-0.5 bg-border z-10"
                 />
               )}
 
-              <span className="font-serif text-4xl font-black text-primary-foreground/15 group-hover:text-primary-foreground/25 transition-colors duration-200">
-                {step.number}
-              </span>
-              <h3 className="mt-3 font-semibold text-primary-foreground text-base leading-snug">
-                {step.title}
-              </h3>
-              <p className="mt-2 text-sm text-primary-foreground/60 leading-relaxed">
-                {step.description}
-              </p>
+              <div className="card-module h-full flex flex-col gap-4 group">
+                {/* Step number */}
+                <div className="flex items-center gap-3">
+                  <span className="font-mono-data text-3xl font-bold text-accent">
+                    {step.number}
+                  </span>
+                  <div className="flex-1 h-0.5 bg-border group-hover:bg-accent/50 transition-colors duration-200" />
+                </div>
+
+                {/* Title */}
+                <h3 className="font-barlow text-lg font-bold text-foreground uppercase tracking-wide">
+                  {step.title}
+                </h3>
+
+                {/* Description */}
+                <p className="text-sm text-muted-foreground leading-relaxed">
+                  {step.description}
+                </p>
+              </div>
             </div>
           ))}
         </div>

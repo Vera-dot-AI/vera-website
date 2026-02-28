@@ -2,14 +2,15 @@ import Link from "next/link";
 import Image from "next/image";
 
 const quickLinks = [
-  { label: "Home", href: "/" },
-  { label: "About", href: "/#about" },
-  { label: "Contact", href: "/#contact" },
+  { label: "HOME", href: "/" },
+  { label: "ABOUT", href: "/#about" },
+  { label: "PROCESS", href: "/#how-we-work" },
+  { label: "CONTACT", href: "/#contact" },
 ];
 
 const legalLinks = [
-  { label: "Privacy Policy", href: "/privacy" },
-  { label: "Terms & Conditions", href: "/terms" },
+  { label: "Privacy", href: "/privacy" },
+  { label: "Terms", href: "/terms" },
 ];
 
 // Social media placeholder hrefs — replace with actual URLs when ready
@@ -47,100 +48,106 @@ const socialLinks = [
 
 export function Footer() {
   return (
-    <footer className="bg-navy grain-overlay border-t border-primary-foreground/10 px-6 py-14" role="contentinfo">
-      <div className="max-w-6xl mx-auto flex flex-col gap-10">
-        {/* Top row */}
-        <div className="flex flex-col md:flex-row items-start justify-between gap-10">
-          {/* Brand */}
-          <div className="flex flex-col gap-4 max-w-xs">
-            <Link href="/" className="flex items-center gap-2 group" aria-label="Vera home">
-              <div className="w-9 h-9 relative transition-transform duration-300 group-hover:scale-110">
-                <Image
-                  src="/vera-logo.svg"
-                  alt="Vera logo mark"
-                  fill
-                  className="object-contain"
-                />
-              </div>
-              <span className="font-poppins text-xl font-light text-primary-foreground tracking-tight" style={{ lineHeight: 1 }}>
-                vera
-              </span>
-            </Link>
-            <p className="text-sm text-primary-foreground/50 leading-relaxed">
-              Building intelligent systems that empower skilled teams and unlock operational excellence.
-            </p>
-            {/* Social links */}
-            <div className="flex items-center gap-3 mt-1">
-              {socialLinks.map((social) => (
-                <a
-                  key={social.label}
-                  href={social.href}
-                  aria-label={social.label}
-                  className="w-9 h-9 rounded-full bg-primary-foreground/8 border border-primary-foreground/12 flex items-center justify-center text-primary-foreground/50 hover:text-primary-foreground hover:bg-primary-foreground/15 hover:border-primary-foreground/25 transition-all duration-200"
-                >
-                  {social.icon}
-                </a>
-              ))}
-            </div>
-          </div>
+    <footer className="bg-card border-t-2 border-border relative" role="contentinfo">
+      {/* Hazard stripe accent */}
+      <div className="h-1 hazard-stripe" aria-hidden="true" />
 
-          {/* Links columns */}
-          <div className="flex flex-col sm:flex-row gap-10">
-            {/* Quick links */}
-            <div className="flex flex-col gap-3">
-              <p className="text-xs font-semibold uppercase tracking-widest text-primary-foreground/40 mb-1">
-                Quick Links
+      <div className="px-6 py-12">
+        <div className="max-w-7xl mx-auto flex flex-col gap-10">
+          {/* Top row */}
+          <div className="flex flex-col md:flex-row items-start justify-between gap-10">
+            {/* Brand */}
+            <div className="flex flex-col gap-4 max-w-xs">
+              <Link href="/" className="flex items-center gap-3 group" aria-label="Vera home">
+                <div className="w-9 h-9 relative transition-transform duration-300 group-hover:scale-105">
+                  <Image
+                    src="/vera-logo.svg"
+                    alt="Vera logo mark"
+                    fill
+                    className="object-contain"
+                  />
+                </div>
+                <span className="font-barlow text-xl font-bold text-foreground tracking-tight uppercase" style={{ lineHeight: 1 }}>
+                  VERA
+                </span>
+              </Link>
+              <p className="text-sm text-muted-foreground leading-relaxed">
+                Building intelligent co-pilots that integrate seamlessly into every workflow.
               </p>
-              <nav aria-label="Footer quick links">
-                <ul className="flex flex-col gap-2" role="list">
-                  {quickLinks.map((link) => (
-                    <li key={link.label}>
-                      <Link
-                        href={link.href}
-                        className="text-sm text-primary-foreground/60 hover:text-primary-foreground transition-colors duration-200"
-                      >
-                        {link.label}
-                      </Link>
-                    </li>
-                  ))}
-                </ul>
-              </nav>
-            </div>
-
-            {/* Contact */}
-            <div className="flex flex-col gap-3">
-              <p className="text-xs font-semibold uppercase tracking-widest text-primary-foreground/40 mb-1">
-                Contact
-              </p>
-              <a
-                href="mailto:hello@vera.ai"
-                className="text-sm text-primary-foreground/60 hover:text-primary-foreground transition-colors duration-200"
-              >
-                hello@vera.ai
-              </a>
-            </div>
-          </div>
-        </div>
-
-        {/* Bottom row */}
-        <div className="flex flex-col sm:flex-row items-center justify-between gap-4 border-t border-primary-foreground/10 pt-6">
-          <p className="text-xs text-primary-foreground/35">
-            &copy; {new Date().getFullYear()} Vera. All rights reserved.
-          </p>
-          <nav aria-label="Legal navigation">
-            <ul className="flex items-center gap-5" role="list">
-              {legalLinks.map((link) => (
-                <li key={link.label}>
-                  <Link
-                    href={link.href}
-                    className="text-xs text-primary-foreground/35 hover:text-primary-foreground/60 transition-colors duration-200"
+              {/* Social links */}
+              <div className="flex items-center gap-2 mt-2">
+                {socialLinks.map((social) => (
+                  <a
+                    key={social.label}
+                    href={social.href}
+                    aria-label={social.label}
+                    className="w-9 h-9 flex items-center justify-center border-2 border-border bg-background text-muted-foreground hover:text-accent hover:border-accent transition-all duration-200"
+                    style={{ borderRadius: "var(--radius)" }}
                   >
-                    {link.label}
-                  </Link>
-                </li>
-              ))}
-            </ul>
-          </nav>
+                    {social.icon}
+                  </a>
+                ))}
+              </div>
+            </div>
+
+            {/* Links columns */}
+            <div className="flex flex-col sm:flex-row gap-10">
+              {/* Quick links */}
+              <div className="flex flex-col gap-3">
+                <p className="font-barlow text-xs font-bold uppercase tracking-widest text-foreground mb-1">
+                  NAVIGATION
+                </p>
+                <nav aria-label="Footer quick links">
+                  <ul className="flex flex-col gap-2" role="list">
+                    {quickLinks.map((link) => (
+                      <li key={link.label}>
+                        <Link
+                          href={link.href}
+                          className="font-mono-data text-xs text-muted-foreground hover:text-accent transition-colors duration-200 tracking-wider"
+                        >
+                          {link.label}
+                        </Link>
+                      </li>
+                    ))}
+                  </ul>
+                </nav>
+              </div>
+
+              {/* Contact */}
+              <div className="flex flex-col gap-3">
+                <p className="font-barlow text-xs font-bold uppercase tracking-widest text-foreground mb-1">
+                  CONTACT
+                </p>
+                <a
+                  href="mailto:hello@vera.ai"
+                  className="font-mono-data text-xs text-muted-foreground hover:text-accent transition-colors duration-200 tracking-wider"
+                >
+                  hello@vera.ai
+                </a>
+              </div>
+            </div>
+          </div>
+
+          {/* Bottom row */}
+          <div className="flex flex-col sm:flex-row items-center justify-between gap-4 border-t-2 border-border pt-6">
+            <p className="font-mono-data text-xs text-muted-foreground">
+              &copy; {new Date().getFullYear()} VERA AI. ALL RIGHTS RESERVED.
+            </p>
+            <nav aria-label="Legal navigation">
+              <ul className="flex items-center gap-5" role="list">
+                {legalLinks.map((link) => (
+                  <li key={link.label}>
+                    <Link
+                      href={link.href}
+                      className="font-mono-data text-xs text-muted-foreground hover:text-accent transition-colors duration-200 uppercase tracking-wider"
+                    >
+                      {link.label}
+                    </Link>
+                  </li>
+                ))}
+              </ul>
+            </nav>
+          </div>
         </div>
       </div>
     </footer>

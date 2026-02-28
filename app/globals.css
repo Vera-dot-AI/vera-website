@@ -4,38 +4,70 @@
 
 @layer base {
   :root {
-    /* Brand color channels (H S% L%) */
-    --navy: 222 47% 21%;
-    --navy-light: 222 47% 28%;
-    --cream: 45 40% 94%;
-    --blush: 10 60% 88%;
-    --sky: 210 60% 88%;
-    --mist: 200 30% 92%;
+    /* Bold Builders 60:30:10 Color System - Light Mode (The Blueprint) */
+    /* 60% Dominant: Crisp White */
+    --background: 0 0% 100%;
+    --foreground: 0 0% 7%;
 
-    /* Semantic tokens — using direct channel values */
-    --background: 45 40% 94%;
-    --foreground: 222 47% 21%;
+    /* 30% Secondary: Aluminum Gray */
+    --card: 220 14% 96%;
+    --card-foreground: 0 0% 7%;
 
-    --card: 0 0% 100%;
-    --card-foreground: 222 47% 21%;
+    --secondary: 220 13% 91%;
+    --secondary-foreground: 0 0% 7%;
 
-    --primary: 222 47% 21%;
+    --muted: 220 14% 96%;
+    --muted-foreground: 220 9% 46%;
+
+    /* 10% Accent: High-Vis Orange */
+    --accent: 14 100% 57%;
+    --accent-foreground: 0 0% 100%;
+
+    --primary: 14 100% 57%;
     --primary-foreground: 0 0% 100%;
 
-    --secondary: 10 60% 88%;
-    --secondary-foreground: 222 47% 21%;
+    /* Industrial Steel for structural elements */
+    --steel: 222 10% 18%;
+    --steel-light: 222 8% 25%;
 
-    --accent: 210 60% 88%;
-    --accent-foreground: 222 47% 21%;
+    --border: 220 13% 87%;
+    --input: 220 13% 87%;
+    --ring: 14 100% 57%;
 
-    --muted: 200 30% 92%;
-    --muted-foreground: 222 20% 45%;
+    /* Harsh geometry */
+    --radius: 0.25rem;
+  }
 
-    --border: 222 20% 85%;
-    --input: 222 20% 85%;
-    --ring: 222 47% 21%;
+  .dark {
+    /* Bold Builders 60:30:10 Color System - Dark Mode (The Active Terminal) */
+    /* 60% Dominant: Carbon Black */
+    --background: 0 0% 7%;
+    --foreground: 0 0% 98%;
 
-    --radius: 1rem;
+    /* 30% Secondary: Industrial Steel */
+    --card: 222 10% 16%;
+    --card-foreground: 0 0% 98%;
+
+    --secondary: 222 10% 18%;
+    --secondary-foreground: 0 0% 98%;
+
+    --muted: 222 10% 16%;
+    --muted-foreground: 220 9% 60%;
+
+    /* 10% Accent: High-Vis Orange */
+    --accent: 14 100% 57%;
+    --accent-foreground: 0 0% 100%;
+
+    --primary: 14 100% 57%;
+    --primary-foreground: 0 0% 100%;
+
+    /* Steel colors */
+    --steel: 222 10% 18%;
+    --steel-light: 222 8% 28%;
+
+    --border: 222 10% 22%;
+    --input: 222 10% 22%;
+    --ring: 14 100% 57%;
   }
 }
 
@@ -45,12 +77,12 @@
   }
   html {
     scroll-behavior: smooth;
-    /* Enables native CSS view transitions for instant page feel */
     view-transition-name: root;
   }
-  /* Prevent horizontal overflow on mobile */
   body {
     overflow-x: hidden;
+    background-color: hsl(var(--background));
+    color: hsl(var(--foreground));
   }
 }
 
@@ -70,55 +102,6 @@
 
 @keyframes fade-out {
   to { opacity: 0; }
-}
-
-/* Organic blob shapes with fluid animation */
-.blob {
-  border-radius: 60% 40% 70% 30% / 40% 60% 30% 70%;
-  animation: blob-morph 12s ease-in-out infinite;
-}
-
-.blob-2 {
-  border-radius: 40% 60% 30% 70% / 60% 40% 70% 30%;
-  animation: blob-morph-2 14s ease-in-out infinite;
-}
-
-@keyframes blob-morph {
-  0%, 100% {
-    border-radius: 60% 40% 70% 30% / 40% 60% 30% 70%;
-    transform: translate(0, 0) scale(1);
-  }
-  25% {
-    border-radius: 50% 50% 40% 60% / 60% 40% 50% 50%;
-    transform: translate(10px, -15px) scale(1.03);
-  }
-  50% {
-    border-radius: 40% 60% 50% 50% / 50% 50% 60% 40%;
-    transform: translate(-5px, 10px) scale(0.97);
-  }
-  75% {
-    border-radius: 55% 45% 60% 40% / 45% 55% 35% 65%;
-    transform: translate(8px, 5px) scale(1.02);
-  }
-}
-
-@keyframes blob-morph-2 {
-  0%, 100% {
-    border-radius: 40% 60% 30% 70% / 60% 40% 70% 30%;
-    transform: translate(0, 0) scale(1);
-  }
-  25% {
-    border-radius: 55% 45% 50% 50% / 45% 55% 45% 55%;
-    transform: translate(-12px, 8px) scale(1.04);
-  }
-  50% {
-    border-radius: 50% 50% 60% 40% / 55% 45% 40% 60%;
-    transform: translate(8px, -10px) scale(0.96);
-  }
-  75% {
-    border-radius: 45% 55% 35% 65% / 50% 50% 55% 45%;
-    transform: translate(-5px, -8px) scale(1.01);
-  }
 }
 
 /* Fade-in animation for sections */
@@ -149,22 +132,43 @@
 .animate-stagger > *:nth-child(4) { animation-delay: 0.4s; }
 .animate-stagger > *:nth-child(5) { animation-delay: 0.5s; }
 
-/* Subtle floating animation for decorative elements */
-@keyframes float {
-  0%, 100% { transform: translateY(0); }
-  50% { transform: translateY(-12px); }
+/* Blueprint grid for Reactive Grid */
+.blueprint-grid {
+  background-image: 
+    linear-gradient(hsl(var(--border) / 0.15) 1px, transparent 1px),
+    linear-gradient(90deg, hsl(var(--border) / 0.15) 1px, transparent 1px);
+  background-size: 40px 40px;
 }
 
-.animate-float {
-  animation: float 6s ease-in-out infinite;
+.dark .blueprint-grid {
+  background-image: 
+    linear-gradient(hsl(var(--border) / 0.25) 1px, transparent 1px),
+    linear-gradient(90deg, hsl(var(--border) / 0.25) 1px, transparent 1px);
 }
 
-/* Mesh gradient overlay for modern look */
-.mesh-gradient {
-  background:
-    radial-gradient(ellipse at 20% 50%, hsl(210 60% 88% / 0.4) 0%, transparent 50%),
-    radial-gradient(ellipse at 80% 20%, hsl(10 60% 88% / 0.3) 0%, transparent 50%),
-    radial-gradient(ellipse at 50% 80%, hsl(200 30% 92% / 0.4) 0%, transparent 50%);
+/* Hazard stripe for footer */
+.hazard-stripe {
+  background: repeating-linear-gradient(
+    -45deg,
+    transparent,
+    transparent 8px,
+    hsl(var(--accent) / 0.08) 8px,
+    hsl(var(--accent) / 0.08) 16px
+  );
+}
+
+/* Pulse animation for accent elements */
+@keyframes pulse-glow {
+  0%, 100% { 
+    box-shadow: 0 0 0 0 hsl(var(--accent) / 0.4);
+  }
+  50% { 
+    box-shadow: 0 0 20px 4px hsl(var(--accent) / 0.2);
+  }
+}
+
+.animate-pulse-glow {
+  animation: pulse-glow 2s ease-in-out infinite;
 }
 
 /* Grain texture overlay for depth */
@@ -172,8 +176,44 @@
   content: "";
   position: absolute;
   inset: 0;
-  background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noise'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noise)' opacity='0.03'/%3E%3C/svg%3E");
+  background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noise'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noise)' opacity='0.02'/%3E%3C/svg%3E");
   background-repeat: repeat;
   pointer-events: none;
   z-index: 1;
+}
+
+/* Industrial button styles */
+.btn-primary {
+  @apply inline-flex items-center justify-center gap-2 px-6 py-3 bg-accent text-accent-foreground font-bold uppercase tracking-wider text-sm transition-all duration-200;
+  border-radius: var(--radius);
+}
+
+.btn-primary:hover {
+  @apply bg-accent/90 shadow-lg;
+  transform: translateY(-1px);
+}
+
+.btn-secondary {
+  @apply inline-flex items-center justify-center gap-2 px-6 py-3 border-2 border-border bg-transparent text-foreground font-semibold uppercase tracking-wider text-sm transition-all duration-200;
+  border-radius: var(--radius);
+}
+
+.btn-secondary:hover {
+  @apply border-accent text-accent;
+}
+
+/* Modular card styles */
+.card-module {
+  @apply bg-card border-2 border-border p-6 transition-all duration-200;
+  border-radius: var(--radius);
+}
+
+.card-module:hover {
+  @apply border-accent/50;
+}
+
+/* Monospace text for technical elements */
+.font-mono-data {
+  font-family: var(--font-jetbrains), ui-monospace, monospace;
+  font-feature-settings: "liga" 0;
 }

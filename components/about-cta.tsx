@@ -1,19 +1,19 @@
 const coreValues = [
   {
-    name: "Practical Innovation",
+    name: "PRACTICAL INNOVATION",
     description: "We pursue innovation that solves real problems, not innovation for its own sake.",
   },
   {
-    name: "Reliability",
+    name: "RELIABILITY",
     description: "Teams depend on our systems in critical moments. We build with that responsibility in mind.",
   },
   {
-    name: "Human-Centered AI",
+    name: "HUMAN-CENTERED AI",
     description: "Every product decision starts with the person using it. AI is a tool in service of people.",
   },
   {
-    name: "Operational Excellence",
-    description: "We hold ourselves to the same standard we help our clients achieve — rigorous, efficient, and always improving.",
+    name: "OPERATIONAL EXCELLENCE",
+    description: "We hold ourselves to the same standard we help our clients achieve.",
   },
 ];
 
@@ -21,70 +21,64 @@ export function AboutCta() {
   return (
     <section
       id="about"
-      className="relative overflow-hidden bg-navy grain-overlay px-6 py-24 md:py-32"
+      className="relative overflow-hidden bg-card grain-overlay px-6 py-24 md:py-32"
       aria-labelledby="about-heading"
     >
-      {/* Subtle blob decorations on dark bg */}
-      <div
-        aria-hidden="true"
-        className="absolute top-[-20%] right-[-10%] w-[400px] h-[400px] bg-blush/8 blob"
-      />
-      <div
-        aria-hidden="true"
-        className="absolute bottom-[-15%] left-[-8%] w-[360px] h-[360px] bg-sky/8 blob-2"
-      />
-
-      <div className="relative z-10 max-w-5xl mx-auto">
+      <div className="relative z-10 max-w-7xl mx-auto">
         {/* Section label */}
-        <p className="text-xs font-semibold tracking-widest uppercase text-primary-foreground/40 mb-4">
-          About Vera
+        <p className="text-xs font-mono-data tracking-widest uppercase text-accent mb-4">
+          // ABOUT_VERA
         </p>
 
         {/* Two-column layout: story + values */}
-        <div className="flex flex-col lg:flex-row gap-14 lg:gap-20">
+        <div className="flex flex-col lg:flex-row gap-12 lg:gap-20">
           {/* Left: story */}
           <div className="flex-1 flex flex-col gap-6">
             <h2
               id="about-heading"
-              className="font-serif text-4xl sm:text-5xl font-bold text-primary-foreground leading-tight text-balance"
+              className="font-barlow text-4xl sm:text-5xl md:text-6xl font-bold text-foreground leading-tight uppercase tracking-tight"
             >
-              Building AI That
+              BUILDING AI THAT
               <br />
-              Stands Behind
+              <span className="text-accent">STANDS BEHIND</span>
               <br />
-              Real Work.
+              REAL WORK.
             </h2>
-            <div className="flex flex-col gap-4 text-primary-foreground/70 leading-relaxed text-pretty">
+            <div className="flex flex-col gap-4 text-muted-foreground leading-relaxed max-w-xl">
               <p>
-                Vera was founded on a straightforward conviction: the most impactful AI is the kind that works quietly and reliably alongside people — not as a replacement, but as an amplifier of human capability.
+                Vera was founded on a straightforward conviction: the most impactful AI is the kind that works quietly and reliably alongside people—not as a replacement, but as an amplifier of human capability.
               </p>
               <p>
                 We started by asking a simple question: where does skilled work break down, and how can intelligent systems make it better? That question guides every product we build and every partnership we pursue.
               </p>
               <p>
-                Our long-term vision is to become the trusted infrastructure for intelligent operations — delivering AI systems that teams depend on every day, across every industry where expertise matters.
+                Our long-term vision is to become the trusted infrastructure for intelligent operations—delivering AI systems that teams depend on every day, across every industry where expertise matters.
               </p>
             </div>
           </div>
 
           {/* Right: core values */}
           <div className="lg:w-80 xl:w-96 flex flex-col gap-4">
-            <h3 className="font-semibold text-primary-foreground/80 text-sm uppercase tracking-widest mb-2">
-              Core Values
+            <h3 className="font-barlow font-bold text-foreground text-sm uppercase tracking-widest mb-2">
+              CORE VALUES
             </h3>
-            {coreValues.map((value) => (
-              <div
-                key={value.name}
-                className="bg-primary-foreground/5 rounded-xl px-5 py-4 border border-primary-foreground/10 hover:border-primary-foreground/20 hover:bg-primary-foreground/8 transition-all duration-300"
-              >
-                <p className="font-semibold text-primary-foreground text-sm mb-1">
-                  {value.name}
-                </p>
-                <p className="text-xs text-primary-foreground/55 leading-relaxed">
-                  {value.description}
-                </p>
-              </div>
-            ))}
+            <div className="border-2 border-border">
+              {coreValues.map((value, i) => (
+                <div
+                  key={value.name}
+                  className={`p-5 hover:bg-secondary/50 transition-colors duration-200 ${
+                    i < coreValues.length - 1 ? "border-b-2 border-border" : ""
+                  }`}
+                >
+                  <p className="font-barlow font-bold text-foreground text-sm uppercase tracking-wide mb-1">
+                    {value.name}
+                  </p>
+                  <p className="text-xs text-muted-foreground leading-relaxed">
+                    {value.description}
+                  </p>
+                </div>
+              ))}
+            </div>
           </div>
         </div>
       </div>

@@ -26,15 +26,15 @@ export function ReactiveGrid() {
 
     const gridSize = 50;
     const { x: mouseX, y: mouseY } = mouseRef.current;
-    const spotlightRadius = 200;
+    const spotlightRadius = 300;
 
     // Clear canvas
     ctx.clearRect(0, 0, rect.width, rect.height);
 
     const isDark = resolvedTheme === "dark";
-    const dormantColor = isDark ? "rgba(42, 45, 52, 0.12)" : "rgba(229, 231, 235, 0.4)";
-    const activeColor = isDark ? "rgba(42, 45, 52, 0.8)" : "rgba(100, 100, 120, 0.6)";
-    const accentColor = "rgba(255, 87, 34, 0.6)";
+    const dormantColor = isDark ? "rgba(42, 45, 52, 0.15)" : "rgba(229, 231, 235, 0.5)";
+    const activeColor = isDark ? "rgba(42, 45, 52, 1)" : "rgba(80, 80, 100, 0.8)";
+    const accentColor = "rgba(255, 87, 34, 0.7)";
 
     // Draw grid lines
     ctx.lineWidth = 1;
@@ -50,14 +50,14 @@ export function ReactiveGrid() {
 
         if (distance < spotlightRadius) {
           const intensity = 1 - distance / spotlightRadius;
-          const eased = Math.pow(intensity, 2);
+          const eased = Math.pow(intensity, 1.5); // Smoother falloff
           
           // Interpolate color based on distance
           if (isDark) {
-            ctx.strokeStyle = `rgba(42, 45, 52, ${0.12 + eased * 0.68})`;
+            ctx.strokeStyle = `rgba(42, 45, 52, ${0.15 + eased * 0.85})`;
           } else {
-            const gray = Math.round(229 - eased * 129);
-            ctx.strokeStyle = `rgba(${gray}, ${gray}, ${Math.round(gray * 1.1)}, ${0.4 + eased * 0.4})`;
+            const gray = Math.round(229 - eased * 149);
+            ctx.strokeStyle = `rgba(${gray}, ${gray}, ${Math.round(gray * 1.05)}, ${0.5 + eased * 0.5})`;
           }
         } else {
           ctx.strokeStyle = dormantColor;
@@ -81,13 +81,13 @@ export function ReactiveGrid() {
 
         if (distance < spotlightRadius) {
           const intensity = 1 - distance / spotlightRadius;
-          const eased = Math.pow(intensity, 2);
+          const eased = Math.pow(intensity, 1.5); // Smoother falloff
           
           if (isDark) {
-            ctx.strokeStyle = `rgba(42, 45, 52, ${0.12 + eased * 0.68})`;
+            ctx.strokeStyle = `rgba(42, 45, 52, ${0.15 + eased * 0.85})`;
           } else {
-            const gray = Math.round(229 - eased * 129);
-            ctx.strokeStyle = `rgba(${gray}, ${gray}, ${Math.round(gray * 1.1)}, ${0.4 + eased * 0.4})`;
+            const gray = Math.round(229 - eased * 149);
+            ctx.strokeStyle = `rgba(${gray}, ${gray}, ${Math.round(gray * 1.05)}, ${0.5 + eased * 0.5})`;
           }
         } else {
           ctx.strokeStyle = dormantColor;
@@ -100,20 +100,22 @@ export function ReactiveGrid() {
       }
     }
 
-    // Draw the orange glow at cursor center (only in dark mode for stronger effect)
+    // Draw the orange glow at cursor center
     if (mouseX > 0 && mouseY > 0) {
-      const gradient = ctx.createRadialGradient(mouseX, mouseY, 0, mouseX, mouseY, 60);
-      gradient.addColorStop(0, "rgba(255, 87, 34, 0.15)");
-      gradient.addColorStop(0.5, "rgba(255, 87, 34, 0.05)");
+      const glowRadius = 100;
+      const gradient = ctx.createRadialGradient(mouseX, mouseY, 0, mouseX, mouseY, glowRadius);
+      gradient.addColorStop(0, "rgba(255, 87, 34, 0.25)");
+      gradient.addColorStop(0.3, "rgba(255, 87, 34, 0.12)");
+      gradient.addColorStop(0.6, "rgba(255, 87, 34, 0.04)");
       gradient.addColorStop(1, "transparent");
       
       ctx.fillStyle = gradient;
-      ctx.fillRect(mouseX - 60, mouseY - 60, 120, 120);
+      ctx.fillRect(mouseX - glowRadius, mouseY - glowRadius, glowRadius * 2, glowRadius * 2);
 
-      // Tiny center dot
+      // Center dot
       ctx.beginPath();
-      ctx.arc(mouseX, mouseY, 3, 0, Math.PI * 2);
-      ctx.fillStyle = "rgba(255, 87, 34, 0.4)";
+      ctx.arc(mouseX, mouseY, 4, 0, Math.PI * 2);
+      ctx.fillStyle = "rgba(255, 87, 34, 0.5)";
       ctx.fill();
     }
 

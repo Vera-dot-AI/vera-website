@@ -3,6 +3,7 @@
 import { useState, useEffect } from "react";
 import Link from "next/link";
 import Image from "next/image";
+import { useTheme } from "next-themes";
 import { ThemeToggle } from "./theme-toggle";
 
 const navLinks = [
@@ -14,6 +15,12 @@ const navLinks = [
 export function Navbar() {
   const [scrolled, setScrolled] = useState(false);
   const [menuOpen, setMenuOpen] = useState(false);
+  const [mounted, setMounted] = useState(false);
+  const { resolvedTheme } = useTheme();
+
+  useEffect(() => {
+    setMounted(true);
+  }, []);
 
   useEffect(() => {
     const handleScroll = () => setScrolled(window.scrollY > 20);
@@ -37,7 +44,7 @@ export function Navbar() {
         <Link href="/" className="flex items-center gap-3 group" aria-label="Vera home">
           <div className="w-10 h-10 relative flex-shrink-0 transition-transform duration-300 group-hover:scale-105">
             <Image
-              src="/vera-logo.svg"
+              src={mounted && resolvedTheme === "dark" ? "/vera-logo-light.svg" : "/vera-logo-dark.svg"}
               alt="Vera hexagonal logo mark"
               fill
               priority

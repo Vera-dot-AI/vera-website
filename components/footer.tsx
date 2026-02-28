@@ -1,5 +1,9 @@
+"use client";
+
+import { useState, useEffect } from "react";
 import Link from "next/link";
 import Image from "next/image";
+import { useTheme } from "next-themes";
 
 const quickLinks = [
   { label: "Home", href: "/" },
@@ -47,6 +51,13 @@ const socialLinks = [
 ];
 
 export function Footer() {
+  const [mounted, setMounted] = useState(false);
+  const { resolvedTheme } = useTheme();
+
+  useEffect(() => {
+    setMounted(true);
+  }, []);
+
   return (
     <footer className="bg-card border-t-2 border-border relative" role="contentinfo">
       {/* Hazard stripe accent */}
@@ -61,7 +72,7 @@ export function Footer() {
               <Link href="/" className="flex items-center gap-3 group" aria-label="Vera home">
                 <div className="w-9 h-9 relative transition-transform duration-300 group-hover:scale-105">
                   <Image
-                    src="/vera-logo.svg"
+                    src={mounted && resolvedTheme === "dark" ? "/vera-logo-light.svg" : "/vera-logo-dark.svg"}
                     alt="Vera logo mark"
                     fill
                     className="object-contain"

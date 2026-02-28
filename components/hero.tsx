@@ -1,7 +1,6 @@
 "use client";
 
 import Link from "next/link";
-import Image from "next/image";
 import { ReactiveGrid } from "./reactive-grid";
 
 export function Hero() {
@@ -14,23 +13,10 @@ export function Hero() {
       <ReactiveGrid />
 
       {/* Content */}
-      <div className="relative z-10 max-w-4xl mx-auto text-center flex flex-col items-center gap-10 animate-fade-in-up">
-        {/* VERA Badge */}
-        <div className="relative">
-          <div className="w-24 h-24 sm:w-28 sm:h-28 relative animate-pulse-glow">
-            <Image
-              src="/vera-logo.svg"
-              alt="VERA AI hexagonal badge"
-              fill
-              priority
-              className="object-contain"
-            />
-          </div>
-        </div>
-
+      <div className="relative z-10 max-w-4xl mx-auto text-center flex flex-col items-center gap-8 animate-fade-in-up">
         {/* Headline - Barlow Condensed, Bold */}
-        <h1 className="font-barlow text-5xl sm:text-6xl md:text-7xl lg:text-8xl font-bold text-foreground tracking-tight uppercase leading-none">
-          The Co-Pilot for
+        <h1 className="font-barlow text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-bold text-foreground tracking-tight leading-tight">
+          Intelligent Copilots for
           <br />
           <span className="text-accent">Every Workflow</span>
         </h1>
@@ -71,12 +57,6 @@ export function Hero() {
           >
             Learn More
           </Link>
-        </div>
-
-        {/* Scroll indicator */}
-        <div className="absolute bottom-8 left-1/2 -translate-x-1/2 flex flex-col items-center gap-2 text-muted-foreground">
-          <span className="text-xs font-mono-data tracking-widest">Scroll</span>
-          <div className="w-px h-8 bg-gradient-to-b from-muted-foreground to-transparent" />
         </div>
       </div>
     </section>

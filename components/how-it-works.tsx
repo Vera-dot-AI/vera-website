@@ -1,79 +1,88 @@
 const steps = [
   {
     number: "01",
-    title: "Connect Your Knowledge Base",
+    title: "Discover",
     description:
-      "GroundControl ingests your manuals, schematics, historical job data, and SOPs — building a domain-specific knowledge layer tailored to your operations.",
+      "We map your existing operations, team structure, and pain points. No assumptions, just careful listening and analysis to understand what matters most.",
   },
   {
     number: "02",
-    title: "Deploy to the Field",
+    title: "Integrate",
     description:
-      "Technicians access GroundControl on a tablet or phone. It understands the context of their current job, location, and equipment.",
+      "Our solutions connect with the tools and platforms your teams already use. We prioritize compatibility and minimal disruption to established processes.",
   },
   {
     number: "03",
-    title: "Guide in Real Time",
+    title: "Train",
     description:
-      "GroundControl provides step-by-step diagnostics, repair guidance, and answers — reducing errors and slashing resolution time.",
+      "We build AI systems grounded in your specific domain knowledge, data, and standards, ensuring every recommendation is relevant and accurate for your context.",
   },
   {
     number: "04",
-    title: "Learn and Improve",
+    title: "Deploy",
     description:
-      "Every interaction makes GroundControl smarter. It continuously learns from outcomes to improve future recommendations.",
+      "After a careful rollout, we continuously monitor performance and refine the system alongside your team. Improvement is ongoing, not a one-time event.",
   },
 ];
 
 export function HowItWorks() {
   return (
     <section
-      id="how-groundcontrol-works"
-      className="bg-cream mesh-gradient grain-overlay px-6 py-24 md:py-32"
-      aria-labelledby="how-groundcontrol-works-heading"
+      id="how-we-work"
+      className="bg-secondary grain-overlay px-6 py-24 md:py-32 relative overflow-hidden"
+      aria-labelledby="how-we-work-heading"
     >
-      <div className="max-w-6xl mx-auto">
+      <div className="relative z-10 max-w-7xl mx-auto">
         {/* Header */}
         <div className="text-center mb-16 md:mb-20">
-          <p className="text-xs font-semibold tracking-widest uppercase text-muted-foreground mb-3">
-            The Process
+          <p className="text-xs font-mono-data tracking-widest text-accent mb-4">
+            // Process Flow
           </p>
           <h2
-            id="how-groundcontrol-works-heading"
-            className="font-serif text-4xl sm:text-5xl font-bold text-foreground text-balance"
+            id="how-we-work-heading"
+            className="font-barlow text-4xl sm:text-5xl md:text-6xl font-bold text-foreground tracking-tight"
           >
-            How GroundControl Works
+            How We Work
           </h2>
-          <p className="mt-4 text-lg text-muted-foreground max-w-xl mx-auto leading-relaxed text-pretty">
-            From connecting your knowledge base to the field in days — not months.
-            GroundControl integrates deeply into your existing workflows.
+          <p className="mt-4 text-lg text-muted-foreground max-w-xl mx-auto">
+            A structured, collaborative approach that integrates deeply with your operations from day one.
           </p>
         </div>
 
-        {/* Steps grid */}
-        <div className="grid sm:grid-cols-2 lg:grid-cols-4 gap-6">
+        {/* Steps */}
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4 sm:gap-6">
           {steps.map((step, i) => (
             <div
               key={step.number}
-              className="relative bg-card/80 backdrop-blur-sm rounded-2xl p-6 border border-border hover:border-navy/30 hover:shadow-lg hover:-translate-y-1 transition-all duration-300 group"
+              className="relative"
             >
               {/* Connector line (desktop) */}
               {i < steps.length - 1 && (
                 <div
                   aria-hidden="true"
-                  className="hidden lg:block absolute top-8 left-full w-6 h-px bg-border z-10 -translate-y-0"
+                  className="hidden lg:block absolute top-6 left-full w-4 xl:w-6 h-0.5 bg-border z-10"
                 />
               )}
 
-              <span className="font-serif text-4xl font-black text-navy/15 group-hover:text-navy/25 transition-colors duration-200">
-                {step.number}
-              </span>
-              <h3 className="mt-3 font-semibold text-foreground text-base leading-snug">
-                {step.title}
-              </h3>
-              <p className="mt-2 text-sm text-muted-foreground leading-relaxed">
-                {step.description}
-              </p>
+              <div className="card-module h-full flex flex-col gap-3 sm:gap-4 group p-4 sm:p-6">
+                {/* Step number */}
+                <div className="flex items-center gap-3">
+                  <span className="font-mono-data text-3xl font-bold text-accent">
+                    {step.number}
+                  </span>
+                  <div className="flex-1 h-0.5 bg-border group-hover:bg-accent/50 transition-colors duration-200" />
+                </div>
+
+                {/* Title */}
+                <h3 className="font-barlow text-lg font-bold text-foreground tracking-wide">
+                  {step.title}
+                </h3>
+
+                {/* Description */}
+                <p className="text-sm text-muted-foreground leading-relaxed">
+                  {step.description}
+                </p>
+              </div>
             </div>
           ))}
         </div>

@@ -1,76 +1,87 @@
-import Link from "next/link";
+const coreValues = [
+  {
+    name: "Practical Innovation",
+    description: "We pursue innovation that solves real problems, not innovation for its own sake.",
+  },
+  {
+    name: "Reliability",
+    description: "Teams depend on our systems in critical moments. We build with that responsibility in mind.",
+  },
+  {
+    name: "Human-Centered AI",
+    description: "Every product decision starts with the person using it. AI is a tool in service of people.",
+  },
+  {
+    name: "Operational Excellence",
+    description: "We hold ourselves to the same standard we help our clients achieve.",
+  },
+];
 
 export function AboutCta() {
   return (
     <section
       id="about"
-      className="relative overflow-hidden bg-navy grain-overlay px-6 py-24 md:py-32"
+      className="relative overflow-hidden bg-card grain-overlay px-6 py-24 md:py-32"
       aria-labelledby="about-heading"
     >
-      {/* Subtle blob decorations on dark bg */}
-      <div
-        aria-hidden="true"
-        className="absolute top-[-20%] right-[-10%] w-[400px] h-[400px] bg-blush/10 blob"
-      />
-      <div
-        aria-hidden="true"
-        className="absolute bottom-[-15%] left-[-8%] w-[360px] h-[360px] bg-sky/10 blob-2"
-      />
-
-      <div className="relative z-10 max-w-4xl mx-auto text-center flex flex-col items-center gap-8">
-        <p className="text-xs font-semibold tracking-widest uppercase text-primary-foreground/50">
-          About Vera
+      <div className="relative z-10 max-w-7xl mx-auto">
+        {/* Section label */}
+        <p className="text-xs font-mono-data tracking-widest text-accent mb-4">
+          // About VERA
         </p>
 
-        <h2
-          id="about-heading"
-          className="font-serif text-4xl sm:text-5xl md:text-6xl font-bold text-primary-foreground leading-tight text-balance"
-        >
-          Building the Copilots
-          <br />
-          That Industries Need
-        </h2>
-
-        <p className="text-lg text-primary-foreground/70 leading-relaxed max-w-2xl text-pretty">
-          Vera was founded with one belief: the most impactful AI is the kind
-          that works alongside people in the real world. We focus on integrating
-          intelligent copilots into existing workflows — not just in tech, but
-          across skilled trades, industrial fields, and beyond. Starting with
-          HVAC, with more industries on the way.
-        </p>
-
-        {/* Stats */}
-        <div className="grid grid-cols-3 gap-4 sm:gap-8 w-full max-w-lg mt-4">
-          {[
-            { value: "1", label: "Product Live" },
-            { value: "∞", label: "Copilots Coming" },
-            { value: "24/7", label: "AI Availability" },
-          ].map((stat) => (
-            <div key={stat.label} className="flex flex-col items-center gap-1">
-              <span className="font-serif text-3xl font-black text-primary-foreground">
-                {stat.value}
-              </span>
-              <span className="text-xs text-primary-foreground/50 font-medium text-center">
-                {stat.label}
-              </span>
+        {/* Two-column layout: story + values */}
+        <div className="flex flex-col lg:flex-row gap-12 lg:gap-20">
+          {/* Left: story */}
+          <div className="flex-1 flex flex-col gap-6">
+            <h2
+              id="about-heading"
+              className="font-barlow text-4xl sm:text-5xl md:text-6xl font-bold text-foreground leading-tight tracking-tight"
+            >
+              Building AI That
+              <br />
+              <span className="text-accent">Stands Behind</span>
+              <br />
+              Real Work.
+            </h2>
+            <div className="flex flex-col gap-4 text-muted-foreground leading-relaxed max-w-xl">
+              <p>
+                VERA was founded on a straightforward conviction: the most impactful AI is the kind that works quietly and reliably alongside people, not as a replacement, but as an amplifier of human capability.
+              </p>
+              <p>
+                We started by asking a simple question: where does skilled work break down, and how can intelligent systems make it better? That question guides every product we build and every partnership we pursue.
+              </p>
+              <p>
+                Our long-term vision is to become the trusted infrastructure for intelligent operations, delivering AI systems that teams depend on every day, across every industry where expertise matters.
+              </p>
             </div>
-          ))}
-        </div>
+          </div>
 
-        {/* CTA */}
-        <div className="flex flex-col sm:flex-row items-center gap-4 mt-4">
-          <Link
-            href="mailto:hello@vera.ai"
-            className="px-8 py-4 rounded-full bg-primary-foreground text-navy text-base font-semibold hover:bg-cream transition-all duration-300 shadow-md hover:shadow-xl hover:scale-[1.02]"
-          >
-            Get in Touch
-          </Link>
-          <Link
-            href="/products/ground-control"
-            className="px-8 py-4 rounded-full border border-primary-foreground/30 text-primary-foreground text-base font-medium hover:border-primary-foreground/60 hover:bg-primary-foreground/10 transition-all duration-300 hover:scale-[1.02]"
-          >
-            Try Ground Control
-          </Link>
+          {/* Right: core values */}
+          <div className="w-full lg:w-80 xl:w-96 flex flex-col gap-4">
+            <h3 className="font-barlow font-bold text-foreground text-sm tracking-widest mb-2">
+              Core Values
+            </h3>
+            <div className="border-2 border-border grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-1">
+              {coreValues.map((value, i) => (
+                <div
+                  key={value.name}
+                  className={`p-4 sm:p-5 hover:bg-secondary/50 transition-colors duration-200 
+                    ${i < coreValues.length - 1 ? "border-b-2 border-border sm:border-b-0 lg:border-b-2" : ""}
+                    ${i % 2 === 0 ? "sm:border-r-2 sm:border-border lg:border-r-0" : ""}
+                    ${i < coreValues.length - 2 ? "sm:border-b-2" : ""}
+                  `}
+                >
+                  <p className="font-barlow font-bold text-foreground text-sm tracking-wide mb-1">
+                    {value.name}
+                  </p>
+                  <p className="text-xs text-muted-foreground leading-relaxed">
+                    {value.description}
+                  </p>
+                </div>
+              ))}
+            </div>
+          </div>
         </div>
       </div>
     </section>

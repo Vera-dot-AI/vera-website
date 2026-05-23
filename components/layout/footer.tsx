@@ -130,10 +130,10 @@ export function Footer() {
                   Contact
                 </p>
                 <a
-                  href="mailto:hello@vera.ai"
+                  href="mailto:hello@veraops.ai"
                   className="font-mono-data text-xs text-muted-foreground hover:text-accent transition-colors duration-200 tracking-wider"
                 >
-                  hello@vera.ai
+                  hello@veraops.ai
                 </a>
               </div>
             </div>

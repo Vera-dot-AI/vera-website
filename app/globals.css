@@ -75,10 +75,12 @@
   * {
     border-color: hsl(var(--border));
   }
+
   html {
     scroll-behavior: smooth;
     view-transition-name: root;
   }
+
   body {
     overflow-x: hidden;
     background-color: hsl(var(--background));
@@ -88,8 +90,15 @@
 
 /* Native page transition fade */
 @keyframes page-fade-in {
-  from { opacity: 0; transform: translateY(8px); }
-  to   { opacity: 1; transform: translateY(0); }
+  from {
+    opacity: 0;
+    transform: translateY(8px);
+  }
+
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
 }
 
 ::view-transition-old(root) {
@@ -101,7 +110,9 @@
 }
 
 @keyframes fade-out {
-  to { opacity: 0; }
+  to {
+    opacity: 0;
+  }
 }
 
 /* Fade-in animation for sections */
@@ -110,6 +121,7 @@
     opacity: 0;
     transform: translateY(24px);
   }
+
   to {
     opacity: 1;
     transform: translateY(0);
@@ -121,48 +133,63 @@
 }
 
 /* Staggered children animations */
-.animate-stagger > * {
+.animate-stagger>* {
   opacity: 0;
   animation: fade-in-up 0.6s ease-out forwards;
 }
 
-.animate-stagger > *:nth-child(1) { animation-delay: 0.1s; }
-.animate-stagger > *:nth-child(2) { animation-delay: 0.2s; }
-.animate-stagger > *:nth-child(3) { animation-delay: 0.3s; }
-.animate-stagger > *:nth-child(4) { animation-delay: 0.4s; }
-.animate-stagger > *:nth-child(5) { animation-delay: 0.5s; }
+.animate-stagger>*:nth-child(1) {
+  animation-delay: 0.1s;
+}
+
+.animate-stagger>*:nth-child(2) {
+  animation-delay: 0.2s;
+}
+
+.animate-stagger>*:nth-child(3) {
+  animation-delay: 0.3s;
+}
+
+.animate-stagger>*:nth-child(4) {
+  animation-delay: 0.4s;
+}
+
+.animate-stagger>*:nth-child(5) {
+  animation-delay: 0.5s;
+}
 
 /* Blueprint grid for Reactive Grid */
 .blueprint-grid {
-  background-image: 
+  background-image:
     linear-gradient(hsl(var(--border) / 0.15) 1px, transparent 1px),
     linear-gradient(90deg, hsl(var(--border) / 0.15) 1px, transparent 1px);
   background-size: 40px 40px;
 }
 
 .dark .blueprint-grid {
-  background-image: 
+  background-image:
     linear-gradient(hsl(var(--border) / 0.25) 1px, transparent 1px),
     linear-gradient(90deg, hsl(var(--border) / 0.25) 1px, transparent 1px);
 }
 
 /* Hazard stripe for footer */
 .hazard-stripe {
-  background: repeating-linear-gradient(
-    -45deg,
-    transparent,
-    transparent 8px,
-    hsl(var(--accent) / 0.08) 8px,
-    hsl(var(--accent) / 0.08) 16px
-  );
+  background: repeating-linear-gradient(-45deg,
+      transparent,
+      transparent 8px,
+      hsl(var(--accent) / 0.08) 8px,
+      hsl(var(--accent) / 0.08) 16px);
 }
 
 /* Pulse animation for accent elements */
 @keyframes pulse-glow {
-  0%, 100% { 
+
+  0%,
+  100% {
     box-shadow: 0 0 0 0 hsl(var(--accent) / 0.4);
   }
-  50% { 
+
+  50% {
     box-shadow: 0 0 20px 4px hsl(var(--accent) / 0.2);
   }
 }
@@ -216,4 +243,8 @@
 .font-mono-data {
   font-family: var(--font-jetbrains), ui-monospace, monospace;
   font-feature-settings: "liga" 0;
+}
+
+::-webkit-scrollbar {
+  display: none;
 }

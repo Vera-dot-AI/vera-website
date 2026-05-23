@@ -18,7 +18,7 @@ export function ReactiveGrid() {
 
     const dpr = window.devicePixelRatio || 1;
     const rect = canvas.getBoundingClientRect();
-    
+
     // Set canvas size with device pixel ratio for crisp lines
     canvas.width = rect.width * dpr;
     canvas.height = rect.height * dpr;
@@ -51,7 +51,7 @@ export function ReactiveGrid() {
         if (distance < spotlightRadius) {
           const intensity = 1 - distance / spotlightRadius;
           const eased = Math.pow(intensity, 1.5); // Smoother falloff
-          
+
           // Interpolate color based on distance
           if (isDark) {
             ctx.strokeStyle = `rgba(42, 45, 52, ${0.15 + eased * 0.85})`;
@@ -83,7 +83,7 @@ export function ReactiveGrid() {
         if (distance < spotlightRadius) {
           const intensity = 1 - distance / spotlightRadius;
           const eased = Math.pow(intensity, 1.5); // Smoother falloff
-          
+
           if (isDark) {
             ctx.strokeStyle = `rgba(42, 45, 52, ${0.15 + eased * 0.85})`;
           } else {
@@ -106,7 +106,7 @@ export function ReactiveGrid() {
     if (mouseX > 0 && mouseY > 0) {
       const glowRadius = 100;
       const gradient = ctx.createRadialGradient(mouseX, mouseY, 0, mouseX, mouseY, glowRadius);
-      
+
       if (isDark) {
         gradient.addColorStop(0, "rgba(255, 87, 34, 0.25)");
         gradient.addColorStop(0.3, "rgba(255, 87, 34, 0.12)");
@@ -118,7 +118,7 @@ export function ReactiveGrid() {
         gradient.addColorStop(0.4, "rgba(255, 87, 34, 0.04)");
         gradient.addColorStop(1, "transparent");
       }
-      
+
       ctx.fillStyle = gradient;
       ctx.fillRect(mouseX - glowRadius, mouseY - glowRadius, glowRadius * 2, glowRadius * 2);
 

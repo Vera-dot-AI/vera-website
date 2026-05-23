@@ -7,8 +7,10 @@ export function FinalCta() {
       className="relative overflow-hidden bg-background px-6 py-24 md:py-32 border-y-2 border-border"
       aria-labelledby="final-cta-heading"
     >
-      {/* Blueprint grid background */}
-      <div className="absolute inset-0 blueprint-grid opacity-50" aria-hidden="true" />
+      {/* Background ambient glow */}
+      <div className="absolute inset-0 z-0">
+        <div className="absolute top-[50%] left-[50%] -translate-x-1/2 -translate-y-1/2 w-[500px] h-[500px] rounded-full bg-[#9945ff] opacity-[0.12] pointer-events-none filter blur-[100px]" />
+      </div>
 
       <div className="relative z-10 max-w-4xl mx-auto text-center flex flex-col items-center gap-8">
         <p className="text-xs font-mono-data tracking-widest text-accent">
@@ -30,7 +32,7 @@ export function FinalCta() {
 
         <div className="flex flex-col sm:flex-row items-center gap-4 mt-4 w-full sm:w-auto px-4 sm:px-0">
           <Link
-            href="mailto:hello@vera.ai"
+            href="mailto:hello@veraops.ai"
             className="btn-primary text-base px-8 sm:px-10 py-4 group w-full sm:w-auto justify-center"
           >
             Request Early Access
@@ -52,7 +54,7 @@ export function FinalCta() {
             </svg>
           </Link>
           <Link
-            href="mailto:hello@vera.ai"
+            href="mailto:hello@veraops.ai"
             className="btn-secondary text-base px-8 sm:px-10 py-4 w-full sm:w-auto justify-center"
           >
             Contact Us
@@ -63,10 +65,10 @@ export function FinalCta() {
         <div className="mt-8 flex items-center gap-3 text-muted-foreground">
           <div className="w-8 h-px bg-border" />
           <a
-            href="mailto:hello@vera.ai"
+            href="mailto:hello@veraops.ai"
             className="font-mono-data text-sm hover:text-accent transition-colors duration-200"
           >
-            hello@vera.ai
+            hello@veraops.ai
           </a>
           <div className="w-8 h-px bg-border" />
         </div>

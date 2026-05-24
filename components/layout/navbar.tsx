@@ -20,21 +20,20 @@ export function Navbar() {
       setScrolled(window.scrollY > 20);
       setPastHero(window.scrollY > window.innerHeight * 0.75);
     };
-    
+
     // Initial check
     handleScroll();
-    
+
     window.addEventListener("scroll", handleScroll, { passive: true });
     return () => window.removeEventListener("scroll", handleScroll);
   }, []);
 
   return (
     <header
-      className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${
-        scrolled
+      className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${scrolled
           ? "bg-background/85 backdrop-blur-md border-b border-white/10"
           : "bg-transparent"
-      }`}
+        }`}
     >
       <nav
         className="relative max-w-7xl mx-auto px-6 py-4 flex items-center justify-between"
@@ -46,9 +45,8 @@ export function Navbar() {
             <Logo className="w-full h-full text-white drop-shadow-[0_0_8px_rgba(255,255,255,0.4)]" />
           </div>
           <div
-            className={`overflow-hidden transition-all duration-500 ease-in-out flex items-center ${
-              pastHero ? "max-w-[100px] opacity-100 ml-3" : "max-w-0 opacity-0 ml-0"
-            }`}
+            className={`overflow-hidden transition-all duration-500 ease-in-out flex items-center ${pastHero ? "max-w-[100px] opacity-100 ml-3" : "max-w-0 opacity-0 ml-0"
+              }`}
           >
             <span
               className="font-barlow text-2xl font-bold text-white tracking-wider uppercase whitespace-nowrap"
@@ -117,19 +115,16 @@ export function Navbar() {
             aria-label="Toggle mobile menu"
           >
             <span
-              className={`block w-5 h-0.5 bg-white transition-transform duration-200 ${
-                menuOpen ? "translate-y-2 rotate-45" : ""
-              }`}
+              className={`block w-5 h-0.5 bg-white transition-transform duration-200 ${menuOpen ? "translate-y-2 rotate-45" : ""
+                }`}
             />
             <span
-              className={`block w-5 h-0.5 bg-white transition-opacity duration-200 ${
-                menuOpen ? "opacity-0" : ""
-              }`}
+              className={`block w-5 h-0.5 bg-white transition-opacity duration-200 ${menuOpen ? "opacity-0" : ""
+                }`}
             />
             <span
-              className={`block w-5 h-0.5 bg-white transition-transform duration-200 ${
-                menuOpen ? "-translate-y-2 -rotate-45" : ""
-              }`}
+              className={`block w-5 h-0.5 bg-white transition-transform duration-200 ${menuOpen ? "-translate-y-2 -rotate-45" : ""
+                }`}
             />
           </button>
         </div>
@@ -156,8 +151,8 @@ export function Navbar() {
               className="btn-pill-premium group w-full flex justify-between"
               onClick={() => setMenuOpen(false)}
             >
-              <span className="text-black font-semibold text-xs tracking-wider whitespace-nowrap">Contact Us</span>
-              <span className="w-7 h-7 rounded-full bg-accent flex items-center justify-center text-white">
+              <span className="text-white md:text-black font-semibold text-xs tracking-wider whitespace-nowrap">Contact Us</span>
+              <span className="hidden md:block w-7 h-7 rounded-full bg-accent flex items-center justify-center text-white">
                 <svg
                   width="14"
                   height="14"

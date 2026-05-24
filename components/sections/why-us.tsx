@@ -57,7 +57,7 @@ export function WhyUs() {
           {reasons.map((reason, i) => (
             <div
               key={reason.title}
-              className={`p-4 sm:p-6 flex flex-col gap-3 hover:bg-card transition-colors duration-200
+              className={`p-4 sm:p-6 flex flex-col gap-3 hover:bg-card/50 transition-colors duration-200
                 ${i < reasons.length - 1 ? "border-b-2 border-border" : ""}
                 ${i % 2 === 0 ? "sm:border-r-2 sm:border-border" : "sm:border-r-0"}
                 ${i >= reasons.length - 2 ? "sm:border-b-0" : ""}

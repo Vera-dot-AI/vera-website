@@ -6,7 +6,7 @@ import { FloatingTiles } from "@/components/ui/floating-tiles";
 export function Hero() {
   return (
     <section
-      className="relative min-h-[100dvh] flex items-center justify-center overflow-hidden bg-[#020005] px-6 pt-24 pb-20 md:pt-32 md:pb-32"
+      className="relative min-h-[100dvh] flex items-center justify-center overflow-hidden bg-background px-6 pt-24 pb-20 md:pt-32 md:pb-32"
       aria-label="Hero"
     >
       {/* Background spotlights */}

@@ -4,12 +4,13 @@ import { useState, useEffect } from "react";
 import Link from "next/link";
 import Image from "next/image";
 import { useTheme } from "next-themes";
+import { Logo } from "@/components/ui/logo";
 
 const quickLinks = [
   { label: "Home", href: "/" },
   { label: "About", href: "/#about" },
-  { label: "Process", href: "/#how-we-work" },
-  { label: "Contact", href: "/#contact" },
+  // { label: "Process", href: "/#how-we-work" },
+  // { label: "Contact", href: "/#contact" },
 ];
 
 const legalLinks = [
@@ -71,12 +72,7 @@ export function Footer() {
             <div className="flex flex-col gap-4 max-w-xs">
               <Link href="/" className="flex items-center gap-3 group" aria-label="Vera home">
                 <div className="w-9 h-9 relative transition-transform duration-300 group-hover:scale-105">
-                  <Image
-                    src={mounted && resolvedTheme === "dark" ? "/vera-logo-light.svg" : "/vera-logo-dark.svg"}
-                    alt="Vera logo mark"
-                    fill
-                    className="object-contain"
-                  />
+                  <Logo className="w-full h-full text-white drop-shadow-[0_0_8px_rgba(255,255,255,0.4)]" />
                 </div>
                 <span className="font-barlow text-xl font-bold text-foreground tracking-tight uppercase" style={{ lineHeight: 1 }}>
                   VERA

@@ -1,166 +1,19 @@
-import Image from "next/image";
-import Link from "next/link";
-
-const features = [
-  {
-    title: "Built on Your Knowledge Base",
-    description:
-      "GroundControl ingests your manuals, schematics, SOPs, and historical job data to build a domain-specific AI layer tailored to your operations.",
-  },
-  {
-    title: "On-Site Diagnostics",
-    description:
-      "Instantly analyze HVAC system schematics and identify faults with AI-powered visual understanding.",
-  },
-  {
-    title: "Step-by-Step Repair Guidance",
-    description:
-      "Walk technicians through complex repairs with context-aware, real-time instructions drawn from your own documentation.",
-  },
-  {
-    title: "Knowledge at Your Fingertips",
-    description:
-      "Access manuals, schematics, and historic job data instantly — without leaving the field.",
-  },
-];
-
 export function GroundControl() {
   return (
-    <section
-      id="products"
-      className="relative overflow-hidden bg-sky/30 grain-overlay px-6 py-24 md:py-32"
-      aria-labelledby="ground-control-heading"
-    >
-      {/* Blob decorations */}
-      <div
-        aria-hidden="true"
-        className="absolute top-[-15%] left-[-8%] w-[500px] h-[500px] bg-blush/50 blob opacity-60"
-      />
-      <div
-        aria-hidden="true"
-        className="absolute bottom-[-10%] right-[-8%] w-[400px] h-[400px] bg-sky/70 blob-2 opacity-70"
-      />
-
-      <div className="relative z-10 max-w-6xl mx-auto">
-        {/* Main content grid */}
-        <div className="grid md:grid-cols-2 gap-12 lg:gap-20 items-center">
-          {/* Left — text */}
-          <div className="flex flex-col gap-8">
-            <div>
-              <h2
-                id="ground-control-heading"
-                className="font-serif text-4xl sm:text-5xl md:text-6xl font-bold text-foreground leading-tight text-balance"
-              >
-                <span className="text-navy">GroundControl</span>
-              </h2>
-              <p className="mt-4 text-lg text-muted-foreground leading-relaxed">
-                Your field technician&apos;s intelligent copilot for on-site
-                diagnostics and repairs. Powered by your own knowledge base,
-                GroundControl brings AI expertise directly to the job site.
-              </p>
-            </div>
-
-            {/* Feature list */}
-            <ul className="flex flex-col gap-5" role="list">
-              {features.map((f) => (
-                <li key={f.title} className="flex gap-4 items-start">
-                  <div className="mt-1 flex-shrink-0 w-5 h-5 rounded-full bg-navy flex items-center justify-center">
-                    <svg
-                      width="10"
-                      height="8"
-                      viewBox="0 0 10 8"
-                      fill="none"
-                      aria-hidden="true"
-                    >
-                      <path
-                        d="M1 4L3.5 6.5L9 1"
-                        stroke="white"
-                        strokeWidth="1.5"
-                        strokeLinecap="round"
-                        strokeLinejoin="round"
-                      />
-                    </svg>
-                  </div>
-                  <div>
-                    <p className="font-semibold text-foreground text-sm">
-                      {f.title}
-                    </p>
-                    <p className="text-muted-foreground text-sm leading-relaxed mt-0.5">
-                      {f.description}
-                    </p>
-                  </div>
-                </li>
-              ))}
-            </ul>
-
-            {/* CTA */}
-            <div className="flex flex-col sm:flex-row gap-4 pt-2">
-              <a
-                href="https://v0-build-ai-website.vercel.app/"
-                target="_blank"
-                rel="noopener noreferrer"
-                className="group/btn inline-flex items-center justify-center gap-3 px-8 py-4 rounded-full bg-navy text-primary-foreground text-base font-semibold hover:bg-navy-light transition-all duration-300 shadow-md hover:shadow-xl hover:scale-[1.02]"
-              >
-                Try Demo
-                <svg
-                  width="16"
-                  height="16"
-                  viewBox="0 0 16 16"
-                  fill="none"
-                  aria-hidden="true"
-                  className="transition-transform duration-300 group-hover/btn:translate-x-1"
-                >
-                  <path
-                    d="M3 8H13M9 4L13 8L9 12"
-                    stroke="currentColor"
-                    strokeWidth="1.5"
-                    strokeLinecap="round"
-                    strokeLinejoin="round"
-                  />
-                </svg>
-              </a>
-              <Link
-                href="#how-groundcontrol-works"
-                className="group/lnk inline-flex items-center justify-center gap-2 px-8 py-4 rounded-full border border-navy/25 text-foreground text-base font-medium hover:border-navy/50 hover:bg-navy/5 transition-all duration-300 hover:scale-[1.02]"
-              >
-                Learn More
-                <svg
-                  width="14"
-                  height="14"
-                  viewBox="0 0 14 14"
-                  fill="none"
-                  aria-hidden="true"
-                >
-                  <path
-                    d="M2 7H12M8 3L12 7L8 11"
-                    stroke="currentColor"
-                    strokeWidth="1.5"
-                    strokeLinecap="round"
-                    strokeLinejoin="round"
-                  />
-                </svg>
-              </Link>
-            </div>
+    <section className="px-margin-mobile md:px-margin-desktop pb-24 relative z-20">
+      <div className="w-full bg-surface-container-high border border-outline-variant rounded-[2rem] overflow-hidden flex flex-col md:flex-row shadow-2xl relative">
+        <div className="p-10 md:p-16 min-[1080px]:p-20 flex-1 flex flex-col justify-center max-md:items-center max-md:text-center z-10 relative bg-surface-container-lowest">
+          <h2 className="font-headline-xl text-headline-lg-mobile md:text-headline-xl text-on-surface mb-4 leading-tight">GroundControl</h2>
+          <p className="font-body-lg text-body-lg text-on-surface-variant mb-8 max-w-md">
+            The Intelligent Copilot for On-Field Operations.
+          </p>
+          <div className="flex justify-center md:justify-start">
+            <button className="bg-primary text-on-primary px-6 py-3 rounded font-medium hover:opacity-90 transition-opacity flex items-center gap-2">
+              Learn more
+            </button>
           </div>
-
-          {/* Right — tablet mockup */}
-          <div className="relative flex items-center justify-center">
-            {/* Glow behind tablet */}
-            <div
-              aria-hidden="true"
-              className="absolute inset-0 rounded-3xl bg-gradient-to-br from-sky/60 to-blush/40 blur-2xl scale-90"
-            />
-            <div className="relative z-10 w-full max-w-md">
-              <Image
-                src="/ground-control-mockup.jpg"
-                alt="Ground Control app running on an iPad, showing HVAC schematics and AI chat interface"
-                width={600}
-                height={450}
-                className="w-full h-auto rounded-2xl shadow-2xl"
-                priority
-              />
-            </div>
-          </div>
+        </div>
+        <div className="hidden min-[1080px]:flex flex-1 relative min-[1080px]:min-h-full border-l border-outline-variant overflow-hidden cubic-light-pattern items-center justify-center">
         </div>
       </div>
     </section>

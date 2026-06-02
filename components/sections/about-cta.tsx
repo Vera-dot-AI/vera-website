@@ -1,85 +1,48 @@
-const coreValues = [
-  {
-    name: "Practical Innovation",
-    description: "We pursue innovation that solves real problems, not innovation for its own sake.",
-  },
-  {
-    name: "Reliability",
-    description: "Teams depend on our systems in critical moments. We build with that responsibility in mind.",
-  },
-  {
-    name: "Human-Centered AI",
-    description: "Every product decision starts with the person using it. AI is a tool in service of people.",
-  },
-  {
-    name: "Operational Excellence",
-    description: "We hold ourselves to the same standard we help our clients achieve.",
-  },
-];
-
 export function AboutCta() {
   return (
-    <section
-      id="about"
-      className="relative overflow-hidden bg-card grain-overlay px-6 py-24 md:py-32"
-      aria-labelledby="about-heading"
-    >
-      <div className="relative z-10 max-w-7xl mx-auto">
-        {/* Section label */}
-        <p className="text-xs font-mono-data tracking-widest text-accent mb-4">
-          // About VERA
-        </p>
-
-        {/* Two-column layout: story + values */}
-        <div className="flex flex-col lg:flex-row gap-12 lg:gap-20">
-          {/* Left: story */}
-          <div className="flex-1 flex flex-col gap-6">
-            <h2
-              id="about-heading"
-              className="font-barlow text-4xl sm:text-5xl md:text-6xl font-bold text-foreground leading-tight tracking-tight"
-            >
-              Building AI That
-              <br />
-              <span className="text-accent">Stands Behind</span>
-              <br />
-              Real Work.
-            </h2>
-            <div className="flex flex-col gap-4 text-muted-foreground leading-relaxed max-w-xl">
-              <p>
-                VERA was founded on a straightforward conviction: the most impactful AI is the kind that works quietly and reliably alongside people, not as a replacement, but as an amplifier of human capability.
-              </p>
-              <p>
-                We started by asking a simple question: where does skilled work break down, and how can intelligent systems make it better? That question guides every product we build and every partnership we pursue.
-              </p>
-              <p>
-                Our long-term vision is to become the trusted infrastructure for intelligent operations, delivering AI systems that teams depend on every day, across every industry where expertise matters.
+    <section className="px-margin-mobile md:px-margin-desktop py-24 section-divider" id="about">
+      <div className="structural-grid">
+        <div className="col-span-12 md:col-span-6 lg:col-span-7 pr-0 md:pr-12 max-md:flex max-md:flex-col max-md:items-center max-md:text-center">
+          <span className="font-label-caps text-label-caps text-primary tracking-widest uppercase mb-4 block">// About Vera</span>
+          <h2 className="font-headline-xl text-headline-lg md:text-headline-xl text-on-surface mb-8 leading-tight">
+            Building AI That<br/>
+            <span className="text-primary">Stands Behind Real Work.</span>
+          </h2>
+          <p className="text-on-surface-variant font-body-lg text-body-lg leading-relaxed max-w-2xl">
+            Vera was founded on a straightforward conviction: the most impactful AI works reliably alongside people, amplifying human capability.
+          </p>
+        </div>
+        
+        {/* Right Column: Core Values List */}
+        <div className="col-span-12 md:col-span-6 lg:col-span-5 mt-16 md:mt-0">
+          <h3 className="font-headline-md text-headline-md text-on-surface mb-6 border-b border-outline-variant pb-4">Core Values</h3>
+          <div className="flex flex-col gap-0 border border-outline-variant rounded-lg overflow-hidden">
+            <div className="material-panel border-0 border-b border-outline-variant p-6 last:border-b-0 hover:bg-surface-variant/30 transition-colors">
+              <h4 className="font-headline-md text-headline-md text-on-surface text-lg mb-2 flex items-center justify-between">
+                Practical Innovation
+                <span className="material-symbols-outlined text-primary text-sm">build</span>
+              </h4>
+              <p className="text-on-surface-variant font-body-md text-body-md text-sm">
+                Solving real operational challenges.
               </p>
             </div>
-          </div>
-
-          {/* Right: core values */}
-          <div className="w-full lg:w-80 xl:w-96 flex flex-col gap-4">
-            <h3 className="font-barlow font-bold text-foreground text-sm tracking-widest mb-2">
-              Core Values
-            </h3>
-            <div className="border-2 border-border grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-1">
-              {coreValues.map((value, i) => (
-                <div
-                  key={value.name}
-                  className={`p-4 sm:p-5 hover:bg-secondary/50 transition-colors duration-200 
-                    ${i < coreValues.length - 1 ? "border-b-2 border-border sm:border-b-0 lg:border-b-2" : ""}
-                    ${i % 2 === 0 ? "sm:border-r-2 sm:border-border lg:border-r-0" : ""}
-                    ${i < coreValues.length - 2 ? "sm:border-b-2" : ""}
-                  `}
-                >
-                  <p className="font-barlow font-bold text-foreground text-sm tracking-wide mb-1">
-                    {value.name}
-                  </p>
-                  <p className="text-xs text-muted-foreground leading-relaxed">
-                    {value.description}
-                  </p>
-                </div>
-              ))}
+            <div className="material-panel border-0 border-b border-outline-variant p-6 last:border-b-0 hover:bg-surface-variant/30 transition-colors">
+              <h4 className="font-headline-md text-headline-md text-on-surface text-lg mb-2 flex items-center justify-between">
+                Reliability
+                <span className="material-symbols-outlined text-primary text-sm">verified</span>
+              </h4>
+              <p className="text-on-surface-variant font-body-md text-body-md text-sm">
+                Dependable systems for critical moments.
+              </p>
+            </div>
+            <div className="material-panel border-0 border-b border-outline-variant p-6 last:border-b-0 hover:bg-surface-variant/30 transition-colors">
+              <h4 className="font-headline-md text-headline-md text-on-surface text-lg mb-2 flex items-center justify-between">
+                Human-Centered AI
+                <span className="material-symbols-outlined text-primary text-sm">group</span>
+              </h4>
+              <p className="text-on-surface-variant font-body-md text-body-md text-sm">
+                Empowering operators with context and clarity.
+              </p>
             </div>
           </div>
         </div>

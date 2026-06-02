@@ -1,121 +1,81 @@
 "use client";
 
-import Link from "next/link";
-import { FloatingTiles } from "@/components/ui/floating-tiles";
+import { useState, useEffect } from "react";
+
+const CARDS = [
+  { id: 1, icon: "psychology", text: "Context-aware copilots" },
+  { id: 2, icon: "account_tree", text: "Guided workflows" },
+  { id: 3, icon: "insights", text: "Real-time diagnostics" },
+];
 
 export function Hero() {
+  const [activeIndex, setActiveIndex] = useState(1);
+
+  useEffect(() => {
+    const interval = setInterval(() => {
+      setActiveIndex((current) => (current + 1) % 3);
+    }, 3000);
+    return () => clearInterval(interval);
+  }, []);
+
   return (
-    <section
-      className="relative min-h-[100dvh] flex items-center justify-center overflow-hidden bg-background px-6 pt-24 pb-20 md:pt-32 md:pb-32"
-      aria-label="Hero"
-    >
-      {/* Background spotlights */}
-      <div className="absolute inset-0 z-0">
-        <div className="absolute top-[10%] left-[5%] w-[600px] h-[600px] rounded-full bg-[#9945ff] opacity-[0.45] pointer-events-none filter blur-[100px]" />
-        <div className="absolute bottom-[10%] right-[5%] w-[650px] h-[650px] rounded-full bg-[#9945ff] opacity-[0.38] pointer-events-none filter blur-[120px]" />
-        <div className="absolute top-[0%] right-[10%] w-[400px] h-[400px] rounded-full bg-[#c084fc] opacity-[0.30] pointer-events-none filter blur-[90px]" />
-      </div>
-
-      <div className="relative z-20 max-w-7xl mx-auto w-full grid grid-cols-1 lg:grid-cols-12 gap-12 items-center">
-        {/* Left Column: Huge Headline and CTA */}
-        <div className="lg:col-span-7 flex flex-col items-center lg:items-start gap-6 text-center lg:text-left animate-fade-in-up">
-          <h1 className="font-sans text-5xl sm:text-6xl md:text-7xl lg:text-[4.8rem] xl:text-[5.5rem] font-extrabold text-white tracking-tight leading-[1.1] max-w-3xl">
-            Intelligent
-            <br />
-            Copilots. For
-            <br />
-            <span className="bg-gradient-to-r from-[#c084fc] via-[#9945ff] to-white bg-clip-text text-transparent pb-1">
-              Every Workflow.
-            </span>
+    <section className="px-margin-mobile md:px-margin-desktop py-24 md:py-32 section-divider relative overflow-hidden">
+      {/* Subtle grid background overlay for technical feel */}
+      <div className="absolute inset-0 pointer-events-none opacity-[0.03]" style={{ backgroundImage: "radial-gradient(#e5e1e4 1px, transparent 1px)", backgroundSize: "24px 24px" }}></div>
+      <div className="structural-grid relative z-10">
+        <div className="col-span-12 min-[1290px]:col-span-7 flex flex-col justify-center max-md:items-center max-md:text-center">
+          <span className="font-label-caps text-label-caps text-primary tracking-widest uppercase mb-6 block">// Platform</span>
+          <h1 className="font-headline-xl text-headline-lg md:text-headline-xl text-on-surface mb-6 leading-tight">
+            Intelligent Copilots.<br/>
+            <span className="text-primary">For Every Workflow.</span>
           </h1>
-
-          <p className="text-base sm:text-lg text-white/60 leading-relaxed max-w-lg font-medium mx-auto lg:mx-0">
+          <p className="font-body-lg text-body-lg text-on-surface-variant mb-10 max-w-xl">
             Building the intelligence layer for faster operational decision-making.
           </p>
-
-          {/* CTA Button — white pill with animated draw-border on hover */}
-          <div className="cta-btn-group group relative mt-4 inline-block">
-            <Link
-              href="/#contact"
-              className="relative inline-flex items-center justify-between gap-6 pl-8 pr-2 py-2 bg-white text-black font-bold text-sm sm:text-base rounded-full transition-all duration-300"
-            >
-              <span className="tracking-wider font-bold text-black">Try it now</span>
-              <span className="w-8 h-8 sm:w-9 sm:h-9 rounded-full bg-[#9945ff] flex items-center justify-center text-white transition-transform duration-100 group-hover:translate-x-0.5">
-                <svg
-                  width="18"
-                  height="18"
-                  viewBox="0 0 16 16"
-                  fill="none"
-                  aria-hidden="true"
-                >
-                  <path
-                    d="M3 8H13M9 4L13 8L9 12"
-                    stroke="currentColor"
-                    strokeWidth="2.5"
-                    strokeLinecap="round"
-                    strokeLinejoin="round"
-                  />
-                </svg>
-              </span>
-            </Link>
-
-            {/* SVG border — 5px gap outside button, draws clockwise from top-left on hover */}
-            <svg
-              aria-hidden="true"
-              className="pointer-events-none absolute"
-              style={{
-                top: "-5px",
-                left: "-5px",
-                width: "calc(100% + 10px)",
-                height: "calc(100% + 10px)",
-                overflow: "visible",
-              }}
-            >
-              <rect
-                x="0"
-                y="0"
-                width="100%"
-                height="100%"
-                rx="31"
-                ry="31"
-                fill="none"
-                stroke="rgba(255,255,255,0.65)"
-                strokeWidth="1.5"
-                className="cta-border-rect"
-              />
-            </svg>
+          <div className="flex flex-wrap gap-4 justify-center md:justify-start">
+            <button className="bg-primary text-on-primary px-6 py-3 rounded font-medium flex items-center gap-2 hover:opacity-90 transition-opacity group">
+              Try it now
+              <span className="material-symbols-outlined group-hover:translate-x-1 transition-transform">arrow_forward</span>
+            </button>
+            <button className="border border-outline-variant text-on-surface px-6 py-3 rounded font-medium flex items-center gap-2 hover:bg-surface-variant transition-colors">
+              Explore platform
+            </button>
           </div>
         </div>
+        
+        {/* Technical Abstract Visual / Feature List */}
+        <div className="col-span-12 min-[1290px]:col-span-5 hidden min-[1290px]:block relative h-[300px]">
+          <div className="absolute inset-0 right-0 max-w-sm ml-auto">
+            {CARDS.map((card, index) => {
+              const position = (index - activeIndex + 3) % 3;
+              
+              let positionClasses = "";
+              if (position === 0) {
+                // Top
+                positionClasses = "-translate-y-[84px] translate-x-4 opacity-40 scale-95 z-0";
+              } else if (position === 1) {
+                // Middle
+                positionClasses = "translate-y-0 -translate-x-4 opacity-100 scale-105 z-10 shadow-xl border-primary/40";
+              } else {
+                // Bottom
+                positionClasses = "translate-y-[84px] translate-x-4 opacity-40 scale-95 z-0";
+              }
 
-        {/* Right Column: Floating Staggered Badges */}
-        <FloatingTiles />
+              return (
+                <div 
+                  key={card.id} 
+                  className={`absolute top-1/2 -mt-[36px] right-0 material-panel p-4 rounded-lg flex items-center gap-4 w-full transition-all duration-700 ease-in-out ${positionClasses}`}
+                >
+                  <div className="w-10 h-10 rounded bg-primary-container/20 flex items-center justify-center text-primary">
+                    <span className="material-symbols-outlined">{card.icon}</span>
+                  </div>
+                  <span className="font-medium text-on-surface">{card.text}</span>
+                </div>
+              );
+            })}
+          </div>
+        </div>
       </div>
-
-      {/* Animations */}
-      <style jsx global>{`
-        /* Border draw: hidden by default */
-        .cta-border-rect {
-          stroke-dasharray: 1500;
-          stroke-dashoffset: 1500;
-        }
-
-        .cta-btn-group:hover .cta-border-rect {
-          animation: drawBorder 0.8s linear forwards;
-        }
-
-        @keyframes drawBorder {
-          0%   { stroke-dashoffset: 1500; }
-          100% { stroke-dashoffset: 0; }
-        }
-
-        /* Soft white glow on the button itself */
-        .cta-btn-group > a {
-          transition: box-shadow 0.4s ease;
-        }
-        .cta-btn-group:hover > a {
-          box-shadow: 0 0 22px 6px rgba(255, 255, 255, 0.25);
-        }
-      `}</style>
     </section>
   );
 }

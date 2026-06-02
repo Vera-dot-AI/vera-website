@@ -1,5 +1,5 @@
 import type { Metadata, Viewport } from "next";
-import { Inter, Barlow_Condensed, JetBrains_Mono } from "next/font/google";
+import { Inter, JetBrains_Mono, Hanken_Grotesk } from "next/font/google";
 import { ThemeProvider } from "@/components/providers/theme-provider";
 import "./globals.css";
 
@@ -9,39 +9,38 @@ const inter = Inter({
   display: "swap",
 });
 
-const barlowCondensed = Barlow_Condensed({
+const hankenGrotesk = Hanken_Grotesk({
   subsets: ["latin"],
-  variable: "--font-barlow",
-  weight: ["400", "600", "700", "800"],
+  variable: "--font-hanken-grotesk",
   display: "swap",
 });
 
 const jetbrainsMono = JetBrains_Mono({
   subsets: ["latin"],
-  variable: "--font-jetbrains",
+  variable: "--font-jetbrains-mono",
   weight: ["400", "500"],
   display: "swap",
 });
 
 export const metadata: Metadata = {
-  title: "VERA AI - The Co-Pilot for Every Workflow",
+  title: "Vera - Intelligent Copilots",
   description:
-    "Vera builds intelligent co-pilots that integrate seamlessly into your operations. Universal applicability, zero friction.",
+    "Building the intelligence layer for faster operational decision-making.",
   keywords: ["AI", "co-pilot", "workflow automation", "intelligent systems", "Vera AI"],
   icons: {
-    icon: "/favicon.svg",
+    icon: "/logo.png",
   },
   openGraph: {
-    title: "VERA AI - The Co-Pilot for Every Workflow",
-    description: "Intelligent co-pilots that integrate seamlessly into every workflow.",
+    title: "Vera - Intelligent Copilots",
+    description: "Intelligent copilots for every workflow.",
     type: "website",
   },
 };
 
 export const viewport: Viewport = {
   themeColor: [
-    { media: "(prefers-color-scheme: light)", color: "#ffffff" },
-    { media: "(prefers-color-scheme: dark)", color: "#121212" },
+    { media: "(prefers-color-scheme: light)", color: "#f8fafc" },
+    { media: "(prefers-color-scheme: dark)", color: "#131315" },
   ],
   width: "device-width",
   initialScale: 1,
@@ -53,8 +52,11 @@ export default function RootLayout({
   children: React.ReactNode;
 }) {
   return (
-    <html lang="en" suppressHydrationWarning className={`${inter.variable} ${barlowCondensed.variable} ${jetbrainsMono.variable}`}>
-      <body className="font-sans antialiased bg-background text-foreground">
+    <html lang="en" suppressHydrationWarning className={`${inter.variable} ${hankenGrotesk.variable} ${jetbrainsMono.variable}`}>
+      <head>
+        <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&display=swap" rel="stylesheet"/>
+      </head>
+      <body className="font-body-md text-body-md antialiased overflow-x-hidden selection:bg-primary selection:text-on-primary">
         <ThemeProvider
           attribute="class"
           defaultTheme="light"

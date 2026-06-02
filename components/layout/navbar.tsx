@@ -2,26 +2,25 @@
 
 import { useState, useEffect } from "react";
 import Link from "next/link";
-import { Logo } from "@/components/ui/logo";
 
 const navLinks = [
-  { label: "Why Vera?", href: "/#why-us" },
-  // { label: "Process", href: "/#how-we-work" },
-  { label: "About", href: "/#about" },
+  { label: "Product", href: "#" },
+  { label: "Solutions", href: "#" },
+  { label: "Why Vera?", href: "#" },
+  { label: "About", href: "#" },
 ];
 
 export function Navbar() {
   const [scrolled, setScrolled] = useState(false);
-  const [menuOpen, setMenuOpen] = useState(false);
   const [pastHero, setPastHero] = useState(false);
+  const [menuOpen, setMenuOpen] = useState(false);
 
   useEffect(() => {
     const handleScroll = () => {
       setScrolled(window.scrollY > 20);
-      setPastHero(window.scrollY > window.innerHeight * 0.75);
+      setPastHero(window.scrollY > window.innerHeight * 0.6);
     };
 
-    // Initial check
     handleScroll();
 
     window.addEventListener("scroll", handleScroll, { passive: true });
@@ -29,150 +28,58 @@ export function Navbar() {
   }, []);
 
   return (
-    <header
-      className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${scrolled
-          ? "bg-background/85 backdrop-blur-md border-b border-white/10"
-          : "bg-transparent"
-        }`}
-    >
-      <nav
-        className="relative max-w-7xl mx-auto px-6 py-4 flex items-center justify-between"
-        aria-label="Main navigation"
-      >
-        {/* Logo */}
-        <Link href="/" className="flex items-center group" aria-label="Vera home">
-          <div className="w-9 h-9 relative flex-shrink-0 transition-transform duration-300 group-hover:scale-105">
-            <Logo className="w-full h-full text-white drop-shadow-[0_0_8px_rgba(255,255,255,0.4)]" />
-          </div>
-          <div
-            className={`overflow-hidden transition-all duration-500 ease-in-out flex items-center ${pastHero ? "max-w-[100px] opacity-100 ml-3" : "max-w-0 opacity-0 ml-0"
-              }`}
-          >
-            <span
-              className="font-barlow text-2xl font-bold text-white tracking-wider uppercase whitespace-nowrap"
-              style={{ lineHeight: 1 }}
-            >
-              VERA
-            </span>
-          </div>
-        </Link>
-
-        {/* Desktop: Center nav links */}
-        <div className="hidden md:flex absolute left-1/2 -translate-x-1/2">
-          <ul className="flex items-center gap-8" role="list">
-            {navLinks.map((link) => (
-              <li key={link.label}>
-                <Link
-                  href={link.href}
-                  className="text-sm font-medium text-white/70 hover:text-accent tracking-wide transition-colors duration-200"
-                >
-                  {link.label}
-                </Link>
-              </li>
-            ))}
-          </ul>
+    <nav className={`fixed w-full left-0 top-0 transition-all duration-300 z-50 bg-background ${scrolled ? "border-b border-outline-variant shadow-md" : "border-b border-transparent"}`}>
+      <div className="grid grid-cols-2 min-[1210px]:grid-cols-3 items-center w-full px-margin-mobile md:px-margin-desktop h-16 max-w-container-max mx-auto">
+        {/* Brand */}
+        <div className="flex justify-start">
+          <Link href="/" className="flex items-center group transition-transform duration-300">
+            <img src="/logo_clear.png" alt="Vera Logo" className="h-12 w-auto transition-transform duration-300 group-hover:scale-110" />
+            <span className={`text-headline-md font-headline-md font-bold tracking-tighter text-on-surface transition-all duration-500 ease-in-out whitespace-nowrap overflow-hidden ${pastHero ? "max-w-[100px] opacity-100 translate-x-0 ml-2" : "max-w-0 opacity-0 -translate-x-4 ml-0"}`}>Vera</span>
+          </Link>
         </div>
 
-        {/* Desktop: Right side - CTA button */}
-        <div className="hidden md:flex items-center gap-4">
-          <div className="relative group">
-            {/* White glow effect behind navbar CTA button */}
-            <div className="absolute -inset-0.5 rounded-full bg-white/10 blur opacity-65 group-hover:opacity-100 transition duration-300 shadow-[0_0_12px_rgba(255,255,255,0.2)]" />
-            <a
-              href="mailto:hello@veraops.ai"
-              target="_blank"
-              rel="noopener noreferrer"
-              className="relative inline-flex items-center justify-between gap-4 pl-5 pr-1.5 py-1.5 bg-white text-black font-semibold text-xs rounded-full transition-all duration-300 hover:scale-[1.02] shadow-[0_0_10px_rgba(255,255,255,0.3)]"
-            >
-              <span className="tracking-wider text-black font-bold whitespace-nowrap">Contact Us</span>
-              <span className="w-6 h-6 rounded-full bg-[#9945ff] flex items-center justify-center text-white transition-transform duration-200 group-hover:translate-x-0.5 shadow-sm">
-                <svg
-                  width="12"
-                  height="12"
-                  viewBox="0 0 16 16"
-                  fill="none"
-                  aria-hidden="true"
-                >
-                  <path
-                    d="M3 8H13M9 4L13 8L9 12"
-                    stroke="currentColor"
-                    strokeWidth="2.5"
-                    strokeLinecap="round"
-                    strokeLinejoin="round"
-                  />
-                </svg>
-              </span>
-            </a>
-          </div>
+        {/* Nav Links (Desktop) */}
+        <div className="hidden min-[1210px]:flex justify-center items-center gap-8">
+          {navLinks.map((link) => (
+            <Link key={link.label} className="text-on-surface-variant font-medium hover:text-primary transition-colors duration-200" href={link.href}>
+              {link.label}
+            </Link>
+          ))}
         </div>
 
-        {/* Mobile controls */}
-        <div className="flex md:hidden items-center gap-3">
-          <button
-            className="flex flex-col gap-1.5 p-2.5 border border-white/10 bg-white/5 rounded-xl"
-            onClick={() => setMenuOpen((o) => !o)}
-            aria-expanded={menuOpen}
-            aria-label="Toggle mobile menu"
-          >
-            <span
-              className={`block w-5 h-0.5 bg-white transition-transform duration-200 ${menuOpen ? "translate-y-2 rotate-45" : ""
-                }`}
-            />
-            <span
-              className={`block w-5 h-0.5 bg-white transition-opacity duration-200 ${menuOpen ? "opacity-0" : ""
-                }`}
-            />
-            <span
-              className={`block w-5 h-0.5 bg-white transition-transform duration-200 ${menuOpen ? "-translate-y-2 -rotate-45" : ""
-                }`}
-            />
+        {/* Trailing Actions */}
+        <div className="flex justify-end items-center gap-4">
+          <button className="hidden min-[1210px]:flex items-center gap-2 px-4 py-2 bg-primary text-on-primary rounded font-medium hover:opacity-90 transition-opacity group">
+            Contact Us
+            <span className="material-symbols-outlined text-sm transition-transform duration-300 group-hover:translate-x-1">arrow_forward</span>
+          </button>
+          <button className="min-[1210px]:hidden text-on-surface" onClick={() => setMenuOpen(!menuOpen)}>
+            <span className="material-symbols-outlined">{menuOpen ? "close" : "menu"}</span>
           </button>
         </div>
-      </nav>
+      </div>
 
-      {/* Mobile menu */}
+      {/* Mobile Menu */}
       {menuOpen && (
-        <div className="md:hidden bg-background border-t border-white/10 px-6 py-6 flex flex-col gap-4">
+        <div className="min-[1210px]:hidden bg-background border-t border-b border-outline-variant px-6 py-6 flex flex-col gap-4 shadow-xl">
           {navLinks.map((link) => (
             <Link
               key={link.label}
               href={link.href}
-              className="text-sm font-medium text-white/80 py-2 tracking-wide hover:text-accent transition-colors duration-200"
+              className="text-body-md font-medium text-on-surface-variant py-2 tracking-wide hover:text-primary transition-colors duration-200"
               onClick={() => setMenuOpen(false)}
             >
               {link.label}
             </Link>
           ))}
-          <div className="border-t border-white/10 pt-4 mt-2 flex flex-col gap-3">
-            <a
-              href="mailto:hello@veraops.ai"
-              target="_blank"
-              rel="noopener noreferrer"
-              className="btn-pill-premium group w-full flex justify-between"
-              onClick={() => setMenuOpen(false)}
-            >
-              <span className="text-white md:text-black font-semibold text-xs tracking-wider whitespace-nowrap">Contact Us</span>
-              <span className="hidden md:block w-7 h-7 rounded-full bg-accent flex items-center justify-center text-white">
-                <svg
-                  width="14"
-                  height="14"
-                  viewBox="0 0 16 16"
-                  fill="none"
-                  aria-hidden="true"
-                >
-                  <path
-                    d="M3 8H13M9 4L13 8L9 12"
-                    stroke="currentColor"
-                    strokeWidth="2.5"
-                    strokeLinecap="round"
-                    strokeLinejoin="round"
-                  />
-                </svg>
-              </span>
-            </a>
+          <div className="border-t border-outline-variant pt-4 mt-2">
+            <button className="w-full flex justify-between items-center px-4 py-3 bg-primary text-on-primary rounded font-medium">
+              Contact Us
+              <span className="material-symbols-outlined text-sm">arrow_forward</span>
+            </button>
           </div>
         </div>
       )}
-    </header>
+    </nav>
   );
 }

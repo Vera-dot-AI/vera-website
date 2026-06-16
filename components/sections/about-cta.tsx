@@ -1,6 +1,6 @@
 export function AboutCta() {
   return (
-    <section className="px-margin-mobile md:px-margin-desktop py-24 section-divider" id="about">
+    <section className="px-margin-mobile md:px-margin-desktop py-24 section-divider scroll-mt-24" id="about">
       <div className="structural-grid">
         <div className="col-span-12 md:col-span-6 lg:col-span-7 pr-0 md:pr-12 max-md:flex max-md:flex-col max-md:items-center max-md:text-center">
           <span className="font-label-caps text-label-caps text-primary tracking-widest uppercase mb-4 block">// About Vera</span>

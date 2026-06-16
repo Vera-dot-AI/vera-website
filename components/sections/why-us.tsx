@@ -33,7 +33,7 @@ export function WhyUs() {
   ];
 
   return (
-    <section className="px-margin-mobile md:px-margin-desktop pt-24 mb-0 section-divider" id="why-us">
+    <section className="px-margin-mobile md:px-margin-desktop pt-24 mb-0 section-divider scroll-mt-24" id="why-us">
       <div className="mb-16 max-md:flex max-md:flex-col max-md:items-center max-md:text-center">
         <span className="font-label-caps text-label-caps text-primary tracking-widest uppercase mb-4 block">// Differentiators</span>
         <h2 className="font-headline-lg text-headline-lg text-on-surface">Why Vera</h2>

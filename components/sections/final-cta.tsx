@@ -31,7 +31,7 @@ export function FinalCta() {
         </p>
 
         <div className="flex flex-col sm:flex-row items-center gap-4 mt-4 w-full sm:w-auto px-4 sm:px-0">
-          <Link
+          <a
             href="mailto:hello@veraops.ai"
             className="btn-primary text-base px-8 sm:px-10 py-4 group w-full sm:w-auto justify-center"
           >
@@ -52,13 +52,13 @@ export function FinalCta() {
                 strokeLinejoin="round"
               />
             </svg>
-          </Link>
-          <Link
+          </a>
+          <a
             href="mailto:hello@veraops.ai"
             className="btn-secondary text-base px-8 sm:px-10 py-4 w-full sm:w-auto justify-center"
           >
             Contact Us
-          </Link>
+          </a>
         </div>
 
         {/* Email display */}

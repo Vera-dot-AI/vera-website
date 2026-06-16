@@ -4,10 +4,9 @@ import { useState, useEffect } from "react";
 import Link from "next/link";
 
 const navLinks = [
-  { label: "Product", href: "#" },
-  { label: "Solutions", href: "#" },
-  { label: "Why Vera?", href: "#" },
-  { label: "About", href: "#" },
+  { label: "Solutions", href: "#product" },
+  { label: "Why Vera?", href: "#why-us" },
+  { label: "About", href: "#about" },
 ];
 
 export function Navbar() {
@@ -49,10 +48,10 @@ export function Navbar() {
 
         {/* Trailing Actions */}
         <div className="flex justify-end items-center gap-4">
-          <button className="hidden min-[1210px]:flex items-center gap-2 px-4 py-2 bg-primary text-on-primary rounded font-medium hover:opacity-90 transition-opacity group">
+          <a href="mailto:hello@veraops.ai" className="hidden min-[1210px]:flex items-center gap-2 px-4 py-2 bg-primary text-on-primary rounded font-medium hover:opacity-90 transition-opacity group">
             Contact Us
             <span className="material-symbols-outlined text-sm transition-transform duration-300 group-hover:translate-x-1">arrow_forward</span>
-          </button>
+          </a>
           <button className="min-[1210px]:hidden text-on-surface" onClick={() => setMenuOpen(!menuOpen)}>
             <span className="material-symbols-outlined">{menuOpen ? "close" : "menu"}</span>
           </button>
@@ -73,10 +72,10 @@ export function Navbar() {
             </Link>
           ))}
           <div className="border-t border-outline-variant pt-4 mt-2">
-            <button className="w-full flex justify-between items-center px-4 py-3 bg-primary text-on-primary rounded font-medium">
+            <a href="mailto:hello@veraops.ai" className="w-full flex justify-between items-center px-4 py-3 bg-primary text-on-primary rounded font-medium">
               Contact Us
               <span className="material-symbols-outlined text-sm">arrow_forward</span>
-            </button>
+            </a>
           </div>
         </div>
       )}

@@ -100,8 +100,8 @@ export function Deploy() {
                         x={x + 18}
                         y={y + 26}
                         fontSize="10.5"
-                        fontFamily="var(--font-geist-mono), monospace"
-                        letterSpacing="1.4"
+                        fontFamily="var(--font-switzer), sans-serif"
+                        letterSpacing="0.9"
                         fill={isActive ? "#4F46E5" : "#5B6170"}
                         style={{ textTransform: "uppercase", transition: "fill 300ms" }}
                       >
@@ -165,10 +165,10 @@ export function Deploy() {
                       </span>
                       <span>
                         <span className="flex items-center gap-2">
-                          <span className="font-mono text-[11px] text-body">0{i + 1}</span>
+                          <span className="text-[11px] font-medium text-body">0{i + 1}</span>
                           <span className="font-semibold text-ink">{t.name}</span>
                         </span>
-                        <span className="mt-1 block leading-relaxed text-body">{t.body}</span>
+                        <span className="mt-1 block leading-[1.6] text-body">{t.body}</span>
                       </span>
                     </button>
                   </Reveal>

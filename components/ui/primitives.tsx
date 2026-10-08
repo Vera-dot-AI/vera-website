@@ -38,7 +38,7 @@ export function Eyebrow({
   return (
     <p
       className={cn(
-        "inline-flex items-center gap-2 font-mono text-[11px] font-medium uppercase tracking-[0.16em]",
+        "inline-flex items-center gap-2 font-mono text-[11px] font-medium uppercase tracking-[0.08em]",
         dark ? "text-indigo-200" : "text-accent",
         className,
       )}
@@ -105,7 +105,7 @@ export function SectionHeading({
       {eyebrow && <Eyebrow dark={dark}>{eyebrow}</Eyebrow>}
       <h2
         className={cn(
-          "mt-4 text-balance text-[2rem] font-semibold leading-[1.1] tracking-[-0.03em] sm:text-[2.5rem] lg:text-[2.875rem]",
+          "mt-4 text-balance text-[2rem] font-semibold leading-[1.05] tracking-[-0.025em] sm:text-[2.5rem] lg:text-[2.875rem]",
           dark ? "text-white" : "text-ink",
         )}
       >
@@ -114,7 +114,7 @@ export function SectionHeading({
       {body && (
         <p
           className={cn(
-            "mt-5 text-pretty text-base leading-relaxed sm:text-lg",
+            "mt-5 text-pretty text-base leading-[1.6] sm:text-lg",
             dark ? "text-slate-300" : "text-body",
           )}
         >

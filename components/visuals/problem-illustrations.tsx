@@ -53,7 +53,7 @@ export function SlowIllustration() {
             <span className="h-2.5 w-2.5 rounded-pill bg-slate-300" />
           </span>
         ))}
-        <span className="ml-auto flex items-center gap-1.5 rounded-pill border border-accent/20 bg-accent-soft px-2.5 py-1 font-mono text-[10px] uppercase tracking-wider text-accent">
+        <span className="ml-auto flex items-center gap-1.5 rounded-pill border border-accent/20 bg-accent-soft px-2.5 py-1 text-[10px] font-medium uppercase tracking-[0.08em] text-accent">
           <span className="h-1.5 w-1.5 animate-pulse rounded-pill bg-accent" />
           Expert busy
         </span>
@@ -65,7 +65,7 @@ export function SlowIllustration() {
             style={{ transform: "scaleX(0.63)", animation: "stall-bar 6s ease-out infinite" }}
           />
         </div>
-        <div className="mt-2 flex justify-between font-mono text-[10px] uppercase tracking-wider text-body">
+        <div className="mt-2 flex justify-between text-[10px] font-medium uppercase tracking-[0.08em] text-body">
           <span>Waiting on answer</span>
           <span className="animate-pulse">&hellip;</span>
         </div>

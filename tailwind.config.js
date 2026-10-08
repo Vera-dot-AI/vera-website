@@ -87,8 +87,8 @@ module.exports = {
         "margin-desktop": "64px"
       },
       fontFamily: {
-        sans: ["var(--font-geist)", "ui-sans-serif", "system-ui", "sans-serif"],
-        mono: ["var(--font-geist-mono)", "ui-monospace", "SFMono-Regular", "monospace"],
+        sans: ["var(--font-switzer)", "ui-sans-serif", "system-ui", "sans-serif"],
+        mono: ["var(--font-plex-mono)", "ui-monospace", "SFMono-Regular", "monospace"],
         "headline-lg": ["var(--font-hanken-grotesk)", "sans-serif"],
         "label-caps": ["var(--font-jetbrains-mono)", "monospace"],
         "headline-xl": ["var(--font-hanken-grotesk)", "sans-serif"],

@@ -24,7 +24,7 @@ export function WhyVera() {
                   <Icon aria-hidden className="h-5 w-5 transition-transform duration-500 group-hover:rotate-6" />
                 </span>
                 <h3 className="mt-5 text-lg font-semibold tracking-tight text-ink">{title}</h3>
-                <p className="mt-2 leading-relaxed text-body">{body}</p>
+                <p className="mt-2 leading-[1.6] text-body">{body}</p>
               </GlowCard>
             </Reveal>
           ))}

@@ -7,10 +7,10 @@ import { Logo } from "@/components/ui/logo";
 import { cn } from "@/lib/utils";
 
 const navLinks = [
-  { label: "Platform", href: "#platform" },
-  { label: "Agents", href: "#agents" },
-  { label: "Products", href: "#products" },
-  { label: "Deploy", href: "#deploy" },
+  { label: "Platform", href: "/#platform" },
+  { label: "Agents", href: "/#agents" },
+  { label: "Products", href: "/#products" },
+  { label: "Deploy", href: "/#deploy" },
 ];
 
 export function Navbar() {
@@ -46,7 +46,7 @@ export function Navbar() {
       >
         <Link href="/" className="flex items-center gap-2 rounded-md text-ink" aria-label="Vera AI home">
           <Logo className="h-8 w-8" />
-          <span className="text-lg font-semibold tracking-tight">Vera</span>
+          <span className="text-lg font-medium tracking-[-0.025em]">Vera</span>
         </Link>
 
         <ul className="hidden items-center gap-1 md:flex">

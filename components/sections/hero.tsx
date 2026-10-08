@@ -66,11 +66,11 @@ export function Hero() {
           <Eyebrow>AI copilots + knowledge layer</Eyebrow>
           <h1
             id="hero-title"
-            className="mt-5 text-balance text-[2.75rem] font-bold leading-[1.02] tracking-[-0.045em] text-ink sm:text-6xl lg:text-[4rem] xl:text-[4.5rem]"
+            className="mt-5 text-balance text-[2.75rem] font-semibold leading-[1.05] tracking-[-0.025em] text-ink sm:text-[3.75rem] lg:text-[4rem] xl:text-[4.5rem]"
           >
             Your organization&rsquo;s knowledge, <span className="text-gradient">turned into copilots.</span>
           </h1>
-          <p className="mt-6 max-w-[540px] text-pretty text-lg leading-relaxed text-body">
+          <p className="mt-6 max-w-[540px] text-pretty text-lg leading-[1.6] text-body">
             Vera builds the knowledge layer and the AI agents on top of it, so every person on your team works
             with your best expert&rsquo;s know-how.
           </p>
@@ -110,7 +110,7 @@ export function Hero() {
             className="absolute -inset-6 rounded-[2rem] bg-[radial-gradient(closest-side,rgba(124,58,237,0.16),transparent)] blur-2xl"
           />
           <figure className="relative rounded-[1.5rem] border border-line bg-white/90 p-4 shadow-[0_1px_2px_rgba(16,24,40,0.04),0_30px_60px_-20px_rgba(79,70,229,0.25)] backdrop-blur sm:p-6">
-            <figcaption className="mb-3 flex items-center justify-between font-mono text-[10px] uppercase tracking-[0.16em] text-body sm:mb-4 sm:text-[11px]">
+            <figcaption className="mb-3 flex items-center justify-between font-mono text-[10px] uppercase tracking-[0.08em] text-body sm:mb-4 sm:text-[11px]">
               <span>Knowledge &rarr; Agents</span>
               <span className="flex items-center gap-1.5 text-accent">
                 <span aria-hidden className="h-1.5 w-1.5 animate-pulse rounded-pill bg-accent" />

@@ -31,11 +31,11 @@ export function KnowledgeLayer() {
             <Eyebrow dark>Knowledge layer</Eyebrow>
             <h2
               id="platform-title"
-              className="mt-4 text-balance text-[2rem] font-semibold leading-[1.1] tracking-[-0.03em] text-white sm:text-[2.5rem] lg:text-[2.875rem]"
+              className="mt-4 text-balance text-[2rem] font-semibold leading-[1.05] tracking-[-0.025em] text-white sm:text-[2.5rem] lg:text-[2.875rem]"
             >
               One knowledge layer for everything your team knows.
             </h2>
-            <p className="mt-5 text-pretty text-base leading-relaxed text-slate-300 sm:text-lg">
+            <p className="mt-5 text-pretty text-base leading-[1.6] text-slate-300 sm:text-lg">
               Vera takes in your documents, manuals, records, and the history of the work itself, and turns them
               into structured, searchable knowledge. Every answer is grounded in your sources, not the open
               internet.

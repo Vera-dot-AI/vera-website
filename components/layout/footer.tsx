@@ -1,25 +1,35 @@
-import Link from "next/link";
+import { Logo } from "@/components/ui/logo";
+import { container } from "@/lib/utils";
+
+const links = [
+  { label: "Products", href: "#products" },
+  { label: "Contact", href: "#contact" },
+  // TODO: replace with the Vera AI LinkedIn page URL.
+  { label: "LinkedIn", href: "#" },
+  // TODO: replace with the privacy policy URL.
+  { label: "Privacy", href: "#" },
+];
 
 export function Footer() {
   return (
-    <footer className="bg-surface-container-lowest w-full bottom-0 border-t border-outline-variant">
-      <div className="grid grid-cols-1 md:grid-cols-2 gap-gutter px-margin-mobile md:px-margin-desktop py-12 max-w-container-max mx-auto">
-        {/* Brand & Copyright */}
-        <div className="flex flex-col gap-4 max-md:items-center max-md:text-center">
-          <span className="text-headline-md font-headline-md text-on-surface font-bold tracking-tight">Vera</span>
-          <p className="text-body-md font-body-md text-on-surface-variant">
-            &copy; {new Date().getFullYear()} Vera AI. All rights reserved. Built for real work.
-          </p>
+    <footer className="border-t border-white/10 bg-ink text-slate-400">
+      <div className={`${container} flex flex-col gap-6 py-10 sm:flex-row sm:items-center sm:justify-between`}>
+        <div className="flex items-center gap-2 text-white">
+          <Logo className="h-7 w-7" />
+          <span className="font-semibold tracking-tight">Vera</span>
         </div>
-        
-        {/* Links */}
-        <div className="flex flex-wrap gap-6 md:justify-end items-center md:items-end justify-center">
-          <Link className="text-label-caps font-label-caps text-on-surface-variant hover:text-on-surface underline hover:translate-y-[-1px] transition-transform" href="#">Privacy Policy</Link>
-          <Link className="text-label-caps font-label-caps text-on-surface-variant hover:text-on-surface underline hover:translate-y-[-1px] transition-transform" href="#">Terms of Service</Link>
-          <Link className="text-label-caps font-label-caps text-on-surface-variant hover:text-on-surface underline hover:translate-y-[-1px] transition-transform" href="#">Security</Link>
-          <Link className="text-label-caps font-label-caps text-on-surface-variant hover:text-on-surface underline hover:translate-y-[-1px] transition-transform" href="#">Status</Link>
-          <Link className="text-label-caps font-label-caps text-on-surface-variant hover:text-on-surface underline hover:translate-y-[-1px] transition-transform" href="#">LinkedIn</Link>
-        </div>
+        <nav aria-label="Footer">
+          <ul className="flex flex-wrap gap-x-6 gap-y-2 text-sm">
+            {links.map((link) => (
+              <li key={link.label}>
+                <a href={link.href} className="transition-colors hover:text-white">
+                  {link.label}
+                </a>
+              </li>
+            ))}
+          </ul>
+        </nav>
+        <p className="text-sm">&copy; {new Date().getFullYear()} Vera AI</p>
       </div>
     </footer>
   );

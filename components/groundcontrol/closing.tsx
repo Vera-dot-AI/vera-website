@@ -2,9 +2,7 @@ import { ArrowLeft, ArrowRight } from "lucide-react";
 import { Constellation } from "@/components/visuals/constellation";
 import { Reveal } from "@/components/ui/primitives";
 import { container } from "@/lib/utils";
-
-// TODO: team to confirm the public contact address.
-const CONTACT_EMAIL = "hello@veraops.ai";
+import { CONTACT_EMAIL } from "@/lib/site";
 
 export function GroundControlClosing() {
   return (
@@ -46,7 +44,9 @@ export function GroundControlClosing() {
               Back to Vera
             </a>
           </div>
-          <p className="mt-4 text-sm text-slate-400">{CONTACT_EMAIL}</p>
+          <a href={`mailto:${CONTACT_EMAIL}`} className="mt-4 inline-block text-sm text-slate-300 hover:text-white">
+            {CONTACT_EMAIL}
+          </a>
         </Reveal>
       </div>
     </section>

@@ -1,5 +1,7 @@
+import type { Metadata } from "next";
 import { Navbar } from "@/components/layout/navbar";
 import { Footer } from "@/components/layout/footer";
+import { OrganizationJsonLd } from "@/components/seo/organization-jsonld";
 import { MotionProvider } from "@/components/ui/motion-provider";
 import { Hero } from "@/components/sections/hero";
 import { Problem } from "@/components/sections/problem";
@@ -10,10 +12,14 @@ import { Products } from "@/components/sections/products";
 import { Deploy } from "@/components/sections/deploy";
 import { WhyVera } from "@/components/sections/why-vera";
 import { ClosingCta } from "@/components/sections/closing-cta";
+import { pageMetadata } from "@/lib/site";
+
+export const metadata: Metadata = pageMetadata("home");
 
 export default function Home() {
   return (
     <MotionProvider>
+      <OrganizationJsonLd />
       <a
         href="#main"
         className="sr-only focus:not-sr-only focus:fixed focus:left-4 focus:top-4 focus:z-[60] focus:rounded-pill focus:bg-white focus:px-4 focus:py-2 focus:text-sm focus:font-medium focus:text-ink focus:shadow-lift"

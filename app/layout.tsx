@@ -1,6 +1,7 @@
 import type { Metadata, Viewport } from "next";
 import localFont from "next/font/local";
 import { IBM_Plex_Mono } from "next/font/google";
+import { SITE_URL } from "@/lib/site";
 import "./globals.css";
 
 const switzer = localFont({
@@ -22,19 +23,7 @@ const plexMono = IBM_Plex_Mono({
 });
 
 export const metadata: Metadata = {
-  title: "Vera AI | Your organization's knowledge, turned into copilots",
-  description:
-    "Vera builds the knowledge layer and the AI agents on top of it, so every person on your team works with your best expert's know-how.",
-  keywords: ["AI copilots", "knowledge layer", "AI agents", "enterprise knowledge", "Vera AI"],
-  icons: {
-    icon: "/favicon.svg",
-  },
-  openGraph: {
-    title: "Vera AI | Knowledge, turned into copilots",
-    description:
-      "One knowledge layer for everything your team knows, and copilots that do the work with you.",
-    type: "website",
-  },
+  metadataBase: new URL(SITE_URL),
 };
 
 export const viewport: Viewport = {

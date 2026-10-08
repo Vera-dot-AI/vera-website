@@ -1,4 +1,5 @@
 import type { Metadata } from "next";
+import { pageMetadata } from "@/lib/site";
 import { Navbar } from "@/components/layout/navbar";
 import { Footer } from "@/components/layout/footer";
 import { MotionProvider } from "@/components/ui/motion-provider";
@@ -10,11 +11,7 @@ import { Capabilities } from "@/components/groundcontrol/capabilities";
 import { Audience } from "@/components/groundcontrol/audience";
 import { GroundControlClosing } from "@/components/groundcontrol/closing";
 
-export const metadata: Metadata = {
-  title: "GroundControl | The AI copilot for field operations",
-  description:
-    "GroundControl puts expert know-how in every technician's pocket, so teams diagnose faster, fix it the first time, and never lose what their best people know.",
-};
+export const metadata: Metadata = pageMetadata("groundcontrol");
 
 export default function GroundControlPage() {
   return (

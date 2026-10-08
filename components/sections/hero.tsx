@@ -61,7 +61,7 @@ export function Hero() {
         </m.div>
       </div>
 
-      <div className="relative mx-auto grid w-full max-w-[1240px] items-center gap-12 px-5 sm:px-8 lg:grid-cols-[1.02fr_1fr] lg:gap-10">
+      <div className="relative mx-auto grid w-full max-w-[1280px] items-center gap-12 px-5 sm:px-8 lg:grid-cols-[0.9fr_1.1fr] lg:gap-10">
         <div className="max-w-[640px]">
           <Eyebrow>AI copilots + knowledge layer</Eyebrow>
           <h1

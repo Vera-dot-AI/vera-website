@@ -15,6 +15,15 @@ const steps = [
   "Hand off the next step",
 ];
 
+const hints = [
+  "Pulling the task brief and scope from your docs.",
+  "Found similar past jobs in your work history.",
+  "Checks follow your standard procedure, in order.",
+  "Notes are captured as you go, no retyping.",
+  "Hand-off summary drafted for the next person.",
+  "All steps complete. Summary saved to the record.",
+];
+
 export function GuidedDemo() {
   const reduced = usePrefersReducedMotion();
   const { ref, inView } = useActiveInView();
@@ -22,7 +31,7 @@ export function GuidedDemo() {
   const phase = useStepLoop([1200, 1100, 1100, 1100, 1100, 2600], inView, reduced);
 
   return (
-    <div ref={ref} className="rounded-xl border border-line bg-canvas/60 p-4" aria-hidden="true">
+    <div ref={ref} className="flex h-full flex-col rounded-xl border border-line bg-canvas/60 p-4" aria-hidden="true">
       <div className="mb-3 flex items-center justify-between">
         <span className="font-mono text-[10px] uppercase tracking-[0.14em] text-body">Task checklist</span>
         <span className="font-mono text-[10px] text-accent">
@@ -35,37 +44,50 @@ export function GuidedDemo() {
           style={{ transform: `scaleX(${Math.min(phase, steps.length) / steps.length})` }}
         />
       </div>
-      <ol className="space-y-2">
-        {steps.map((s, i) => {
-          const done = i < phase;
-          const current = i === phase;
-          return (
-            <li
-              key={s}
-              className={cn(
-                "flex items-center gap-3 rounded-lg border px-3 py-2.5 text-sm transition-colors duration-500",
-                done && "border-line bg-white text-ink",
-                current && "border-accent/30 bg-white text-ink shadow-[0_0_0_3px_rgba(79,70,229,0.08)]",
-                !done && !current && "border-transparent text-body",
-              )}
-            >
-              <span
+      <div className="flex flex-1 flex-col justify-center">
+        <ol className="space-y-2 lg:space-y-2.5">
+          {steps.map((s, i) => {
+            const done = i < phase;
+            const current = i === phase;
+            return (
+              <li
+                key={s}
                 className={cn(
-                  "flex h-5 w-5 shrink-0 items-center justify-center rounded-pill border transition-all duration-500",
-                  done ? "scale-100 border-transparent bg-accent-gradient" : "border-slate-300 bg-white",
+                  "flex items-center gap-3 rounded-lg border px-3 py-2.5 text-sm transition-colors duration-500 lg:py-3.5",
+                  done && "border-line bg-white text-ink",
+                  current && "border-accent/30 bg-white text-ink shadow-[0_0_0_3px_rgba(79,70,229,0.08)]",
+                  !done && !current && "border-transparent text-body",
                 )}
               >
-                {done ? (
-                  <Check className="h-3 w-3 text-white" strokeWidth={3} />
-                ) : current ? (
-                  <Loader2 className="h-3 w-3 animate-spin text-accent" />
-                ) : null}
-              </span>
-              <span className={cn("transition-opacity", done && "opacity-80")}>{s}</span>
-            </li>
-          );
-        })}
-      </ol>
+                <span
+                  className={cn(
+                    "flex h-5 w-5 shrink-0 items-center justify-center rounded-pill border transition-all duration-500",
+                    done ? "scale-100 border-transparent bg-accent-gradient" : "border-slate-300 bg-white",
+                  )}
+                >
+                  {done ? (
+                    <Check className="h-3 w-3 text-white" strokeWidth={3} />
+                  ) : current ? (
+                    <Loader2 className="h-3 w-3 animate-spin text-accent" />
+                  ) : null}
+                </span>
+                <span className={cn("transition-opacity", done && "opacity-80")}>{s}</span>
+              </li>
+            );
+          })}
+        </ol>
+        <div className="mt-4 flex items-start gap-2.5 rounded-lg border border-accent/15 bg-white p-3 lg:mt-5">
+          <span className="mt-0.5 flex h-6 w-6 shrink-0 items-center justify-center rounded-pill bg-accent-gradient">
+            <Sparkles className="h-3 w-3 text-white" />
+          </span>
+          <div className="min-w-0">
+            <p className="font-mono text-[10px] uppercase tracking-[0.14em] text-accent">Copilot</p>
+            <p key={phase} className="mt-0.5 animate-[fade-up_400ms_ease-out] text-sm leading-snug text-ink">
+              {hints[phase]}
+            </p>
+          </div>
+        </div>
+      </div>
     </div>
   );
 }
@@ -132,9 +154,9 @@ export function AnswerDemo() {
 
 const reportLines = [
   { k: "Task", v: "Routine inspection" },
-  { k: "Findings", v: "Two items flagged for follow-up" },
-  { k: "Actions", v: "Parts replaced, settings verified" },
-  { k: "Next steps", v: "Schedule follow-up visit" },
+  { k: "Findings", v: "Two items flagged" },
+  { k: "Actions", v: "Parts replaced" },
+  { k: "Next", v: "Follow-up scheduled" },
 ];
 
 export function ReportDemo() {
@@ -144,7 +166,7 @@ export function ReportDemo() {
   const phase = useStepLoop([800, 700, 700, 700, 700, 2800], inView, reduced);
 
   return (
-    <div ref={ref} className="rounded-xl border border-line bg-canvas/60 p-4" aria-hidden="true">
+    <div ref={ref} className="flex flex-col justify-center rounded-xl border border-line bg-canvas/60 p-4" aria-hidden="true">
       <div className="rounded-xl border border-line bg-white p-4 shadow-card">
         <div className="mb-3 flex items-center justify-between">
           <span className="flex items-center gap-2 text-sm font-semibold text-ink">
@@ -164,7 +186,7 @@ export function ReportDemo() {
           {reportLines.map((l, i) => {
             const shown = phase > i;
             return (
-              <div key={l.k} className="grid grid-cols-[76px_1fr] items-center gap-2 text-xs">
+              <div key={l.k} className="grid grid-cols-[72px_1fr] items-center gap-2 text-xs">
                 <dt className="font-mono uppercase tracking-wider text-body">{l.k}</dt>
                 <dd className="relative h-4">
                   <span
@@ -211,7 +233,7 @@ export function OrchestrationDemo() {
   const to = orchNodes[(phase + 1) % 4];
 
   return (
-    <div ref={ref} className="rounded-xl border border-line bg-canvas/60 p-2" aria-hidden="true">
+    <div ref={ref} className="flex flex-col justify-center rounded-xl border border-line bg-canvas/60 p-2" aria-hidden="true">
       <svg viewBox="0 0 280 190" className="h-auto w-full">
         <defs>
           <linearGradient id="orch-grad" x1="0" x2="1">

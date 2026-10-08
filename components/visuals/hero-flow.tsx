@@ -18,9 +18,9 @@ const sources = [
 ] as const;
 
 const agents = [
-  { label: "Guide", sub: "Next step ready", icon: Compass, y: 105, from: [322, 148] },
-  { label: "Answer", sub: "Cited answer", icon: MessageSquareText, y: 200, from: [352, 186] },
-  { label: "Report", sub: "Draft written", icon: FileBarChart, y: 295, from: [328, 226] },
+  { label: "Guide", sub: "Guiding", icon: Compass, y: 105, from: [322, 148] },
+  { label: "Answer", sub: "Answering", icon: MessageSquareText, y: 200, from: [352, 186] },
+  { label: "Report", sub: "Writing", icon: FileBarChart, y: 295, from: [328, 226] },
 ] as const;
 
 const sourceToAgent = [0, 1, 2, 0];
@@ -298,7 +298,7 @@ export function HeroFlow() {
               <span className="flex h-[5.4cqw] w-[5.4cqw] shrink-0 items-center justify-center rounded-[1.2cqw] bg-accent-soft text-accent">
                 <Icon aria-hidden className="h-[3cqw] w-[3cqw]" />
               </span>
-              <span className="truncate text-[length:max(10px,2.25cqw)] font-medium text-ink">{s.label}</span>
+              <span className="min-w-0 text-[length:max(10px,2.25cqw)] font-medium leading-tight text-ink">{s.label}</span>
               <span
                 aria-hidden
                 className="pointer-events-none absolute inset-0 rounded-[inherit] shadow-glow ring-1 ring-accent/50"
@@ -348,7 +348,7 @@ export function HeroFlow() {
                       className="absolute inset-0 truncate text-body"
                       style={{ opacity: reduced ? 0 : 1, animation: anim(`hf-agent-idle-${j}`) }}
                     >
-                      Listening
+                      Idle
                     </span>
                     <span
                       className="absolute inset-0 truncate font-medium text-accent"

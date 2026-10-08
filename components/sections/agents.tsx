@@ -56,7 +56,7 @@ export function Agents() {
                   <h3 className="mt-4 text-lg font-semibold tracking-tight text-ink">{title}</h3>
                   <p className="mt-1.5 text-body">{body}</p>
                 </div>
-                <div className="mt-auto">
+                <div className="mt-auto flex-1 [&>*]:h-full">
                   <Demo />
                 </div>
               </GlowCard>

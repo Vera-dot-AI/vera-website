@@ -1,8 +1,8 @@
 "use client";
 
 import { useState, useEffect } from "react";
-import Image from "next/image";
 import Link from "next/link";
+import { GroundControlLogo } from "@/components/ui/ground-control-logo";
 
 export default function GroundControlPage() {
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
@@ -31,8 +31,9 @@ export default function GroundControlPage() {
       <nav className={`fixed left-0 top-0 z-50 w-full transition-all duration-300 bg-background ${scrolled ? "border-b border-outline-variant shadow-md" : "border-b border-transparent"}`}>
         <div className="max-w-[1400px] mx-auto px-4 md:px-6 h-16 flex items-center justify-between">
           <div className="flex items-center gap-6 lg:gap-12">
-            <Link href="/" className="flex items-center gap-2 shrink-0">
-              <span className="text-headline-md font-bold font-headline-md tracking-tight text-on-surface">GroundControl</span>
+            <Link href="/" className="flex items-center gap-2 shrink-0 text-on-surface">
+              <GroundControlLogo className="h-8 w-8" />
+              <span className="text-headline-md font-bold font-headline-md tracking-tight">GroundControl</span>
             </Link>
             <div className="hidden lg:flex items-center gap-8">
               <Link href="#intelligence" className="text-on-surface-variant font-medium hover:text-primary transition-colors">Pipeline</Link>

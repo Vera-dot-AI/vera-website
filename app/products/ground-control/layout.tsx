@@ -1,5 +1,4 @@
 import { Inter, JetBrains_Mono, Hanken_Grotesk } from "next/font/google";
-import { ThemeProvider } from "@/components/providers/theme-provider";
 
 const inter = Inter({
   subsets: ["latin"],
@@ -32,13 +31,11 @@ export default function GroundControlLayout({
         href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&display=block"
         precedence="default"
       />
-      <ThemeProvider attribute="class" defaultTheme="light" enableSystem disableTransitionOnChange>
-        <div
-          className={`${inter.variable} ${hankenGrotesk.variable} ${jetbrainsMono.variable} font-body-md text-body-md text-on-surface`}
-        >
-          {children}
-        </div>
-      </ThemeProvider>
+      <div
+        className={`${inter.variable} ${hankenGrotesk.variable} ${jetbrainsMono.variable} font-body-md text-body-md text-on-surface`}
+      >
+        {children}
+      </div>
     </>
   );
 }

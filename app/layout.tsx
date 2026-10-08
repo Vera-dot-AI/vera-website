@@ -21,7 +21,7 @@ export const metadata: Metadata = {
     "Vera builds the knowledge layer and the AI agents on top of it, so every person on your team works with your best expert's know-how.",
   keywords: ["AI copilots", "knowledge layer", "AI agents", "enterprise knowledge", "Vera AI"],
   icons: {
-    icon: "/logo.png",
+    icon: "/favicon.svg",
   },
   openGraph: {
     title: "Vera AI | Knowledge, turned into copilots",

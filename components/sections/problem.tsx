@@ -55,7 +55,7 @@ export function Problem() {
                     </span>
                     <h3 className="text-lg font-semibold tracking-tight text-ink">{title}</h3>
                   </div>
-                  <p className="mt-3 leading-relaxed text-body">{body}</p>
+                  <p className="mt-3 leading-[1.6] text-body">{body}</p>
                 </div>
               </GlowCard>
             </Reveal>

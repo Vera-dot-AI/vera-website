@@ -2,8 +2,7 @@
 const nextConfig = {
   async redirects() {
     return [
-      // Placeholder until the dedicated GroundControl page ships at /groundcontrol.
-      { source: "/groundcontrol", destination: "/products/ground-control", permanent: false },
+      { source: "/products/ground-control", destination: "/groundcontrol", permanent: false },
     ];
   },
 };

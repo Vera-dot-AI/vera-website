@@ -33,8 +33,8 @@ export function GuidedDemo() {
   return (
     <div ref={ref} className="flex h-full flex-col rounded-xl border border-line bg-canvas/60 p-4" aria-hidden="true">
       <div className="mb-3 flex items-center justify-between">
-        <span className="font-mono text-[10px] uppercase tracking-[0.14em] text-body">Task checklist</span>
-        <span className="font-mono text-[10px] text-accent">
+        <span className="text-[10px] font-medium uppercase tracking-[0.08em] text-body">Task checklist</span>
+        <span className="text-[10px] font-medium text-accent">
           {Math.min(phase, steps.length)}/{steps.length}
         </span>
       </div>
@@ -81,7 +81,7 @@ export function GuidedDemo() {
             <Sparkles className="h-3 w-3 text-white" />
           </span>
           <div className="min-w-0">
-            <p className="font-mono text-[10px] uppercase tracking-[0.14em] text-accent">Copilot</p>
+            <p className="text-[10px] font-medium uppercase tracking-[0.08em] text-accent">Copilot</p>
             <p key={phase} className="mt-0.5 animate-[fade-up_400ms_ease-out] text-sm leading-snug text-ink">
               {hints[phase]}
             </p>
@@ -116,7 +116,7 @@ export function AnswerDemo() {
         <span className="mt-0.5 flex h-7 w-7 shrink-0 items-center justify-center rounded-pill bg-accent-gradient">
           <Sparkles className="h-3.5 w-3.5 text-white" />
         </span>
-        <div className="min-h-[88px] flex-1 rounded-2xl rounded-tl-md border border-line bg-white px-4 py-3 text-sm leading-relaxed text-ink shadow-card">
+        <div className="min-h-[88px] flex-1 rounded-2xl rounded-tl-md border border-line bg-white px-4 py-3 text-sm leading-[1.6] text-ink shadow-card">
           {phase === 1 ? (
             <span className="flex h-5 items-center gap-1">
               {[0, 1, 2].map((i) => (
@@ -135,7 +135,7 @@ export function AnswerDemo() {
               {!done && <span className="ml-0.5 inline-block h-4 w-[2px] translate-y-0.5 animate-pulse bg-accent" />}
               <span
                 className={cn(
-                  "mt-2.5 flex w-fit items-center gap-1.5 rounded-pill border border-accent/20 bg-accent-soft px-2.5 py-1 text-[11px] font-medium text-accent transition-all duration-500",
+                  "mt-2.5 flex w-fit items-center gap-1.5 rounded-pill border border-accent/20 bg-accent-soft px-2.5 py-1 font-mono text-[11px] font-medium text-accent transition-all duration-500",
                   done ? "translate-y-0 opacity-100" : "translate-y-1 opacity-0",
                 )}
               >
@@ -187,7 +187,7 @@ export function ReportDemo() {
             const shown = phase > i;
             return (
               <div key={l.k} className="grid grid-cols-[72px_1fr] items-center gap-2 text-xs">
-                <dt className="font-mono uppercase tracking-wider text-body">{l.k}</dt>
+                <dt className="text-[10px] font-medium uppercase tracking-[0.08em] text-body">{l.k}</dt>
                 <dd className="relative h-4">
                   <span
                     className={cn(

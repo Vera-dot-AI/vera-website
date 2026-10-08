@@ -102,7 +102,7 @@ export function PhoneMock() {
                       <ol className="mt-2 space-y-2">
                         {checks.slice(0, checksShown).map((c, i) => (
                           <li key={c} className="flex animate-[fade-up_400ms_ease-out] gap-2">
-                            <span className="flex h-4 w-4 shrink-0 items-center justify-center rounded-pill bg-accent-soft font-mono text-[9px] font-semibold text-accent">
+                            <span className="flex h-4 w-4 shrink-0 items-center justify-center rounded-pill bg-accent-soft text-[9px] font-medium text-accent">
                               {i + 1}
                             </span>
                             <span className="text-ink/90">{c}</span>
@@ -114,7 +114,7 @@ export function PhoneMock() {
                       )}
                       <span
                         className={cn(
-                          "mt-3 flex w-fit items-center gap-1.5 rounded-pill border border-accent/20 bg-accent-soft px-2 py-1 text-[10px] font-medium text-accent transition-all duration-500",
+                          "mt-3 flex w-fit items-center gap-1.5 rounded-pill border border-accent/20 bg-accent-soft px-2 py-1 font-mono text-[10px] font-medium text-accent transition-all duration-500",
                           phase >= SOURCE ? "translate-y-0 opacity-100" : "translate-y-1 opacity-0",
                         )}
                       >

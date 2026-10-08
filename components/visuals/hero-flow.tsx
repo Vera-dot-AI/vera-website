@@ -324,7 +324,7 @@ export function HeroFlow() {
         className="absolute -translate-x-1/2 whitespace-nowrap"
         style={{ left: pct(280, W), top: pct(292, H) }}
       >
-        <span className="inline-flex items-center gap-[1cqw] rounded-pill border border-accent/20 bg-white/90 px-[2cqw] py-[0.9cqw] font-mono text-[length:max(8px,1.75cqw)] font-medium uppercase tracking-[0.06em] @md:tracking-[0.12em] text-accent shadow-card">
+        <span className="inline-flex items-center gap-[1cqw] rounded-pill border border-accent/20 bg-white/90 px-[2cqw] py-[0.9cqw] font-mono text-[length:max(8px,1.75cqw)] font-medium uppercase tracking-[0.08em] text-accent shadow-card">
           <span className="h-[1.2cqw] w-[1.2cqw] rounded-pill bg-accent-gradient" />
           Vera Knowledge Layer
         </span>

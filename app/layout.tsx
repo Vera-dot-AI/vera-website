@@ -1,17 +1,23 @@
 import type { Metadata, Viewport } from "next";
-import { Geist, Geist_Mono } from "next/font/google";
+import localFont from "next/font/local";
+import { IBM_Plex_Mono } from "next/font/google";
 import "./globals.css";
 
-const geist = Geist({
-  subsets: ["latin"],
-  variable: "--font-geist",
+const switzer = localFont({
+  src: [
+    { path: "./fonts/Switzer-Regular.woff2", weight: "400", style: "normal" },
+    { path: "./fonts/Switzer-Medium.woff2", weight: "500", style: "normal" },
+    { path: "./fonts/Switzer-Semibold.woff2", weight: "600", style: "normal" },
+    { path: "./fonts/Switzer-Bold.woff2", weight: "700", style: "normal" },
+  ],
+  variable: "--font-switzer",
   display: "swap",
 });
 
-const geistMono = Geist_Mono({
+const plexMono = IBM_Plex_Mono({
   subsets: ["latin"],
-  variable: "--font-geist-mono",
   weight: ["400", "500"],
+  variable: "--font-plex-mono",
   display: "swap",
 });
 
@@ -43,8 +49,8 @@ export default function RootLayout({
   children: React.ReactNode;
 }) {
   return (
-    <html lang="en" className={`${geist.variable} ${geistMono.variable}`}>
-      <body className="bg-canvas font-sans text-body antialiased selection:bg-accent/15 selection:text-ink">
+    <html lang="en" className={`${switzer.variable} ${plexMono.variable}`}>
+      <body className="bg-canvas font-sans text-base font-normal leading-[1.6] text-body antialiased selection:bg-accent/15 selection:text-ink">
         {children}
       </body>
     </html>

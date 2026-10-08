@@ -10,7 +10,7 @@ There is no backend. The contact button is a `mailto:` link.
 
 Next.js 15 (App Router) and Tailwind CSS 3, deployed on Vercel. Visuals are SVG, CSS, and Framer Motion. Icons are `lucide-react`. Nothing is a stock image or a video.
 
-The existing GroundControl page at `/products/ground-control` is unchanged in structure. `/groundcontrol` redirects there until a dedicated page exists. That page still uses its own fonts (Inter, Hanken Grotesk, JetBrains Mono) and the Material Symbols icon font. The marketing page does not load either.
+GroundControl, the first product, has its own page at `/groundcontrol`. It uses this same system: the shared nav and footer, the same tokens, cards, and motion. The old page at `/products/ground-control` redirects there. There is no second visual style, and no icon font.
 
 ## Page structure
 
@@ -28,7 +28,9 @@ Sticky nav, then nine sections, then a footer. Two sections are dark. The rest a
 | Why Vera | — | Light |
 | Closing CTA | `#contact` | Dark |
 
-Nav links are Platform, Agents, Products, and Deploy, in that order, plus a "Talk to us" button that scrolls to `#contact`. The footer links are Products, Contact, LinkedIn, and Privacy. LinkedIn and Privacy are placeholders (`#`) until real URLs exist.
+Nav links are Platform, Agents, Products, and Deploy, in that order, plus a "Talk to us" button that scrolls to `#contact` on whichever page you are on. The section links point at the homepage (`/#platform` and so on) so they still work from the product page. The footer links are Products, Contact, LinkedIn, and Privacy. LinkedIn and Privacy are placeholders (`#`) until real URLs exist.
+
+The GroundControl page adds a breadcrumb under the nav: Products / GroundControl. Its own rhythm is light, light, dark, light, light, light, dark: hero, problem, how it works, grounded answers, capabilities, who it's for, closing.
 
 ## Color
 
@@ -51,11 +53,15 @@ Text on the accent buttons is white. Text on the dark sections is white for head
 
 ## Type
 
-Geist for text, through `next/font` as `--font-geist` and Tailwind's `font-sans`. Geist Mono for eyebrow labels and small metadata, as `font-mono`.
+Switzer for all text, self-hosted as woff2 in `app/fonts` and loaded with `next/font/local` as `--font-switzer` (weights 400, 500, 600, 700). Tailwind's `font-sans` points at it. The files come from Fontshare and are not hotlinked.
 
-Eyebrows are 11px, medium, uppercase, tracking `0.16em`, in the accent color (or indigo-200 on dark sections). A 6px gradient dot sits in front of the label.
+IBM Plex Mono, through `next/font/google` as `--font-plex-mono` (weights 400 and 500), is `font-mono`. It is only for small uppercase eyebrow labels and for UI chips such as source citations. Nothing else is monospaced. There is no serif.
 
-The hero headline is the only display size: 44px on small screens, 60px from `sm`, 64px from `lg`, 72px from `xl`. It is bold, with tracking `-0.045em` and a line height just over 1. Section headings are semibold, from 32px up to 46px, tracking `-0.03em`. Body copy is 16–18px with relaxed line height.
+Headlines (`h1`, `h2`, `h3`) are weight 600, tracking `-0.025em`, line height `1.05`. Body is weight 400, line height `1.6`. Nav labels, the wordmark, and buttons are weight 500.
+
+Eyebrows are 11px, medium, uppercase, tracking `0.08em`, in the accent color (or indigo-200 on dark sections). A 6px gradient dot sits in front of the label.
+
+The hero headline is the only display size: 44px on small screens, 60px from `sm`, 64px from `lg`, 72px from `xl` on the homepage, and up to 64px on the product page. Section headings run from 32px to 46px. Body copy is 16–18px.
 
 ## Layout
 
@@ -138,6 +144,21 @@ Two blurred gradient orbs drift, and a generated constellation of stars and link
 
 `prefers-reduced-motion: reduce` does three things. CSS animation duration and iteration are collapsed in `globals.css`. Looping components freeze on their finished frame (the phone shows the full answer and the toast, the checklist shows complete, the timeline is fully drawn) instead of playing. Particles and SMIL motion are not rendered at all. Framer Motion's own reduced-motion handling covers the scroll reveals, which resolve to their visible end state.
 
+## GroundControl page
+
+`/groundcontrol` is a product page inside this system, not a separate brand. It reuses the nav, footer, buttons, cards, glow, and the same dark-section treatment. The breadcrumb sits under the nav. There is no log-in, get-started, or watch-demo control.
+
+Its motion follows the same rules as the homepage: CSS and SVG timelines, paused off screen, frozen on the finished frame when reduced motion is on.
+
+- The hero phone types the fault-code question, streams a one-line read, shows the manual citation, reveals three checks, marks step 1 done, then slides in a report toast.
+- How it works draws a gradient line on scroll through Describe, Diagnose, Fix, and Report. Each icon settles in as the line reaches it.
+- The dark section pulls glowing lines from Manuals, Service history, and Team notes into a question, then produces an answer with citation chips.
+- The capabilities bento runs small loops: steps checking off, a citation chip, a hand-off moving between two people, a report filling in, and a history list highlighting one job at a time.
+- Role cards use the same hover icon and gradient border sweep as Why Vera.
+- The close reuses the homepage mesh and constellation.
+
+The page does not describe how the product is built. No storage, pipelines, models, or infrastructure.
+
 ## Accessibility
 
 The page is semantic: one `h1`, section headings as `h2`, cards as `h3`. The nav, footer, and mobile menu are labeled. The mobile menu closes on Escape. Focus states are a 2px indigo outline with a 3px offset, set globally. Decorative diagrams are `aria-hidden`; the hero diagram has a text alternative on a `role="img"` wrapper. Icon-only buttons have accessible names. The icon font is not loaded on this page, so ligature names cannot leak into the text.
@@ -150,8 +171,9 @@ The contact address is `hello@veraops.ai`. It is marked in the closing section f
 
 ## Where things live
 
-- `app/page.tsx` assembles the page. `app/layout.tsx` loads the fonts and sets the favicon.
-- `components/sections/` is one file per section.
+- `app/page.tsx` assembles the homepage. `app/groundcontrol/page.tsx` assembles the product page. `app/layout.tsx` loads Switzer and IBM Plex Mono and sets the favicon.
+- `app/fonts/` holds the self-hosted Switzer woff2 files.
+- `components/sections/` is one file per homepage section. `components/groundcontrol/` is the product page.
 - `components/visuals/` holds the diagrams and demos.
 - `components/ui/primitives.tsx` holds `Reveal`, `Eyebrow`, `GlowCard`, and `SectionHeading`.
 - `lib/motion.ts` holds the reduced-motion flag, the in-view pause, and the step loop.

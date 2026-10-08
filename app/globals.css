@@ -2,162 +2,6 @@
 @tailwind components;
 @tailwind utilities;
 
-@layer base {
-  :root {
-    /* Light Mode Dark-Blue Theme derived from the template */
-    --primary: #1a4b8c;
-    --on-primary: #ffffff;
-    --primary-container: #d4e3ff;
-    --on-primary-container: #001c3d;
-    --primary-fixed: #d4e3ff;
-    --primary-fixed-dim: #8ab4f8;
-    --on-primary-fixed: #001c3d;
-    --on-primary-fixed-variant: #004b8c;
-    --inverse-primary: #8ab4f8;
-
-    --secondary: #002b5e;
-    --on-secondary: #ffffff;
-    --secondary-container: #e4e1ea;
-    --on-secondary-container: #1b1b21;
-    --secondary-fixed: #e4e1ea;
-    --secondary-fixed-dim: #c8c5cd;
-    --on-secondary-fixed: #1b1b21;
-    --on-secondary-fixed-variant: #47464d;
-
-    --tertiary: #46464d;
-    --on-tertiary: #ffffff;
-    --tertiary-container: #e3e1ea;
-    --on-tertiary-container: #1b1b21;
-    --tertiary-fixed: #e3e1ea;
-    --tertiary-fixed-dim: #c7c5ce;
-    --on-tertiary-fixed: #1b1b21;
-    --on-tertiary-fixed-variant: #46464d;
-
-    --background: #f8fafc;
-    --on-background: #0f172a;
-    --surface: #ffffff;
-    --on-surface: #0f172a;
-    --surface-variant: #f1f5f9;
-    --on-surface-variant: #475569;
-    --inverse-surface: #1e293b;
-    --inverse-on-surface: #f8fafc;
-
-    --surface-container-lowest: #ffffff;
-    --surface-container-low: #f8fafc;
-    --surface-container: #f1f5f9;
-    --surface-container-high: #e2e8f0;
-    --surface-container-highest: #cbd5e1;
-    
-    --surface-bright: #ffffff;
-    --surface-dim: #cbd5e1;
-    --surface-tint: #1a4b8c;
-
-    --outline: #94a3b8;
-    --outline-variant: #cbd5e1;
-
-    --error: #ba1a1a;
-    --on-error: #ffffff;
-    --error-container: #ffdad6;
-    --on-error-container: #410002;
-  }
-
-  .dark {
-    --on-primary: #002b5e;
-    --secondary-container: #47464d;
-    --inverse-on-surface: #313032;
-    --tertiary-fixed-dim: #c7c5ce;
-    --surface-bright: #39393b;
-    --secondary-fixed: #e4e1ea;
-    --surface: #131315;
-    --on-surface-variant: #cfc2d6;
-    --secondary-fixed-dim: #c8c5cd;
-    --tertiary-fixed: #e3e1ea;
-    --on-surface: #e5e1e4;
-    --on-secondary-fixed-variant: #47464d;
-    --outline-variant: #4d4354;
-    --primary: #8ab4f8;
-    --on-secondary-container: #b6b4bc;
-    --on-error-container: #ffdad6;
-    --outline: #988d9f;
-    --surface-variant: #353437;
-    --secondary: #c8c5cd;
-    --primary-container: #1a4b8c;
-    --on-secondary-fixed: #1b1b21;
-    --primary-fixed-dim: #8ab4f8;
-    --surface-container-highest: #353437;
-    --surface-tint: #8ab4f8;
-    --on-secondary: #303036;
-    --on-tertiary-container: #292930;
-    --on-primary-fixed-variant: #004b8c;
-    --tertiary: #c7c5ce;
-    --primary-fixed: #d4e3ff;
-    --on-primary-container: #d4e3ff;
-    --inverse-surface: #e5e1e4;
-    --on-background: #e5e1e4;
-    --surface-dim: #131315;
-    --tertiary-container: #919098;
-    --error: #ffb4ab;
-    --inverse-primary: #0061a4;
-    --on-error: #690005;
-    --on-tertiary: #303037;
-    --surface-container: #201f22;
-    --surface-container-low: #1c1b1d;
-    --on-primary-fixed: #001c3d;
-    --surface-container-lowest: #0e0e10;
-    --error-container: #93000a;
-    --on-tertiary-fixed: #1b1b21;
-    --on-tertiary-fixed-variant: #46464d;
-    --surface-container-high: #2a2a2c;
-    --background: #131315;
-  }
-}
-
-@layer base {
-  body {
-    background-color: var(--background);
-    color: var(--on-surface);
-  }
-}
-
-@layer components {
-  .structural-grid {
-    @apply grid gap-6;
-    grid-template-columns: repeat(12, 1fr);
-  }
-
-  .material-panel {
-    @apply bg-surface-container border border-outline-variant;
-  }
-
-  .section-divider {
-    @apply border-t border-outline-variant;
-  }
-
-  .glasswing-pattern {
-    background-image: linear-gradient(30deg, var(--outline-variant) 12%, transparent 12.5%, transparent 87%, var(--outline-variant) 87.5%, var(--outline-variant)),
-      linear-gradient(150deg, var(--outline-variant) 12%, transparent 12.5%, transparent 87%, var(--outline-variant) 87.5%, var(--outline-variant)),
-      linear-gradient(30deg, var(--outline-variant) 12%, transparent 12.5%, transparent 87%, var(--outline-variant) 87.5%, var(--outline-variant)),
-      linear-gradient(150deg, var(--outline-variant) 12%, transparent 12.5%, transparent 87%, var(--outline-variant) 87.5%, var(--outline-variant)),
-      linear-gradient(60deg, var(--outline-variant) 25%, transparent 25.5%, transparent 75%, var(--outline-variant) 75%, var(--outline-variant)),
-      linear-gradient(60deg, var(--outline-variant) 25%, transparent 25.5%, transparent 75%, var(--outline-variant) 75%, var(--outline-variant));
-    background-size: 80px 140px;
-    background-position: 0 0, 0 0, 40px 70px, 40px 70px, 0 0, 40px 70px;
-  }
-
-  .cubic-light-pattern {
-    --s: 150px;
-    --c1: var(--surface-container-lowest);
-    --c2: var(--surface-container);
-    --c3: var(--surface-container-high);
-    
-    background:
-      repeating-conic-gradient(from 30deg,#0000 0 120deg,var(--c3) 0 50%) 
-       calc(var(--s)/2) calc(var(--s)*tan(30deg)/2),
-      repeating-conic-gradient(from 30deg,var(--c1) 0 60deg,var(--c2) 0 120deg,var(--c3) 0 50%);
-    background-size: var(--s) calc(var(--s)*tan(30deg));
-  }
-}
-
 /* ---------- Vera landing ---------- */
 
 @property --sweep-angle {
@@ -167,6 +11,13 @@
 }
 
 @layer base {
+  h1,
+  h2,
+  h3 {
+    font-weight: 600;
+    letter-spacing: -0.025em;
+    line-height: 1.05;
+  }
   html {
     scroll-behavior: smooth;
   }
@@ -422,6 +273,17 @@
     animation: none !important;
     opacity: 1 !important;
     transform: none !important;
+  }
+}
+
+@keyframes draw-loop {
+  0%,
+  100% {
+    stroke-dashoffset: 1;
+  }
+  45%,
+  75% {
+    stroke-dashoffset: 0;
   }
 }
 

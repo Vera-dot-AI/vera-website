@@ -49,11 +49,11 @@ export function Products() {
                   </span>
                   Now piloting
                 </span>
-                <h3 id="gc-title" className="mt-5 text-3xl font-semibold tracking-[-0.03em] text-ink sm:text-4xl">
+                <h3 id="gc-title" className="mt-5 text-[1.875rem] font-semibold leading-[1.05] tracking-[-0.025em] text-ink sm:text-[2.25rem]">
                   GroundControl
                 </h3>
                 <p className="mt-2 text-lg font-medium text-gradient">The AI copilot for on-field operations.</p>
-                <p className="mt-4 max-w-xl leading-relaxed text-body">
+                <p className="mt-4 max-w-xl leading-[1.6] text-body">
                   GroundControl puts expert know-how in every technician&rsquo;s pocket. It helps teams diagnose
                   issues faster, follow the right steps on site, and capture what the best technicians know, so it
                   isn&rsquo;t lost when they move on.
@@ -67,14 +67,14 @@ export function Products() {
                       </span>
                       <div>
                         <p className="font-semibold text-ink">{title}</p>
-                        <p className="mt-1 text-sm leading-relaxed text-body">{body}</p>
+                        <p className="mt-1 text-sm leading-[1.6] text-body">{body}</p>
                       </div>
                     </li>
                   ))}
                 </ul>
 
                 <p className="mt-8 border-t border-line pt-5 text-sm text-body">
-                  <span className="font-mono text-[11px] uppercase tracking-[0.14em] text-ink">Built for</span>
+                  <span className="font-mono text-[11px] font-medium uppercase tracking-[0.08em] text-ink">Built for</span>
                   <span aria-hidden className="mx-2.5 inline-block h-1 w-1 translate-y-[-2px] rounded-pill bg-slate-300" />
                   Field service teams and technicians.
                 </p>
@@ -120,7 +120,7 @@ export function Products() {
               </span>
               <div>
                 <h3 className="text-lg font-semibold tracking-tight text-ink">More copilots coming</h3>
-                <p className="mt-1 max-w-2xl leading-relaxed text-body">
+                <p className="mt-1 max-w-2xl leading-[1.6] text-body">
                   The same knowledge layer powers copilots for other expert-driven work. Building something
                   knowledge-heavy? Talk to us.
                 </p>

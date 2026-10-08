@@ -157,3 +157,281 @@
     background-size: var(--s) calc(var(--s)*tan(30deg));
   }
 }
+
+/* ---------- Vera landing ---------- */
+
+@property --sweep-angle {
+  syntax: "<angle>";
+  inherits: false;
+  initial-value: 0deg;
+}
+
+@layer base {
+  html {
+    scroll-behavior: smooth;
+  }
+  section[id] {
+    scroll-margin-top: 72px;
+  }
+  :focus-visible {
+    outline: 2px solid #4f46e5;
+    outline-offset: 3px;
+    border-radius: 6px;
+  }
+}
+
+@layer components {
+  .text-gradient {
+    background-image: linear-gradient(90deg, #4f46e5, #7c3aed);
+    -webkit-background-clip: text;
+    background-clip: text;
+    color: transparent;
+  }
+
+  .bg-accent-gradient {
+    background-image: linear-gradient(135deg, #4f46e5 0%, #7c3aed 100%);
+  }
+
+  .dot-grid {
+    background-image: radial-gradient(rgba(11, 13, 18, 0.12) 1px, transparent 1px);
+    background-size: 22px 22px;
+  }
+
+  .dot-grid-dark {
+    background-image: radial-gradient(rgba(255, 255, 255, 0.08) 1px, transparent 1px);
+    background-size: 22px 22px;
+  }
+
+  /* Cursor-follow glow. --mx/--my are set from pointer events (desktop only). */
+  .glow-card {
+    position: relative;
+    isolation: isolate;
+  }
+  .glow-card::after {
+    content: "";
+    position: absolute;
+    inset: 0;
+    border-radius: inherit;
+    pointer-events: none;
+    opacity: 0;
+    transition: opacity 300ms ease;
+    background: radial-gradient(
+      420px circle at var(--mx, 50%) var(--my, 50%),
+      rgba(124, 58, 237, 0.09),
+      transparent 45%
+    );
+    z-index: -1;
+  }
+  @media (hover: hover) and (pointer: fine) {
+    .glow-card:hover::after {
+      opacity: 1;
+    }
+  }
+
+  /* Gradient border that sweeps around the card on hover. */
+  .sweep-border::before {
+    content: "";
+    position: absolute;
+    inset: 0;
+    padding: 1px;
+    border-radius: inherit;
+    background: conic-gradient(
+      from var(--sweep-angle),
+      transparent 0deg,
+      transparent 200deg,
+      #4f46e5 290deg,
+      #7c3aed 340deg,
+      transparent 360deg
+    );
+    -webkit-mask: linear-gradient(#000 0 0) content-box, linear-gradient(#000 0 0);
+    -webkit-mask-composite: xor;
+    mask: linear-gradient(#000 0 0) content-box exclude, linear-gradient(#000 0 0);
+    opacity: 0;
+    transition: opacity 300ms ease;
+    pointer-events: none;
+  }
+  .sweep-border:hover::before,
+  .sweep-border:focus-within::before {
+    opacity: 1;
+    animation: sweep 2.4s linear infinite;
+  }
+}
+
+@keyframes sweep {
+  to {
+    --sweep-angle: 360deg;
+  }
+}
+
+@keyframes drift-glow {
+  0%,
+  100% {
+    transform: translate3d(0, 0, 0) scale(1);
+  }
+  33% {
+    transform: translate3d(6%, -4%, 0) scale(1.08);
+  }
+  66% {
+    transform: translate3d(-5%, 5%, 0) scale(0.96);
+  }
+}
+
+@keyframes grid-pan {
+  to {
+    background-position: 22px 22px;
+  }
+}
+
+@keyframes dash-flow {
+  to {
+    stroke-dashoffset: -24;
+  }
+}
+
+@keyframes twinkle {
+  0%,
+  100% {
+    opacity: 0.25;
+  }
+  50% {
+    opacity: 1;
+  }
+}
+
+@keyframes soft-pulse {
+  0%,
+  100% {
+    opacity: 0.55;
+    transform: scale(1);
+  }
+  50% {
+    opacity: 1;
+    transform: scale(1.12);
+  }
+}
+
+@keyframes fragment-drift {
+  0%,
+  12% {
+    transform: translate(0, 0) rotate(0deg);
+    opacity: 1;
+  }
+  55%,
+  70% {
+    transform: translate(var(--dx), var(--dy)) rotate(var(--r));
+    opacity: 0.45;
+  }
+  100% {
+    transform: translate(0, 0) rotate(0deg);
+    opacity: 1;
+  }
+}
+
+@keyframes stall-bar {
+  0% {
+    transform: scaleX(0);
+  }
+  25% {
+    transform: scaleX(0.48);
+  }
+  40% {
+    transform: scaleX(0.6);
+  }
+  85% {
+    transform: scaleX(0.63);
+  }
+  92%,
+  100% {
+    transform: scaleX(0.63);
+    opacity: 0;
+  }
+}
+
+@keyframes queue-shuffle {
+  0%,
+  100% {
+    transform: translateX(0);
+  }
+  50% {
+    transform: translateX(3px);
+  }
+}
+
+@keyframes node-fade {
+  0%,
+  25% {
+    opacity: 1;
+  }
+  55%,
+  80% {
+    opacity: 0.06;
+  }
+  100% {
+    opacity: 1;
+  }
+}
+
+@keyframes mesh-a {
+  0%,
+  100% {
+    transform: translate3d(0, 0, 0) scale(1);
+  }
+  50% {
+    transform: translate3d(12%, 8%, 0) scale(1.15);
+  }
+}
+
+@keyframes mesh-b {
+  0%,
+  100% {
+    transform: translate3d(0, 0, 0) scale(1.1);
+  }
+  50% {
+    transform: translate3d(-10%, -6%, 0) scale(0.95);
+  }
+}
+
+@keyframes star-drift {
+  0%,
+  100% {
+    transform: translate3d(0, 0, 0);
+  }
+  50% {
+    transform: translate3d(var(--sx, 8px), var(--sy, -6px), 0);
+  }
+}
+
+/* Offscreen visuals pause their CSS loops. */
+.anim-paused,
+.anim-paused * {
+  animation-play-state: paused !important;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
+  }
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+  }
+  .motion-static {
+    animation: none !important;
+    opacity: 1 !important;
+    transform: none !important;
+  }
+}
+
+@keyframes fade-up {
+  from {
+    opacity: 0;
+    transform: translateY(6px);
+  }
+  to {
+    opacity: 1;
+    transform: none;
+  }
+}

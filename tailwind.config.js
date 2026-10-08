@@ -55,13 +55,29 @@ module.exports = {
         "on-tertiary-fixed": "var(--on-tertiary-fixed)",
         "on-tertiary-fixed-variant": "var(--on-tertiary-fixed-variant)",
         "surface-container-high": "var(--surface-container-high)",
-        "background": "var(--background)"
+        "background": "var(--background)",
+        canvas: "#F7F8FA",
+        ink: "#0B0D12",
+        body: "#5B6170",
+        line: "#E4E7EC",
+        accent: {
+          DEFAULT: "#4F46E5",
+          violet: "#7C3AED",
+          soft: "#EEF0FF",
+        },
       },
       borderRadius: {
         "DEFAULT": "0.125rem",
         "lg": "0.25rem",
         "xl": "0.5rem",
-        "full": "0.75rem"
+        "full": "0.75rem",
+        "pill": "9999px",
+        "card": "1rem"
+      },
+      boxShadow: {
+        card: "0 1px 2px rgba(16,24,40,0.04), 0 4px 16px -4px rgba(16,24,40,0.06)",
+        lift: "0 2px 4px rgba(16,24,40,0.04), 0 18px 40px -12px rgba(79,70,229,0.22)",
+        glow: "0 0 0 1px rgba(124,58,237,0.18), 0 8px 30px -6px rgba(79,70,229,0.45)",
       },
       spacing: {
         "unit": "4px",
@@ -71,6 +87,8 @@ module.exports = {
         "margin-desktop": "64px"
       },
       fontFamily: {
+        sans: ["var(--font-geist)", "ui-sans-serif", "system-ui", "sans-serif"],
+        mono: ["var(--font-geist-mono)", "ui-monospace", "SFMono-Regular", "monospace"],
         "headline-lg": ["var(--font-hanken-grotesk)", "sans-serif"],
         "label-caps": ["var(--font-jetbrains-mono)", "monospace"],
         "headline-xl": ["var(--font-hanken-grotesk)", "sans-serif"],

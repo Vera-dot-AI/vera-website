@@ -1,47 +1,38 @@
 import type { Metadata, Viewport } from "next";
-import { Inter, JetBrains_Mono, Hanken_Grotesk } from "next/font/google";
-import { ThemeProvider } from "@/components/providers/theme-provider";
+import { Geist, Geist_Mono } from "next/font/google";
 import "./globals.css";
 
-const inter = Inter({
+const geist = Geist({
   subsets: ["latin"],
-  variable: "--font-inter",
+  variable: "--font-geist",
   display: "swap",
 });
 
-const hankenGrotesk = Hanken_Grotesk({
+const geistMono = Geist_Mono({
   subsets: ["latin"],
-  variable: "--font-hanken-grotesk",
-  display: "swap",
-});
-
-const jetbrainsMono = JetBrains_Mono({
-  subsets: ["latin"],
-  variable: "--font-jetbrains-mono",
+  variable: "--font-geist-mono",
   weight: ["400", "500"],
   display: "swap",
 });
 
 export const metadata: Metadata = {
-  title: "Vera - Intelligent Copilots",
+  title: "Vera AI | Your organization's knowledge, turned into copilots",
   description:
-    "Building the intelligence layer for faster operational decision-making.",
-  keywords: ["AI", "co-pilot", "workflow automation", "intelligent systems", "Vera AI"],
+    "Vera builds the knowledge layer and the AI agents on top of it, so every person on your team works with your best expert's know-how.",
+  keywords: ["AI copilots", "knowledge layer", "AI agents", "enterprise knowledge", "Vera AI"],
   icons: {
     icon: "/logo.png",
   },
   openGraph: {
-    title: "Vera - Intelligent Copilots",
-    description: "Intelligent copilots for every workflow.",
+    title: "Vera AI | Knowledge, turned into copilots",
+    description:
+      "One knowledge layer for everything your team knows, and copilots that do the work with you.",
     type: "website",
   },
 };
 
 export const viewport: Viewport = {
-  themeColor: [
-    { media: "(prefers-color-scheme: light)", color: "#f8fafc" },
-    { media: "(prefers-color-scheme: dark)", color: "#131315" },
-  ],
+  themeColor: "#F7F8FA",
   width: "device-width",
   initialScale: 1,
 };
@@ -52,19 +43,9 @@ export default function RootLayout({
   children: React.ReactNode;
 }) {
   return (
-    <html lang="en" suppressHydrationWarning className={`${inter.variable} ${hankenGrotesk.variable} ${jetbrainsMono.variable}`}>
-      <head>
-        <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&display=swap" rel="stylesheet"/>
-      </head>
-      <body className="font-body-md text-body-md antialiased overflow-x-hidden selection:bg-primary selection:text-on-primary">
-        <ThemeProvider
-          attribute="class"
-          defaultTheme="light"
-          enableSystem
-          disableTransitionOnChange
-        >
-          {children}
-        </ThemeProvider>
+    <html lang="en" className={`${geist.variable} ${geistMono.variable}`}>
+      <body className="bg-canvas font-sans text-body antialiased selection:bg-accent/15 selection:text-ink">
+        {children}
       </body>
     </html>
   );

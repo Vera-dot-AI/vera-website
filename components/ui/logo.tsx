@@ -2,6 +2,8 @@ export function Logo({ className }: { className?: string }) {
   return (
     <svg 
       className={className}
+      aria-hidden="true"
+      focusable="false"
       version="1.1" 
       xmlns="http://www.w3.org/2000/svg" 
       viewBox="0 0 400 400"

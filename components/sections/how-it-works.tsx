@@ -1,91 +1,97 @@
+"use client";
+
+import { useRef, useState } from "react";
+import { m, useMotionValueEvent, useScroll, useSpring } from "framer-motion";
+import { Plug, Rocket, TrendingUp } from "lucide-react";
+import { SectionHeading } from "@/components/ui/primitives";
+import { usePrefersReducedMotion } from "@/lib/motion";
+import { cn, container } from "@/lib/utils";
+
 const steps = [
+  { title: "Connect your knowledge", body: "Bring in manuals, docs, and records.", icon: Plug },
+  { title: "Deploy copilots", body: "Your team uses them on mobile, web, and in the field.", icon: Rocket },
   {
-    number: "01",
-    title: "Discover",
-    description:
-      "We map your existing operations, team structure, and pain points. No assumptions, just careful listening and analysis to understand what matters most.",
-  },
-  {
-    number: "02",
-    title: "Integrate",
-    description:
-      "Our solutions connect with the tools and platforms your teams already use. We prioritize compatibility and minimal disruption to established processes.",
-  },
-  {
-    number: "03",
-    title: "Train",
-    description:
-      "We build AI systems grounded in your specific domain knowledge, data, and standards, ensuring every recommendation is relevant and accurate for your context.",
-  },
-  {
-    number: "04",
-    title: "Deploy",
-    description:
-      "After a careful rollout, we continuously monitor performance and refine the system alongside your team. Improvement is ongoing, not a one-time event.",
+    title: "Improve with every job",
+    body: "The system learns from real usage and gets sharper over time.",
+    icon: TrendingUp,
   },
 ];
 
+/* Fraction of the line at which each step's marker sits. */
+const thresholds = [0.02, 0.5, 0.98];
+
 export function HowItWorks() {
+  const ref = useRef<HTMLOListElement>(null);
+  const reduced = usePrefersReducedMotion();
+  const { scrollYProgress } = useScroll({ target: ref, offset: ["start 85%", "end 55%"] });
+  const progress = useSpring(scrollYProgress, { stiffness: 120, damping: 30, mass: 0.4 });
+  const [reached, setReached] = useState(0);
+
+  useMotionValueEvent(scrollYProgress, "change", (v) => {
+    setReached(thresholds.filter((t) => v >= t - 0.02).length);
+  });
+
+  const count = reduced ? steps.length : reached;
+
   return (
-    <section
-      id="how-we-work"
-      className="bg-secondary grain-overlay px-6 py-24 md:py-32 relative overflow-hidden"
-      aria-labelledby="how-we-work-heading"
-    >
-      <div className="relative z-10 max-w-7xl mx-auto">
-        {/* Header */}
-        <div className="text-center mb-16 md:mb-20">
-          <p className="text-xs font-mono-data tracking-widest text-accent mb-4">
-            // Process Flow
-          </p>
-          <h2
-            id="how-we-work-heading"
-            className="font-barlow text-4xl sm:text-5xl md:text-6xl font-bold text-foreground tracking-tight"
-          >
-            How We Work
-          </h2>
-          <p className="mt-4 text-lg text-muted-foreground max-w-xl mx-auto">
-            A structured, collaborative approach that integrates deeply with your operations from day one.
-          </p>
-        </div>
+    <section id="how-it-works" aria-labelledby="how-title" className="py-20 sm:py-28">
+      <div className={container}>
+        <SectionHeading title={<span id="how-title">How it works</span>} />
 
-        {/* Steps */}
-        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4 sm:gap-6">
-          {steps.map((step, i) => (
-            <div
-              key={step.number}
-              className="relative"
-            >
-              {/* Connector line (desktop) */}
-              {i < steps.length - 1 && (
-                <div
-                  aria-hidden="true"
-                  className="hidden lg:block absolute top-6 left-full w-4 xl:w-6 h-0.5 bg-border z-10"
-                />
-              )}
+        <ol ref={ref} className="relative mt-14 grid gap-10 md:grid-cols-3 md:gap-8">
+          {/* track + drawn line, horizontal on desktop */}
+          <div aria-hidden className="absolute left-[16.66%] right-[16.66%] top-7 hidden h-[2px] rounded-pill bg-line md:block">
+            <m.div
+              className="h-full origin-left rounded-pill bg-accent-gradient"
+              style={{ scaleX: reduced ? 1 : progress }}
+            />
+          </div>
+          {/* vertical on mobile */}
+          <div aria-hidden className="absolute bottom-7 left-7 top-7 w-[2px] rounded-pill bg-line md:hidden">
+            <m.div className="h-full w-full origin-top rounded-pill bg-accent-gradient" style={{ scaleY: reduced ? 1 : progress }} />
+          </div>
 
-              <div className="card-module h-full flex flex-col gap-3 sm:gap-4 group p-4 sm:p-6">
-                {/* Step number */}
-                <div className="flex items-center gap-3">
-                  <span className="font-mono-data text-3xl font-bold text-accent">
-                    {step.number}
+          {steps.map(({ title, body, icon: Icon }, i) => {
+            const on = i < count;
+            return (
+              <li key={title} className="relative flex gap-5 md:flex-col md:items-center md:text-center">
+                <div className="relative z-10 shrink-0">
+                  <span
+                    className={cn(
+                      "flex h-14 w-14 items-center justify-center rounded-2xl border bg-white shadow-card transition-all duration-700 ease-out",
+                      on ? "scale-100 border-accent/30 shadow-glow" : "scale-90 border-line",
+                    )}
+                  >
+                    <Icon
+                      aria-hidden
+                      className={cn(
+                        "h-6 w-6 transition-all duration-700",
+                        on ? "rotate-0 text-accent opacity-100" : "-rotate-12 text-slate-400 opacity-60",
+                      )}
+                    />
                   </span>
-                  <div className="flex-1 h-0.5 bg-border group-hover:bg-accent/50 transition-colors duration-200" />
+                  <span
+                    className={cn(
+                      "absolute -right-2 -top-2 flex h-6 w-6 items-center justify-center rounded-pill font-mono text-[11px] font-medium transition-colors duration-500",
+                      on ? "bg-accent-gradient text-white" : "border border-line bg-white text-body",
+                    )}
+                  >
+                    {i + 1}
+                  </span>
                 </div>
-
-                {/* Title */}
-                <h3 className="font-barlow text-lg font-bold text-foreground tracking-wide">
-                  {step.title}
-                </h3>
-
-                {/* Description */}
-                <p className="text-sm text-muted-foreground leading-relaxed">
-                  {step.description}
-                </p>
-              </div>
-            </div>
-          ))}
-        </div>
+                <div
+                  className={cn(
+                    "pt-1 transition-all duration-700 ease-out md:pt-6",
+                    on ? "translate-y-0" : "translate-y-1.5",
+                  )}
+                >
+                  <h3 className="text-lg font-semibold tracking-tight text-ink">{title}</h3>
+                  <p className="mt-2 max-w-xs leading-relaxed text-body md:mx-auto">{body}</p>
+                </div>
+              </li>
+            );
+          })}
+        </ol>
       </div>
     </section>
   );

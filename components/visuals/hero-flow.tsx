@@ -45,7 +45,7 @@ const edges: [number, number][] = [
 ];
 
 const CHIP_X = 150;
-const AGENT_X = 410;
+const AGENT_X = 396;
 
 function inPath(i: number) {
   const s = sources[i];
@@ -82,6 +82,16 @@ const keyframes = [
   ),
   ...agents.map((_, j) =>
     windowKeyframes(
+      `hf-agent-sub-${j}`,
+      timing
+        .filter((_, i) => sourceToAgent[i] === j)
+        .map((t) => [t.agent[0] + 0.2, t.agent[1] - 0.2] as [number, number]),
+      T,
+      0.15,
+    ),
+  ),
+  ...agents.map((_, j) =>
+    windowKeyframes(
       `hf-out-${j}`,
       timing.filter((_, i) => sourceToAgent[i] === j).map((t) => t.travelOut),
       T,
@@ -93,7 +103,7 @@ const keyframes = [
       `hf-agent-idle-${j}`,
       timing.filter((_, i) => sourceToAgent[i] === j).map((t) => t.agent),
       T,
-      0.25,
+      0.15,
       0,
       1,
     ),
@@ -314,7 +324,7 @@ export function HeroFlow() {
         className="absolute -translate-x-1/2 whitespace-nowrap"
         style={{ left: pct(280, W), top: pct(292, H) }}
       >
-        <span className="inline-flex items-center gap-[1cqw] rounded-pill border border-accent/20 bg-white/90 px-[2cqw] py-[0.9cqw] font-mono text-[length:max(9px,1.75cqw)] font-medium uppercase tracking-[0.12em] text-accent shadow-card">
+        <span className="inline-flex items-center gap-[1cqw] rounded-pill border border-accent/20 bg-white/90 px-[2cqw] py-[0.9cqw] font-mono text-[length:max(8px,1.75cqw)] font-medium uppercase tracking-[0.06em] @md:tracking-[0.12em] text-accent shadow-card">
           <span className="h-[1.2cqw] w-[1.2cqw] rounded-pill bg-accent-gradient" />
           Vera Knowledge Layer
         </span>
@@ -339,7 +349,7 @@ export function HeroFlow() {
                 <span className="flex h-[5.4cqw] w-[5.4cqw] shrink-0 items-center justify-center rounded-[1.2cqw] bg-accent-gradient text-white">
                   <Icon aria-hidden className="h-[3cqw] w-[3cqw]" />
                 </span>
-                <span className="min-w-0">
+                <span className="min-w-0 flex-1">
                   <span className="block truncate text-[length:max(10px,2.25cqw)] font-semibold leading-tight text-ink">
                     {a.label}
                   </span>
@@ -352,7 +362,7 @@ export function HeroFlow() {
                     </span>
                     <span
                       className="absolute inset-0 truncate font-medium text-accent"
-                      style={{ opacity: reduced ? 1 : 0, animation: anim(`hf-agent-${j}`) }}
+                      style={{ opacity: reduced ? 1 : 0, animation: anim(`hf-agent-sub-${j}`) }}
                     >
                       {a.sub}
                     </span>
